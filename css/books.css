@@ -11,34 +11,50 @@
    HERO
 ======================================================= */
 
-.book-hero {
-    position: relative;
-    height: 90vh;
-    min-height: 650px;
-    overflow: hidden;
+.book-hero{
+
+    position:relative;
+
+    width:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#000;
+
 }
 
-.book-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.hero-image{
+
+    display:block;
+
+    width:100%;
+
+    height:auto;
+
 }
 
-.hero-overlay {
-    position: absolute;
-    inset: 0;
+.hero-overlay{
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top:120px;
-    align-items: center;
+    position:absolute;
 
-    text-align: center;
+    inset:0;
 
-    background: rgba(0,0,0,.45);
+    display:flex;
 
-    color: white;
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    background:rgba(0,0,0,.35);
+
+    color:white;
+
 }
 
 .series {
@@ -176,5 +192,21 @@
     padding:60px 0;
 
 }
+
+}
+
+@media (max-width:768px){
+
+    .hero-overlay h1{
+
+        font-size:56px;
+
+    }
+
+    .hero-overlay h2{
+
+        font-size:30px;
+
+    }
 
 }
