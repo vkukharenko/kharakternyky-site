@@ -235,3 +235,79 @@
     }
 
 }
+
+/* =======================================================
+   BOOK DAYS
+======================================================= */
+
+#book-days {
+    width: 100%;
+}
+
+.book-day {
+    margin-bottom: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.book-day summary {
+    cursor: pointer;
+    padding: 22px 25px;
+    font-size: 24px;
+    font-weight: 600;
+    list-style: none;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.book-day summary::-webkit-details-marker {
+    display: none;
+}
+
+.book-day summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 16px;
+    transition: transform 0.2s ease;
+}
+
+.book-day[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.book-day summary:hover {
+    background: rgba(255, 255, 255, 0.10);
+}
+
+.day-images {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.day-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+
+    .book-day summary {
+        padding: 18px 20px;
+        font-size: 20px;
+    }
+
+    .day-images {
+        padding: 12px;
+        gap: 18px;
+    }
+
+    .day-image {
+        border-radius: 6px;
+    }
+}
