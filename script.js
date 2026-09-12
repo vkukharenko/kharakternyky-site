@@ -1,8 +1,3 @@
-/* =======================================================
-   BOOK DAYS GALLERY
-   Характерники — Книга 1
-======================================================= */
-
 document.addEventListener("DOMContentLoaded", function () {
 
     const gallery = document.getElementById("book-days");
@@ -16,10 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const bookPath = "../../images/books/kharakternyky-1/";
 
-    const firstDay = 1;
-    const lastDay = 46;
-
-    for (let day = firstDay; day <= lastDay; day++) {
+    for (let day = 1; day <= 46; day++) {
 
         const dayNumber = String(day).padStart(3, "0");
 
@@ -49,24 +41,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
             imagesContainer.dataset.loaded = "true";
 
-            console.log(`Завантаження Дня ${dayNumber}`);
-
             loadDayImages(
                 dayNumber,
                 imagesContainer,
                 bookPath
             );
-
         });
-
     }
-
 });
 
-
-/* =======================================================
-   LOAD IMAGES
-======================================================= */
 
 function loadDayImages(dayNumber, container, bookPath) {
 
@@ -79,7 +62,7 @@ function loadDayImages(dayNumber, container, bookPath) {
         const imagePath =
             `${bookPath}day-${dayNumber}-${number}.webp`;
 
-        console.log("Перевіряю:", imagePath);
+        console.log("Завантажую:", imagePath);
 
         const image = document.createElement("img");
 
@@ -91,16 +74,14 @@ function loadDayImages(dayNumber, container, bookPath) {
         image.decoding = "async";
 
         /*
-         * ВАЖЛИВО:
-         * Спочатку додаємо картинку в DOM,
-         * і тільки після цього задаємо src.
+         * Спочатку додаємо IMG у сторінку
          */
         container.appendChild(image);
 
         image.onload = function () {
 
             console.log(
-                `OK: День ${dayNumber}, ілюстрація ${number}`
+                `OK: День ${dayNumber} / ${number}`
             );
 
             imageNumber++;
@@ -111,13 +92,15 @@ function loadDayImages(dayNumber, container, bookPath) {
         image.onerror = function () {
 
             console.log(
-                `Кінець Дня ${dayNumber}. Наступної картинки немає:`,
-                imagePath
+                `Кінець Дня ${dayNumber}: ${imagePath}`
             );
 
             image.remove();
         };
 
+        /*
+         * src задаємо після додавання в DOM
+         */
         image.src = imagePath;
     }
 
