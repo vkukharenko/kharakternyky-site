@@ -3,11 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const gallery = document.getElementById("book-days");
 
     if (!gallery) {
-        console.log("BOOK GALLERY: #book-days не знайдено");
         return;
     }
-
-    console.log("BOOK GALLERY: script працює");
 
     const bookPath = "../../images/books/kharakternyky-1/";
 
@@ -46,8 +43,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 imagesContainer,
                 bookPath
             );
+
         });
+
     }
+
 });
 
 
@@ -62,8 +62,6 @@ function loadDayImages(dayNumber, container, bookPath) {
         const imagePath =
             `${bookPath}day-${dayNumber}-${number}.webp`;
 
-        console.log("Завантажую:", imagePath);
-
         const image = document.createElement("img");
 
         image.className = "day-image";
@@ -73,34 +71,22 @@ function loadDayImages(dayNumber, container, bookPath) {
 
         image.decoding = "async";
 
-        /*
-         * Спочатку додаємо IMG у сторінку
-         */
         container.appendChild(image);
 
         image.onload = function () {
 
-            console.log(
-                `OK: День ${dayNumber} / ${number}`
-            );
-
             imageNumber++;
 
             loadNextImage();
+
         };
 
         image.onerror = function () {
 
-            console.log(
-                `Кінець Дня ${dayNumber}: ${imagePath}`
-            );
-
             image.remove();
+
         };
 
-        /*
-         * src задаємо після додавання в DOM
-         */
         image.src = imagePath;
     }
 
