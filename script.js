@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            // Не завантажуємо картинки повторно
             if (imagesContainer.dataset.loaded === "true") {
                 return;
             }
@@ -63,43 +62,46 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadDayImages(dayNumber, container, bookPath) {
 
     let imageNumber = 1;
+    let loadedImages = 0;
 
-    function loadNextImage() {
+    function tryNextImage() {
 
-        const imageNumberFormatted =
+        const number =
             String(imageNumber).padStart(3, "0");
 
-        const image = document.createElement("img");
+        const imagePath =
+            `${bookPath}day-${dayNumber}-${number}.webp`;
 
-        image.src =
-            `${bookPath}day-${dayNumber}-${imageNumberFormatted}.webp`;
+        const image = new Image();
+
+        image.src = imagePath;
 
         image.alt =
-            `Характерники — День ${dayNumber}, ілюстрація ${imageNumberFormatted}`;
+            `Характерники — День ${dayNumber}, ілюстрація ${number}`;
 
         image.loading = "lazy";
-
         image.decoding = "async";
-
         image.className = "day-image";
 
         image.onload = function () {
 
             container.appendChild(image);
 
+            loadedImages++;
             imageNumber++;
 
-            loadNextImage();
+            tryNextImage();
         };
 
         image.onerror = function () {
 
-            // Якщо наступної картинки немає —
-            // закінчуємо завантаження цього дня.
-            image.remove();
+            console.log(
+                `День ${dayNumber}: знайдено ${loadedImages} ілюстрацій`
+            );
 
         };
+
     }
 
-    loadNextImage();
+    tryNextImage();
 }
