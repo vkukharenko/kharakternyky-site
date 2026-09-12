@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const bookPath = gallery.dataset.bookPath;
-
     const firstDay = parseInt(gallery.dataset.firstDay, 10);
     const lastDay = parseInt(gallery.dataset.lastDay, 10);
 
