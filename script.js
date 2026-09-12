@@ -6,9 +6,16 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    const bookPath = "../../images/books/kharakternyky-1/";
+    const bookPath = gallery.dataset.bookPath;
 
-    for (let day = 0; day <= 46; day++) {
+    const firstDay = parseInt(gallery.dataset.firstDay, 10);
+    const lastDay = parseInt(gallery.dataset.lastDay, 10);
+
+    if (!bookPath || isNaN(firstDay) || isNaN(lastDay)) {
+        return;
+    }
+
+    for (let day = firstDay; day <= lastDay; day++) {
 
         const dayNumber = String(day).padStart(3, "0");
 
@@ -59,9 +66,6 @@ function loadDayImages(dayNumber, container, bookPath) {
 
         const number = String(imageNumber).padStart(3, "0");
 
-        const imagePath =
-            `${bookPath}day-${dayNumber}-${number}.webp`;
-
         const image = document.createElement("img");
 
         image.className = "day-image";
@@ -87,7 +91,8 @@ function loadDayImages(dayNumber, container, bookPath) {
 
         };
 
-        image.src = imagePath;
+        image.src =
+            `${bookPath}day-${dayNumber}-${number}.webp`;
     }
 
     loadNextImage();
