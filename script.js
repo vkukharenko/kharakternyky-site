@@ -8,8 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const gallery = document.getElementById("book-days");
 
     if (!gallery) {
+        console.log("BOOK GALLERY: #book-days не знайдено");
         return;
     }
+
+    console.log("BOOK GALLERY: script працює");
 
     const bookPath = "../../images/books/kharakternyky-1/";
 
@@ -46,6 +49,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             imagesContainer.dataset.loaded = "true";
 
+            console.log(`Завантаження Дня ${dayNumber}`);
+
             loadDayImages(
                 dayNumber,
                 imagesContainer,
@@ -59,49 +64,62 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+/* =======================================================
+   LOAD IMAGES
+======================================================= */
+
 function loadDayImages(dayNumber, container, bookPath) {
 
     let imageNumber = 1;
-    let loadedImages = 0;
 
-    function tryNextImage() {
+    function loadNextImage() {
 
-        const number =
-            String(imageNumber).padStart(3, "0");
+        const number = String(imageNumber).padStart(3, "0");
 
         const imagePath =
             `${bookPath}day-${dayNumber}-${number}.webp`;
 
-        const image = new Image();
+        console.log("Перевіряю:", imagePath);
 
-        image.src = imagePath;
+        const image = document.createElement("img");
+
+        image.className = "day-image";
 
         image.alt =
             `Характерники — День ${dayNumber}, ілюстрація ${number}`;
 
-        image.loading = "lazy";
         image.decoding = "async";
-        image.className = "day-image";
+
+        /*
+         * ВАЖЛИВО:
+         * Спочатку додаємо картинку в DOM,
+         * і тільки після цього задаємо src.
+         */
+        container.appendChild(image);
 
         image.onload = function () {
 
-            container.appendChild(image);
+            console.log(
+                `OK: День ${dayNumber}, ілюстрація ${number}`
+            );
 
-            loadedImages++;
             imageNumber++;
 
-            tryNextImage();
+            loadNextImage();
         };
 
         image.onerror = function () {
 
             console.log(
-                `День ${dayNumber}: знайдено ${loadedImages} ілюстрацій`
+                `Кінець Дня ${dayNumber}. Наступної картинки немає:`,
+                imagePath
             );
 
+            image.remove();
         };
 
+        image.src = imagePath;
     }
 
-    tryNextImage();
+    loadNextImage();
 }
