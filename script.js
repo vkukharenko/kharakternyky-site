@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function loadDayImages(dayNumber, container, bookPath) {
 
-    let imageNumber = 1;
+    let imageNumber = dayNumber === "047" ? 0 : 1;
 
     function loadNextImage() {
 
