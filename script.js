@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const bookPath = "../../images/books/kharakternyky-1/";
 
-    for (let day = 1; day <= 46; day++) {
+    for (let day = 0; day <= 46; day++) {
 
         const dayNumber = String(day).padStart(3, "0");
 
