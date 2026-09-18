@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Бойовий бронекостюм — Характерники</title>
+
+    <meta name="description"
+          content="Бойовий бронекостюм — індивідуальна мережева бойова платформа у всесвіті Характерників.">
+
+    <link rel="stylesheet" href="../../style.css">
+
+    <style>
+        :root {
+            --bg: #0b0d0f;
+            --bg-secondary: #111519;
+            --bg-card: #151a1f;
+            --border: #2a3239;
+            --text: #d9dee2;
+            --text-muted: #929ba3;
+            --accent: #b7c4ce;
+            --accent-bright: #e4ebef;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        .inner-header {
+            min-height: auto;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+
+        .hero {
+            min-height: auto;
+            display: block;
+            background: none;
+            position: static;
+            isolation: auto;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 45px;
+            margin-bottom: 45px;
+        }
+
+        .eyebrow {
+            color: var(--text-muted);
+            font-size: 13px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            margin: 0 0 15px;
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            color: var(--accent-bright);
+        }
+
+        .subtitle {
+            font-size: 21px;
+            color: var(--text-muted);
+            max-width: 760px;
+        }
+
+        h2 {
+            margin: 65px 0 25px;
+            font-size: 32px;
+            line-height: 1.2;
+            color: var(--accent-bright);
+        }
+
+        h3 {
+            margin: 40px 0 15px;
+            font-size: 23px;
+            color: var(--accent-bright);
+        }
+
+        p {
+            margin: 0 0 20px;
+        }
+
+        ul {
+            margin: 10px 0 25px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .lead {
+            font-size: 20px;
+            color: #c8d0d5;
+            max-width: 900px;
+        }
+
+        .definition {
+            margin: 30px 0;
+            padding: 25px 30px;
+            border-left: 3px solid var(--accent);
+            background: var(--bg-secondary);
+            font-size: 19px;
+            color: var(--accent-bright);
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin: 30px 0;
+        }
+
+        .spec {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .spec-title {
+            display: block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .spec-value {
+            color: var(--accent-bright);
+            font-size: 17px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px 30px;
+            margin: 25px 0;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .technology-image {
+            width: 100%;
+            margin: 40px 0 60px;
+            overflow: hidden;
+        }
+
+        .technology-image a {
+            display: block;
+            width: 100%;
+        }
+
+        .technology-image img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fff;
+            object-fit: contain;
+        }
+
+        .quote {
+            margin: 35px 0;
+            padding: 30px;
+            background: #101417;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            font-size: 21px;
+            color: var(--accent-bright);
+        }
+
+        .canon {
+            margin-top: 70px;
+            padding: 35px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            border-radius: 10px;
+        }
+
+        .canon h2 {
+            margin-top: 0;
+        }
+
+        .footer {
+            margin-top: 80px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        @media (max-width: 800px) {
+            .spec-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page {
+                padding: 40px 18px 70px;
+            }
+
+            h2 {
+                font-size: 27px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .technology-image {
+                margin-left: -18px;
+                margin-right: -18px;
+                width: auto;
+            }
+
+            .technology-image img {
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="inner-header">
+    <nav class="nav">
+        <a class="logo" href="../../index.html">ХАРАКТЕРНИКИ</a>
+
+        <div class="nav-links">
+            <a href="../books.html">Книги</a>
+            <a href="../universe.html">Всесвіт</a>
+            <a href="../characters.html">Персонажі</a>
+            <a href="../gallery.html">Галерея</a>
+            <a href="../author.html">Автор</a>
+        </div>
+    </nav>
+</header>
+
+<main class="page">
+
+    <header class="hero">
+        <div class="eyebrow">Технології Нульового плану</div>
+        <h1>Бойовий бронекостюм</h1>
+        <div class="subtitle">
+            Індивідуальна мережева бойова платформа
+        </div>
+    </header>
+
+    <section class="technology-image">
+        <a href="../../images/technology/boiovyi-ekzoskelet/boiovyi-ekzoskelet-01.webp" target="_blank">
+            <img
+                src="../../images/technology/boiovyi-ekzoskelet/boiovyi-ekzoskelet-01.webp?v=20260918"
+                alt="Бойовий бронекостюм — технічна ілюстрація"
+                loading="eager"
+            >
+        </a>
+    </section>
+
+    <section>
+        <p class="lead">
+            Бойовий бронекостюм — це не просто комплект захисної броні,
+            а повноцінна бойова система. Він поєднує екзоскелет,
+            броню, стабілізацію руху, сенсори, тактичний інтерфейс,
+            теплове маскування, зв'язок і інтеграцію з іншими бойовими системами.
+        </p>
+
+        <div class="definition">
+            <strong>Екзоскелет</strong> — силова механічна частина бронекостюма.
+            <strong>Бронекостюм</strong> — повна бойова система.
+        </div>
+
+        <p>
+            Головна особливість системи полягає не в одному окремому
+            компоненті, а в інтеграції всіх підсистем у єдину платформу.
+        </p>
+    </section>
+
+    <section>
+        <h2>Основні характеристики</h2>
+
+        <div class="spec-grid">
+            <div class="spec">
+                <span class="spec-title">Тип</span>
+                <span class="spec-value">Бойовий бронекостюм / екзоскелет</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Призначення</span>
+                <span class="spec-value">Штурм, розвідка, мобільний бій</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Сервоприводи</span>
+                <span class="spec-value">Є</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Стабілізація</span>
+                <span class="spec-value">Стабілізація руху та стабілізатори кроку</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Амортизація</span>
+                <span class="spec-value">Адаптивна</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Захист</span>
+                <span class="spec-value">Композитна броня та енергопоглинальні вставки</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Сенсори</span>
+                <span class="spec-value">Тепловий канал, аналіз поверхні, виявлення загроз</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Інтерфейс</span>
+                <span class="spec-value">Прозорий броньований візор / HUD</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Теплова сигнатура</span>
+                <span class="spec-value">Система зменшення теплової помітності</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Інтеграція</span>
+                <span class="spec-value">Дрони, мислезв'язок, озброєння</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Локальний захист</span>
+                <span class="spec-value">Енергетичний контур для окремих конфігурацій</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Точні фізичні параметри</span>
+                <span class="spec-value">Не визначені каноном</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Екзоскелет</h2>
+
+        <p>
+            Сервоприводи компенсують масу бронекостюма та підсилюють рухи бійця.
+            Завдяки цьому важчі конфігурації броні не створюють пропорційного
+            фізичного навантаження.
+        </p>
+
+        <p>
+            Система може переналаштовуватися відповідно до конфігурації костюма.
+            Збільшення компенсації для важчої броні підвищує енергоспоживання.
+        </p>
+    </section>
+
+    <section>
+        <h2>Рух і стабілізація</h2>
+
+        <p>
+            Костюм оснащений системами стабілізації, стабілізаторами кроку
+            та адаптивною амортизацією.
+        </p>
+
+        <p>
+            Система розпізнає поверхню та автоматично враховує лід, сніг,
+            наст, коріння та інші нерівності під час пересування.
+        </p>
+    </section>
+
+    <section>
+        <h2>Захист</h2>
+
+        <p>
+            Основу захисту становлять композитні елементи та енергопоглинальні
+            вставки. Передня та бокові частини можуть посилюватися додатковими
+            шарами броні.
+        </p>
+
+        <p>
+            Посилення захисту збільшує масу, обмежує огляд, підвищує навантаження
+            на шию та збільшує споживання енергії сервоприводами.
+        </p>
+
+        <div class="card">
+            <h3>Локальний енергетичний захист</h3>
+            <p>
+                Для окремих конфігурацій можуть використовуватися енергетичні
+                модулі Нульового плану, здатні створювати локальний захисний
+                контур навколо голови.
+            </p>
+            <p>
+                Це не повноцінний силовий щит: система не гарантує захисту
+                від прямого влучання, але може розсіяти частину енергії удару.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Сенсори та HUD</h2>
+
+        <p>
+            Прозорий броньований візор відображає інтегровану тактичну картину.
+            На ньому можуть показуватися карта місцевості, транспорт,
+            теплові сліди, міни, дрони, перешкоди та можливі маршрути.
+        </p>
+
+        <p>
+            Інформація від власних сенсорів і розвідувальних дронів
+            об'єднується в єдину систему спостереження.
+        </p>
+    </section>
+
+    <section>
+        <h2>Теплове маскування</h2>
+
+        <p>
+            Бронекостюм здатний зменшувати теплову сигнатуру бійця.
+            Тепло може розсіюватися в ґрунт, холодне повітря, стовбури дерев
+            та інші елементи навколишнього середовища.
+        </p>
+
+        <p>
+            Мета системи — не абсолютна невидимість, а мінімізація
+            теплової помітності для ворожих сенсорів.
+        </p>
+    </section>
+
+    <section>
+        <h2>Інтеграція</h2>
+
+        <p>
+            Бронекостюм працює як частина єдиної бойової мережі.
+            Він інтегрується з мислезв'язком, розвідувальними дронами,
+            системами спостереження та озброєнням.
+        </p>
+
+        <div class="quote">
+            Боєць + екзоскелет + броня + сенсори + HUD + дрони +
+            мислезв'язок + озброєння.
+        </div>
+    </section>
+
+    <section>
+        <h2>Тактичне призначення</h2>
+
+        <div class="card">
+            <h3>Штурм</h3>
+            <p>
+                Поєднання захисту, підсилення рухів, стабілізації та
+                тактичної інформації.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Розвідка</h3>
+            <p>
+                Сенсори, тепловий канал та інтеграція з розвідувальними дронами.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Складна місцевість</h3>
+            <p>
+                Розпізнавання поверхні, стабілізатори кроку та адаптивна
+                амортизація.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Координований бій</h3>
+            <p>
+                Мислезв'язок та об'єднання інформації від різних джерел
+                у спільну тактичну картину.
+            </p>
+        </div>
+    </section>
+
+    <section class="canon">
+        <h2>Канонічне розділення термінів</h2>
+
+        <p>
+            <strong>Бронекостюм</strong> — повна бойова система.
+        </p>
+
+        <p>
+            <strong>Екзоскелет</strong> — силова механічна частина
+            бронекостюма, яка забезпечує підтримку та підсилення рухів.
+        </p>
+
+        <p>
+            <strong>Броня</strong> — фізичний захисний шар.
+        </p>
+
+        <p>
+            <strong>Шолом / HUD</strong> — інформаційна та захисна система голови.
+        </p>
+
+        <p>
+            <strong>Сенсори</strong> — система спостереження та аналізу
+            навколишнього середовища.
+        </p>
+
+        <p>
+            <strong>Мислезв'язок</strong> — мережева система зв'язку та взаємодії.
+        </p>
+    </section>
+
+    <footer class="footer">
+        <p>
+            Всесвіт «Характерники» · Технології Нульового плану
+        </p>
+    </footer>
+
+</main>
+
+</body>
+</html>
