@@ -6,12 +6,148 @@
 
     <title>Галерея — Характерники</title>
 
-    <meta
-        name="description"
-        content="Ілюстрації літературного всесвіту «Характерники»."
-    >
+    <meta name="description" content="Галерея ілюстрацій літературного всесвіту «Характерники».">
 
     <link rel="stylesheet" href="../style.css">
+
+    <style>
+        .gallery-intro {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .gallery-intro code,
+        .gallery-note code {
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(255,255,255,.08);
+        }
+
+        .gallery-folders {
+            display: grid;
+            gap: 14px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-folder {
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 10px;
+            background: rgba(255,255,255,.025);
+            overflow: hidden;
+        }
+
+        .gallery-folder summary {
+            cursor: pointer;
+            padding: 18px 20px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            list-style: none;
+        }
+
+        .gallery-folder summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .gallery-folder summary::before {
+            content: "▸";
+            display: inline-block;
+            margin-right: 10px;
+            transition: transform .2s ease;
+        }
+
+        .gallery-folder[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .folder-path {
+            margin-left: 10px;
+            opacity: .5;
+            font-size: .82rem;
+            font-weight: 400;
+        }
+
+        .folder-content {
+            padding: 0 20px 20px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 16px;
+        }
+
+        .photo-card {
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 8px;
+            background: rgba(0,0,0,.2);
+        }
+
+        .photo-card img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            background: rgba(0,0,0,.25);
+        }
+
+        .photo-info {
+            padding: 11px 12px 13px;
+        }
+
+        .photo-name {
+            margin: 0 0 9px;
+            font-size: .9rem;
+            word-break: break-word;
+        }
+
+        .photo-link {
+            display: inline-block;
+            font-size: .78rem;
+            opacity: .75;
+            text-decoration: none;
+        }
+
+        .gallery-status {
+            padding: 28px 0;
+            text-align: center;
+            opacity: .7;
+        }
+
+        .gallery-error {
+            padding: 18px;
+            border: 1px solid rgba(255,100,100,.3);
+            border-radius: 8px;
+        }
+
+        .share-box {
+            margin-top: 35px;
+            padding: 22px;
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 10px;
+            background: rgba(255,255,255,.025);
+        }
+
+        .share-box h3 {
+            margin-top: 0;
+        }
+
+        @media (max-width: 700px) {
+            .photo-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .folder-content {
+                padding: 0 12px 12px;
+            }
+
+            .gallery-folder summary {
+                padding: 15px 14px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -36,141 +172,286 @@
         <h1>Галерея</h1>
 
         <p class="subtitle">
-            Світи, персонажі, технології та події
-            літературного всесвіту «Характерники».
+            Світлини та ілюстрації, організовані за окремими папками.
         </p>
     </div>
 </header>
 
-
 <main>
 
     <section class="section">
+        <div class="gallery-intro">
+            <p class="section-label">ПРИНЦИП ГАЛЕРЕЇ</p>
 
-        <div class="gallery-grid">
+            <h2>Папка = окрема добірка</h2>
 
-            <article class="gallery-placeholder gallery-large">
-                <span>Світи</span>
-            </article>
+            <p class="wide-text">
+                Галерея автоматично читає папки з
+                <code>images/gallery/</code> на сайті.
+                Для нової добірки достатньо завантажити нову папку зі світлинами —
+                вручну додавати HTML-код для кожної фотографії не потрібно.
+            </p>
 
-            <article class="gallery-placeholder">
-                <span>Персонажі</span>
-            </article>
-
-            <article class="gallery-placeholder">
-                <span>Технології</span>
-            </article>
-
-            <article class="gallery-placeholder">
-                <span>Характерники</span>
-            </article>
-
-            <article class="gallery-placeholder gallery-wide">
-                <span>Події</span>
-            </article>
-
+            <p class="wide-text gallery-note">
+                Назва папки стає назвою добірки. Усередині розкривного меню
+                відображаються всі підтримувані зображення з цієї папки.
+            </p>
         </div>
-
     </section>
 
     <section class="section section-dark">
-        <p class="section-label">ІЛЮСТРАЦІЇ</p>
+        <p class="section-label">ДОБІРКИ</p>
 
-        <h2>Всесвіт набуває форми</h2>
+        <h2>Світлини</h2>
 
-        <p class="wide-text">
-            Галерея поступово поповнюватиметься ілюстраціями
-            персонажів, світів і ключових моментів історії.
-        </p>
-    </section>
-
-    <!-- ===================================== -->
-    <!-- ІЛЮСТРАЦІЇ                            -->
-    <!-- ===================================== -->
-
-    <section class="book-gallery">
-
-        <div class="container">
-
-            <h2>Ілюстрації</h2>
-            
-            <h2 class="book-day">Jokes</h2>
-
-            <!-- ===================================== -->
-            <!-- joke-0001.webp                        -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../images/gallery/joke-0001.webp"
-                    alt="joke-0001">
-
-                  <div class="scene-text">
-
-                    <h3>joke-0001</h3>
-
-                    <p>А тут треба було згенерувати бій гетьмана Миколая, Найріна та Дмитра. Шо вийшло то вийшло </p>
-
-                </div>
-
-            </article>
-
-            <!-- ===================================== -->
-            <!-- joke-0002.webp                        -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../images/gallery/joke-0002.webp"
-                    alt="joke-0002">
-
-                  <div class="scene-text">
-
-                    <h3>joke-0002</h3>
-
-                    <p>Це гарна світлина </p>
-
-                </div>
-
-            </article>
-
-            <!-- ===================================== -->
-            <!-- joke-0003.webp                        -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../images/gallery/joke-0003.webp"
-                    alt="joke-0003">
-
-                  <div class="scene-text">
-
-                    <h3>joke-0003</h3>
-
-                    <p>А це по сценарію </p>
-
-                </div>
-
-            </article>
-
-            <!--
-                Тут будуть додаватися подальші сцени.
-
-            -->
-
+        <div id="gallery" class="gallery-folders">
+            <div class="gallery-status">Завантаження галереї…</div>
         </div>
 
+        <div class="share-box">
+            <h3>Посилання на світлини</h3>
+
+            <p class="wide-text">
+                Кожна світлина має власну постійну адресу на GitHub Pages.
+                Її можна використовувати на інших сайтах, у публікаціях,
+                статтях або соціальних мережах.
+            </p>
+
+            <p class="wide-text">
+                Наприклад:
+                <code>https://vkukharenko.github.io/kharakternyky-site/images/gallery/назва-папки/назва-файлу.webp</code>
+            </p>
+
+            <p class="wide-text">
+                Для окремої добірки також можна використовувати посилання
+                виду <code>gallery.html?folder=назва-папки</code>.
+            </p>
+        </div>
     </section>
 
 </main>
 
-
 <footer>
     <p>© 2026 Володимир Кухаренко</p>
 </footer>
+
+<script>
+    const API_URL =
+        "https://api.github.com/repos/vkukharenko/kharakternyky-site/contents/images/gallery";
+
+    const PAGES_BASE =
+        "https://vkukharenko.github.io/kharakternyky-site/images/gallery/";
+
+    const IMAGE_EXTENSIONS = [
+        ".webp", ".jpg", ".jpeg", ".png", ".gif", ".avif"
+    ];
+
+    const gallery = document.getElementById("gallery");
+
+    function isImage(file) {
+        const name = file.name.toLowerCase();
+        return IMAGE_EXTENSIONS.some(ext => name.endsWith(ext));
+    }
+
+    function folderUrl(folder) {
+        return "gallery.html?folder=" + encodeURIComponent(folder);
+    }
+
+    function createPhoto(file, folder) {
+        const card = document.createElement("article");
+        card.className = "photo-card";
+
+        const image = document.createElement("img");
+        image.src = PAGES_BASE + encodeURIComponent(folder) + "/" +
+            encodeURIComponent(file.name);
+        image.alt = file.name;
+        image.loading = "lazy";
+
+        const info = document.createElement("div");
+        info.className = "photo-info";
+
+        const name = document.createElement("p");
+        name.className = "photo-name";
+        name.textContent = file.name;
+
+        const link = document.createElement("a");
+        link.className = "photo-link";
+        link.href = image.src;
+        link.target = "_blank";
+        link.rel = "noopener";
+        link.textContent = "Відкрити пряме посилання";
+
+        info.appendChild(name);
+        info.appendChild(link);
+
+        card.appendChild(image);
+        card.appendChild(info);
+
+        return card;
+    }
+
+    async function loadGallery() {
+        try {
+            const response = await fetch(API_URL, {
+                headers: { "Accept": "application/vnd.github+json" }
+            });
+
+            if (!response.ok) {
+                throw new Error("GitHub API: " + response.status);
+            }
+
+            const entries = await response.json();
+
+            const folders = entries
+                .filter(item => item.type === "dir")
+                .sort((a, b) => a.name.localeCompare(b.name, "uk"));
+
+            const rootImages = entries.filter(
+                item => item.type === "file" && isImage(item)
+            );
+
+            gallery.innerHTML = "";
+
+            const params = new URLSearchParams(window.location.search);
+            const selectedFolder = params.get("folder");
+
+            if (folders.length === 0 && rootImages.length === 0) {
+                gallery.innerHTML =
+                    '<div class="gallery-status">Папок зі світлинами поки немає.</div>';
+                return;
+            }
+
+            for (const folder of folders) {
+                const details = document.createElement("details");
+                details.className = "gallery-folder";
+
+                if (selectedFolder === folder.name) {
+                    details.open = true;
+                }
+
+                const summary = document.createElement("summary");
+                summary.textContent = folder.name;
+
+                const path = document.createElement("span");
+                path.className = "folder-path";
+                path.textContent = "images/gallery/" + folder.name;
+
+                summary.appendChild(path);
+
+                const content = document.createElement("div");
+                content.className = "folder-content";
+
+                const photoGrid = document.createElement("div");
+                photoGrid.className = "photo-grid";
+
+                try {
+                    const folderResponse = await fetch(folder.url, {
+                        headers: { "Accept": "application/vnd.github+json" }
+                    });
+
+                    if (!folderResponse.ok) {
+                        throw new Error("GitHub API: " + folderResponse.status);
+                    }
+
+                    const files = await folderResponse.json();
+
+                    files
+                        .filter(file => file.type === "file" && isImage(file))
+                        .sort((a, b) => a.name.localeCompare(b.name, "uk"))
+                        .forEach(file => {
+                            photoGrid.appendChild(createPhoto(file, folder.name));
+                        });
+
+                    if (!photoGrid.children.length) {
+                        content.innerHTML =
+                            '<div class="gallery-status">У цій папці немає підтримуваних зображень.</div>';
+                    } else {
+                        content.appendChild(photoGrid);
+                    }
+                } catch (error) {
+                    content.innerHTML =
+                        '<div class="gallery-error">Не вдалося завантажити вміст цієї папки.</div>';
+                    console.error(error);
+                }
+
+                details.appendChild(summary);
+                details.appendChild(content);
+                gallery.appendChild(details);
+            }
+
+            if (rootImages.length) {
+                const details = document.createElement("details");
+                details.className = "gallery-folder";
+
+                const summary = document.createElement("summary");
+                summary.textContent = "Інші світлини";
+
+                const content = document.createElement("div");
+                content.className = "folder-content";
+
+                const photoGrid = document.createElement("div");
+                photoGrid.className = "photo-grid";
+
+                rootImages
+                    .sort((a, b) => a.name.localeCompare(b.name, "uk"))
+                    .forEach(file => {
+                        const card = document.createElement("article");
+                        card.className = "photo-card";
+
+                        const image = document.createElement("img");
+                        image.src = "../images/gallery/" + encodeURIComponent(file.name);
+                        image.alt = file.name;
+                        image.loading = "lazy";
+
+                        const info = document.createElement("div");
+                        info.className = "photo-info";
+
+                        const name = document.createElement("p");
+                        name.className = "photo-name";
+                        name.textContent = file.name;
+
+                        const link = document.createElement("a");
+                        link.className = "photo-link";
+                        link.href = image.src;
+                        link.target = "_blank";
+                        link.rel = "noopener";
+                        link.textContent = "Відкрити пряме посилання";
+
+                        info.appendChild(name);
+                        info.appendChild(link);
+                        card.appendChild(image);
+                        card.appendChild(info);
+                        photoGrid.appendChild(card);
+                    });
+
+                content.appendChild(photoGrid);
+                details.appendChild(summary);
+                details.appendChild(content);
+                gallery.appendChild(details);
+            }
+
+            if (selectedFolder && !folders.some(f => f.name === selectedFolder)) {
+                gallery.insertAdjacentHTML(
+                    "afterbegin",
+                    '<div class="gallery-error">Папку «' +
+                    selectedFolder.replace(/</g, "&lt;") +
+                    '» не знайдено.</div>'
+                );
+            }
+
+        } catch (error) {
+            gallery.innerHTML =
+                '<div class="gallery-error">' +
+                '<strong>Не вдалося завантажити галерею.</strong><br>' +
+                'Перевірте доступ до GitHub API або спробуйте оновити сторінку.' +
+                '</div>';
+
+            console.error(error);
+        }
+    }
+
+    loadGallery();
+</script>
 
 </body>
 </html>
