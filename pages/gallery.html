@@ -22,16 +22,21 @@
 <div id="lightbox" class="lightbox" aria-hidden="true"><button class="lightbox-close" aria-label="Закрити">×</button><button class="lightbox-prev" aria-label="Попередня">‹</button><img id="lightbox-image" src="" alt=""><button class="lightbox-next" aria-label="Наступна">›</button></div>
 <footer><p>© 2026 Володимир Кухаренко</p></footer>
 <script>
-const API="https://api.github.com/repos/vkukharenko/kharakternyky-site/contents/images/gallery",BASE="https://vkukharenko.github.io/kharakternyky-site/images/gallery/",EXT=[".webp",".jpg",".jpeg",".png",".gif",".avif"];
+const BASE="https://vkukharenko.github.io/kharakternyky-site/images/gallery/";
+const EXT=[".webp",".jpg",".jpeg",".png",".gif",".avif"];
 const gallery=document.getElementById("gallery"),box=document.getElementById("lightbox"),big=document.getElementById("lightbox-image");let list=[],pos=0;
-const image=f=>EXT.some(e=>f.name.toLowerCase().endsWith(e)),src=(d,n)=>BASE+encodeURIComponent(d)+"/"+encodeURIComponent(n);
 function openBox(a,i){list=a;pos=i;big.src=list[pos];box.classList.add("open");box.setAttribute("aria-hidden","false");document.body.style.overflow="hidden"}
 function closeBox(){box.classList.remove("open");box.setAttribute("aria-hidden","true");big.src="";document.body.style.overflow=""}
 function move(n){if(list.length){pos=(n+list.length)%list.length;big.src=list[pos]}}
 document.querySelector(".lightbox-close").onclick=closeBox;document.querySelector(".lightbox-prev").onclick=()=>move(pos-1);document.querySelector(".lightbox-next").onclick=()=>move(pos+1);box.onclick=e=>{if(e.target===box)closeBox()};document.onkeydown=e=>{if(!box.classList.contains("open"))return;if(e.key==="Escape")closeBox();if(e.key==="ArrowLeft")move(pos-1);if(e.key==="ArrowRight")move(pos+1)};
-async function load(){try{let r=await fetch(API,{headers:{"Accept":"application/vnd.github+json"}});if(!r.ok)throw Error();let fs=(await r.json()).filter(x=>x.type==="dir").sort((a,b)=>a.name.localeCompare(b.name,"uk"));gallery.innerHTML="";if(!fs.length){gallery.innerHTML='<div class="gallery-status">Папок зі світлинами поки немає.</div>';return}let selected=new URLSearchParams(location.search).get("folder");
-for(const folder of fs){let d=document.createElement("details");d.className="gallery-folder";d.open=selected===folder.name;let s=document.createElement("summary");s.textContent=folder.name;let c=document.createElement("div");c.className="folder-content";let g=document.createElement("div");g.className="photo-grid";
-try{let rr=await fetch(folder.url,{headers:{"Accept":"application/vnd.github+json"}});if(!rr.ok)throw Error();let files=(await rr.json()).filter(x=>x.type==="file"&&image(x)).sort((a,b)=>a.name.localeCompare(b.name,"uk"));let urls=files.map(x=>src(folder.name,x.name));files.forEach((file,i)=>{let card=document.createElement("div"),im=document.createElement("img");card.className="photo-card";im.src=urls[i];im.alt="";im.loading="lazy";card.appendChild(im);card.onclick=()=>openBox(urls,i);g.appendChild(card)});c.appendChild(g);if(!files.length)c.innerHTML='<div class="gallery-status">У цій папці немає світлин.</div>'}catch(e){c.innerHTML='<div class="gallery-error">Не вдалося завантажити світлини.</div>'}d.append(s,c);gallery.appendChild(d)}}catch(e){gallery.innerHTML='<div class="gallery-error">Не вдалося завантажити галерею. Спробуйте оновити сторінку.</div>'}}
-load();
-</script>
+async function load(){try{
+const r=await fetch("../gallery.json?v="+Date.now(),{cache:"no-store"});if(!r.ok)throw Error(r.status);
+const folders=await r.json();gallery.innerHTML="";
+if(!folders.length){gallery.innerHTML='<div class="gallery-status">Папок зі світлинами поки немає.</div>';return}
+const selected=new URLSearchParams(location.search).get("folder");
+for(const folder of folders){let d=document.createElement("details");d.className="gallery-folder";d.open=selected===folder.name;let s=document.createElement("summary");s.textContent=folder.name;let c=document.createElement("div");c.className="folder-content";let g=document.createElement("div");g.className="photo-grid";let urls=folder.images.map(n=>BASE+encodeURIComponent(folder.name)+"/"+encodeURIComponent(n));
+folder.images.forEach((name,i)=>{let card=document.createElement("div"),im=document.createElement("img");card.className="photo-card";im.src=urls[i];im.alt="";im.loading="lazy";card.appendChild(im);card.onclick=()=>openBox(urls,i);g.appendChild(card)});
+if(folder.images.length)c.appendChild(g);else c.innerHTML='<div class="gallery-status">У цій папці немає світлин.</div>';d.append(s,c);gallery.appendChild(d)}
+}catch(e){gallery.innerHTML='<div class="gallery-error">Не вдалося завантажити галерею. Спробуйте оновити сторінку.</div>';console.error(e)}}
+load();</script>
 </body></html>
