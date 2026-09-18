@@ -267,11 +267,38 @@
             color: var(--accent-bright);
         }
 
+        .technology-image {
+            width: 100%;
+            margin: 40px 0 60px;
+            overflow: hidden;
+        }
+
+        .technology-image a {
+            display: block;
+            width: 100%;
+        }
+
+        .technology-image img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #fff;
+            object-fit: contain;
+        }
+
+        .technology-image--main img,
+        .technology-image--technical img {
+            max-height: 760px;
+        }
+
         .gilkomet-banner {
             width: 100%;
             height: clamp(260px, 36vw, 572px);
             overflow: hidden;
-            background: #0b0d0f;
+            background: #0b0d0f url("../../images/technology/gilkomet/gilkomet-header.webp?v=20260918") center center / cover no-repeat;
         }
 
         .gilkomet-banner img {
@@ -300,6 +327,18 @@
                 font-size: 18px;
             }
 
+            .technology-image {
+                margin-left: -18px;
+                margin-right: -18px;
+                width: auto;
+            }
+
+            .technology-image img {
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+
             .gilkomet-banner {
                 height: 300px;
             }
@@ -323,7 +362,7 @@
 </header>
 
 <div class="gilkomet-banner">
-    <img src="../../images/technology/gilkomet/gilkomet-header.webp" alt="Український військовий із голкометом у зимовому спорядженні" loading="eager">
+    <img src="../../images/technology/gilkomet/gilkomet-header.webp?v=20260918" alt="Український військовий із голкометом у зимовому спорядженні" loading="eager">
 </div>
 
 
