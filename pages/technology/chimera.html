@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Химера — Характерники</title>
+
+    <meta name="description"
+          content="Химера — система активного багатоспектрального маскування для бойової платформи Серії R у всесвіті «Характерників».">
+
+    <link rel="stylesheet" href="../../style.css">
+
+    <style>
+        :root {
+            --bg: #0b0d0f;
+            --bg-secondary: #111519;
+            --bg-card: #151a1f;
+            --border: #2a3239;
+            --text: #d9dee2;
+            --text-muted: #929ba3;
+            --accent: #b7c4ce;
+            --accent-bright: #e4ebef;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        .inner-header {
+            min-height: auto;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+
+        .hero {
+            min-height: auto;
+            display: block;
+            background: none;
+            position: static;
+            isolation: auto;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 45px;
+            margin-bottom: 45px;
+        }
+
+        .eyebrow {
+            color: var(--text-muted);
+            font-size: 13px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            margin: 0 0 15px;
+            font-size: clamp(42px, 7vw, 76px);
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            color: var(--accent-bright);
+        }
+
+        .subtitle {
+            font-size: 21px;
+            color: var(--text-muted);
+            max-width: 820px;
+        }
+
+        h2 {
+            margin: 65px 0 25px;
+            font-size: 32px;
+            line-height: 1.2;
+            color: var(--accent-bright);
+        }
+
+        h3 {
+            margin: 40px 0 15px;
+            font-size: 23px;
+            color: var(--accent-bright);
+        }
+
+        p {
+            margin: 0 0 20px;
+        }
+
+        ul {
+            margin: 10px 0 25px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .lead {
+            font-size: 20px;
+            color: #c8d0d5;
+            max-width: 900px;
+        }
+
+        .definition {
+            margin: 30px 0;
+            padding: 25px 30px;
+            border-left: 3px solid var(--accent);
+            background: var(--bg-secondary);
+            font-size: 19px;
+            color: var(--accent-bright);
+        }
+
+        .model-note {
+            margin: 30px 0;
+            padding: 22px 26px;
+            background: #121619;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-muted);
+        }
+
+        .model-note strong {
+            color: var(--accent-bright);
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin: 30px 0;
+        }
+
+        .spec {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .spec-title {
+            display: block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .spec-value {
+            color: var(--accent-bright);
+            font-size: 17px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin: 30px 0;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px 30px;
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .mode-number {
+            color: var(--text-muted);
+            font-size: 13px;
+            letter-spacing: 0.12em;
+        }
+
+        .table-wrap {
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 720px;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        th {
+            color: var(--accent-bright);
+            background: var(--bg-secondary);
+        }
+
+        td {
+            color: var(--text);
+        }
+
+        .quote {
+            margin: 35px 0;
+            padding: 30px;
+            background: #101417;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            font-size: 21px;
+            color: var(--accent-bright);
+        }
+
+        .canon {
+            margin-top: 70px;
+            padding: 35px;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+            border-radius: 10px;
+        }
+
+        .canon h2 {
+            margin-top: 0;
+        }
+
+        .image-placeholder {
+            margin: 40px 0 60px;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background:
+                radial-gradient(circle at center, #182027 0%, #0e1114 65%, #0b0d0f 100%);
+            color: var(--text-muted);
+        }
+
+        .image-placeholder strong {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--accent-bright);
+            font-size: 20px;
+        }
+
+        .gallery-note {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .footer {
+            margin-top: 80px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        @media (max-width: 800px) {
+            .spec-grid,
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page {
+                padding: 40px 18px 70px;
+            }
+
+            h2 {
+                font-size: 27px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="inner-header">
+    <nav class="nav">
+        <a class="logo" href="../../index.html">ХАРАКТЕРНИКИ</a>
+
+        <div class="nav-links">
+            <a href="../books.html">Книги</a>
+            <a href="../universe.html">Всесвіт</a>
+            <a href="../technology.html">Технології</a>
+            <a href="../characters.html">Персонажі</a>
+            <a href="../gallery.html">Галерея</a>
+            <a href="../author.html">Автор</a>
+        </div>
+    </nav>
+</header>
+
+<main class="page">
+
+    <header class="hero">
+        <div class="eyebrow">Технологія 03 · Бойові системи</div>
+
+        <h1>Химера</h1>
+
+        <div class="subtitle">
+            Система активного багатоспектрального маскування для бойової платформи
+        </div>
+    </header>
+
+    <div class="image-placeholder">
+        <div>
+            <strong>Технічна ілюстрація «Химери»</strong>
+            Канонічна платформа — бойовий робот Серії R.<br>
+            Ілюстрація буде додана до каталогу після завантаження готового зображення.
+        </div>
+    </div>
+
+    <section>
+        <p class="lead">
+            «Химера» — не система невидимості. Її завдання — перетворити
+            точну, стабільну сигнатуру бойової машини на більшу, нестабільну
+            та частково прозору область, у межах якої сенсорам противника
+            складніше визначити точне положення, клас і траєкторію цілі.
+        </p>
+
+        <div class="definition">
+            Активне маскування «Химери» працює через створення керованої
+            оптично активної аерозольної області навколо або перед бойовою
+            платформою. Система змінює умови спостереження, а не «вимикає»
+            фізичну присутність машини.
+        </div>
+
+        <p>
+            У моделі використано бойового робота Серії R як базового носія:
+            приблизно двометрову гуманоїдну платформу з багатоспектральними
+            сенсорами, інфрачервоним каналом, lidar/далекоміром, аудіосенсорами
+            та тактичним інтерфейсом.
+        </p>
+    </section>
+
+    <section>
+        <h2>Що саме маскує «Химера»</h2>
+
+        <p>
+            Повна невидимість у всіх діапазонах практично недосяжна.
+            Рух машини, нагрів, вихлоп, турбулентність, шум, відбиття
+            та радіосигнали залишають сліди. Тому система працює з
+            невизначеністю спостереження.
+        </p>
+
+        <ul>
+            <li><strong>Видимий діапазон</strong> — розсіювання, поглинання та локальна зміна проходження світла.</li>
+            <li><strong>Ближній ІЧ</strong> — зменшення контрасту та стабільності візуально-інфрачервоного образу.</li>
+            <li><strong>Тепловий ІЧ</strong> — часткове розмивання та зміщення теплової сигнатури.</li>
+            <li><strong>Міліметровий діапазон / радар</strong> — часткове порушення стабільності радіолокаційного образу.</li>
+        </ul>
+
+        <p>
+            Мета — збільшити просторову та класифікаційну невизначеність,
+            зірвати стабільне супроводження і змусити систему спостереження
+            повторно набирати ціль.
+        </p>
+    </section>
+
+    <section>
+        <h2>Базова платформа</h2>
+
+        <div class="spec-grid">
+            <div class="spec">
+                <span class="spec-title">Тип носія</span>
+                <span class="spec-value">Гуманоїдний бойовий робот Серії R</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Висота</span>
+                <span class="spec-value">Близько 1,9–2 м</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Маса моделі</span>
+                <span class="spec-value">Близько 400 кг</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Модельний діапазон маси</span>
+                <span class="spec-value">350–500 кг</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Звичайна швидкість</span>
+                <span class="spec-value">1–2 м/с</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Короткочасний ривок</span>
+                <span class="spec-value">4–5 м/с</span>
+            </div>
+        </div>
+
+        <div class="model-note">
+            <strong>Статус параметрів:</strong>
+            наведені фізичні розміри, маса, енергоспоживання та інші числові
+            характеристики є модельними значеннями hard-SF реконструкції,
+            а не зафіксованими характеристиками реальної бойової системи.
+        </div>
+    </section>
+
+    <section>
+        <h2>Конструкція системи</h2>
+
+        <p>
+            «Химера» складається не з одного генератора диму. У моделі це
+            комплекс із системи зберігання суміші, каналів подачі, форсунок,
+            систем керування та сенсорного зворотного зв'язку.
+        </p>
+
+        <div class="card-grid">
+            <article class="card">
+                <h3>Аерозольна система</h3>
+                <p>
+                    Формує контрольовану область із частинок різного розміру
+                    та складу. Геометрія форсунок і потік повітря визначають
+                    форму та час існування області.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>Електричне керування</h3>
+                <p>
+                    Електричне поле використовується для корекції руху
+                    заряджених частинок. Воно не утримує хмару в повітрі
+                    та не скасовує аеродинаміку.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>Сенсорний контур</h3>
+                <p>
+                    Власні сенсори контролюють стан області маскування,
+                    оскільки система одночасно створює перешкоди і для
+                    власного спостереження.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>Керування спостереженням</h3>
+                <p>
+                    Для роботи крізь маскування передбачаються локальні
+                    «вікна», розділені сенсори, інші спектральні канали
+                    та можливість локального розрідження області.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section>
+        <h2>Робочі режими</h2>
+
+        <div class="card-grid">
+            <article class="card">
+                <div class="mode-number">01 · ШКІРА</div>
+                <h3>Ближня зона</h3>
+                <p>
+                    Тонкий шар приблизно 10–40 см навколо корпусу.
+                    Найменше споживання суміші та енергії. Використовується
+                    для локального зниження помітності.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="mode-number">02 · СЕКТОР</div>
+                <h3>Основний бойовий режим</h3>
+                <p>
+                    Контрольована область між роботом і сенсорами противника.
+                    Модельна ширина та висота — близько 2–3 м, товщина —
+                    0,3–0,8 м, відстань від корпусу — приблизно 0,5–1,5 м.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="mode-number">03 · ІМПУЛЬС</div>
+                <h3>Короткий посилений режим</h3>
+                <p>
+                    Триває орієнтовно 3–15 секунд. Використовується під час
+                    перетину відкритої ділянки, спроби зірвати лазерне або
+                    радіолокаційне супроводження чи для різкої зміни ситуації.
+                </p>
+            </article>
+
+            <article class="card">
+                <div class="mode-number">04 · ВИКИД</div>
+                <h3>Дальша контрольована область</h3>
+                <p>
+                    Маскувальна суміш виноситься далі ніж на 1,5 м від
+                    платформи та створює контрольовану аерозольну перешкоду.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section>
+        <h2>Розміри робочої області</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Зона</th>
+                        <th>Модельна відстань</th>
+                        <th>Призначення</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>«Шкіра»</td>
+                        <td>0,1–0,4 м</td>
+                        <td>Ближнє локальне маскування</td>
+                    </tr>
+                    <tr>
+                        <td>«Сектор»</td>
+                        <td>0,5–1,5 м</td>
+                        <td>Основна бойова завіса</td>
+                    </tr>
+                    <tr>
+                        <td>Контрольований викид</td>
+                        <td>2–3 м і більше</td>
+                        <td>Дальша аерозольна перешкода</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section>
+        <h2>Склад суміші</h2>
+
+        <p>
+            У hard-SF моделі використовується композитна суміш із компонентами,
+            розрахованими на роботу в різних діапазонах спостереження.
+        </p>
+
+        <ul>
+            <li>компоненти для видимого та ближнього інфрачервоного діапазонів;</li>
+            <li>компоненти для теплового ІЧ;</li>
+            <li>компоненти для міліметрового діапазону та радарного спостереження;</li>
+            <li>системи заряджання та керування частинками.</li>
+        </ul>
+
+        <p>
+            У видимому діапазоні суміш не повинна перетворювати область
+            на непрозору чорну стіну. Її завдання — створити нестабільне
+            розсіювання, локальні зміни проходження світла та викривлення
+            фону.
+        </p>
+    </section>
+
+    <section>
+        <h2>Витрата та запас</h2>
+
+        <div class="spec-grid">
+            <div class="spec">
+                <span class="spec-title">Модельна активна маса</span>
+                <span class="spec-value">20–50 г</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Типова витрата</span>
+                <span class="spec-value">Грами за секунду</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Сильний вітер / імпульсний режим</span>
+                <span class="spec-value">Десятки грамів за секунду</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Запас суміші</span>
+                <span class="spec-value">3–8 кг</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Типова тривалість імпульсу</span>
+                <span class="spec-value">5–15 с</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Кількість коротких використань</span>
+                <span class="spec-value">Десятки, залежно від режиму</span>
+            </div>
+        </div>
+
+        <div class="model-note">
+            У наведеній моделі для завіси приблизно 2,5 × 2,5 × 0,5 м
+            використовується близько 30 г активної маси. Це розрахункова
+            hard-SF модель, а не канонічна цифра з книги.
+        </div>
+    </section>
+
+    <section>
+        <h2>Вітер і аеродинаміка</h2>
+
+        <p>
+            Найважливішим зовнішнім фактором є не абсолютна швидкість вітру,
+            а відносний повітряний потік між платформою, маскувальною областю
+            та середовищем.
+        </p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Відносний потік</th>
+                        <th>Модельне утримання області</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0–0,5 м/с</td>
+                        <td>90–95%</td>
+                    </tr>
+                    <tr>
+                        <td>1–2 м/с</td>
+                        <td>80–90%</td>
+                    </tr>
+                    <tr>
+                        <td>3–5 м/с</td>
+                        <td>50–70%</td>
+                    </tr>
+                    <tr>
+                        <td>5–8+ м/с</td>
+                        <td>Стійкий локальний шар стає сумнівним</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            Саме тому «Химера» не створює універсальну завісу незалежно
+            від умов. Геометрія форсунок, розмір частинок, потоки повітря
+            та короткочасність роботи є критичними для її ефективності.
+        </p>
+    </section>
+
+    <section>
+        <h2>Енергоспоживання та тепло</h2>
+
+        <div class="spec-grid">
+            <div class="spec">
+                <span class="spec-title">Звичайний режим</span>
+                <span class="spec-value">1–4 кВт</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Короткий піковий режим</span>
+                <span class="spec-value">5–8 кВт</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Теплове навантаження</span>
+                <span class="spec-value">Одиниці / десятки кВт</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Модельний тепловий буфер</span>
+                <span class="spec-value">10 кг ≈ 630 кДж</span>
+            </div>
+        </div>
+
+        <p>
+            Система повинна відводити не лише енергію власної електроніки,
+            а й тепло, пов'язане з генерацією та керуванням маскувальною
+            областю. Тому тривала робота суцільним «коконом» не є базовим
+            режимом системи.
+        </p>
+    </section>
+
+    <section>
+        <h2>Власне спостереження</h2>
+
+        <p>
+            «Химера» створює перешкоди не тільки противнику. Якщо машина
+            повністю закриє себе маскувальною областю, її власні сенсори
+            також втратять частину інформації.
+        </p>
+
+        <p>
+            Тому система передбачає секторні «вікна», розділення сенсорів,
+            використання інших спектральних каналів, допомогу дронів та
+            локальне розрідження області перед сенсорами.
+        </p>
+
+        <div class="quote">
+            Маскування і спостереження — одна інтегрована система, а не
+            два незалежні пристрої.
+        </div>
+    </section>
+
+    <section>
+        <h2>Обмеження</h2>
+
+        <ul>
+            <li>Система не робить платформу невидимою.</li>
+            <li>Сильний відносний повітряний потік руйнує локальну область.</li>
+            <li>Теплові та інші фізичні сліди повністю не зникають.</li>
+            <li>Власні сенсори можуть частково втрачати якість спостереження.</li>
+            <li>Навчений противник може виявити характерні ознаки роботи системи.</li>
+            <li>Тривале безперервне маскування значно збільшує витрату суміші та теплове навантаження.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Тактична роль</h2>
+
+        <p>
+            У межах hard-SF моделі «Химера» призначена насамперед для
+            короткочасного погіршення роботи систем спостереження та
+            супроводження цілі.
+        </p>
+
+        <div class="card-grid">
+            <article class="card">
+                <h3>Зрив супроводження</h3>
+                <p>
+                    Перетворення чіткої цілі на нестабільну область може
+                    змусити систему повторно захоплювати об'єкт.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>Перехід відкритої ділянки</h3>
+                <p>
+                    Короткий посилений імпульс може використовуватися
+                    під час швидкого переміщення через простір із високою
+                    спостережуваністю.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>Зниження точності наведення</h3>
+                <p>
+                    Мета системи — збільшити помилку визначення положення
+                    та ускладнити стабільне наведення.
+                </p>
+            </article>
+
+            <article class="card">
+                <h3>Час для маневру</h3>
+                <p>
+                    Основний результат роботи «Химери» — не зникнення машини,
+                    а отримання короткого вікна для зміни позиції.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section>
+        <h2>Модельна маса системи</h2>
+
+        <div class="spec-grid">
+            <div class="spec">
+                <span class="spec-title">Маскувальна система</span>
+                <span class="spec-value">15–30 кг</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Запас суміші</span>
+                <span class="spec-value">3–8 кг</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Загальна модельна маса</span>
+                <span class="spec-value">20–35 кг</span>
+            </div>
+
+            <div class="spec">
+                <span class="spec-title">Робоча область</span>
+                <span class="spec-value">Приблизно 2–4 м³ для основної завіси</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Застосування у світі «Характерників»</h2>
+
+        <p>
+            «Химера» належить до військових технологій, які можна розглядати
+            як розвиток сенсорної та маскувальної інженерії Нульового плану.
+            Її логіка відповідає технологічному підходу, за якого перевага
+            створюється не абсолютною невидимістю, а керуванням інформацією,
+            яку отримує противник.
+        </p>
+
+        <div class="model-note">
+            <strong>Канон / модель:</strong>
+            конкретні числові параметри цієї сторінки походять із наданої
+            hard-SF інженерної реконструкції. Вони не повинні автоматично
+            вважатися канонічними характеристиками з тексту чотирьох книг.
+        </div>
+    </section>
+
+    <section>
+        <h2>Технічні ілюстрації</h2>
+
+        <div class="image-placeholder">
+            <div>
+                <strong>Серія R — канонічна платформа</strong>
+                Технічний лист, схема роботи «Химери», бойові сцени та
+                візуалізації багатоспектрального маскування будуть розміщені
+                тут після додавання зображень до каталогу технології.
+            </div>
+        </div>
+
+        <p class="gallery-note">
+            Для всіх майбутніх ілюстрацій «Химери» базовим візуальним носієм
+            є бойовий робот Серії R, а не довільний гуманоїдний робот.
+        </p>
+    </section>
+
+    <section class="canon">
+        <h2>Канонічний статус</h2>
+
+        <p>
+            <strong>Назва:</strong> «Химера».
+        </p>
+
+        <p>
+            <strong>Тип:</strong> активна багатоспектральна система маскування.
+        </p>
+
+        <p>
+            <strong>Носій:</strong> бойова платформа Серії R у наданій
+            інженерній реконструкції.
+        </p>
+
+        <p>
+            <strong>Основний принцип:</strong> не невидимість, а погіршення
+            точності та стабільності виявлення, класифікації й супроводження.
+        </p>
+
+        <p>
+            <strong>Числові параметри:</strong> модельні hard-SF значення,
+            наведені для технічної правдоподібності; вони потребують
+            окремої звірки з каноном книг, якщо будуть включені до нього.
+        </p>
+
+        <p>
+            <strong>Джерело реконструкції:</strong> наданий матеріал
+            «Інженерія фантастики. Конструюємо hard SF».
+        </p>
+    </section>
+
+    <footer class="footer">
+        <p>
+            Всесвіт «Характерники» · Технології · Технологія 03
+        </p>
+    </footer>
+
+</main>
+
+</body>
+</html>
