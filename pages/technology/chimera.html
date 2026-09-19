@@ -259,26 +259,45 @@
         }
 
 
-        .technology-hero-image,
-        .technology-scheme {
+        .technology-image {
+            width: 100%;
             margin: 40px 0 60px;
+            overflow: hidden;
         }
 
-        .technology-hero-image img,
-        .technology-scheme img {
+        .technology-image a {
             display: block;
             width: 100%;
+        }
+
+        .technology-image img {
+            display: block;
+            width: 100%;
+            max-width: 100%;
             height: auto;
             border: 1px solid var(--border);
             border-radius: 10px;
             background: #0b0d0f;
+            object-fit: contain;
         }
 
-        .technology-scheme figcaption {
-            margin-top: 12px;
-            color: var(--text-muted);
-            font-size: 14px;
-            text-align: center;
+        .technology-image--main img {
+            max-height: 760px;
+        }
+
+        .chimera-banner {
+            width: 100%;
+            height: clamp(260px, 36vw, 572px);
+            overflow: hidden;
+            background: #0b0d0f;
+        }
+
+        .chimera-banner img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
         }
 
         .gallery-note {
@@ -351,6 +370,22 @@
             .subtitle {
                 font-size: 18px;
             }
+
+            .technology-image {
+                margin-left: -18px;
+                margin-right: -18px;
+                width: auto;
+            }
+
+            .technology-image img {
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+
+            .chimera-banner {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -372,6 +407,12 @@
     </nav>
 </header>
 
+<div class="chimera-banner">
+    <img src="../../images/technology/chimera/chimera-header.webp?v=20260919"
+         alt="Химера — бойовий робот Серії R під активним багатоспектральним маскуванням"
+         loading="eager">
+</div>
+
 <main class="page">
 
     <header class="hero">
@@ -384,10 +425,13 @@
         </div>
     </header>
 
-    <figure class="technology-hero-image">
-        <img src="../../images/technology/chimera/chimera-header.webp"
-             alt="Химера — бойовий робот Серії R під активним багатоспектральним маскуванням">
-    </figure>
+    <section class="technology-image technology-image--main">
+        <a href="../../images/technology/chimera/chimera-technical.webp" target="_blank">
+            <img src="../../images/technology/chimera/chimera-technical.webp?v=20260919"
+                 alt="Химера — технічна схема системи активного багатоспектрального маскування на бойовому роботі Серії R"
+                 loading="eager">
+        </a>
+    </section>
 
     <section>
         <p class="lead">
@@ -870,21 +914,6 @@
             hard-SF інженерної реконструкції. Вони не повинні автоматично
             вважатися канонічними характеристиками з тексту чотирьох книг.
         </div>
-    </section>
-
-    <section>
-        <h2>Технічні ілюстрації</h2>
-
-        <figure class="technology-scheme">
-            <img src="../../images/technology/chimera/chimera-scheme.webp"
-                 alt="Технічна схема системи активного багатоспектрального маскування «Химера»">
-            <figcaption>Схема роботи системи «Химера»</figcaption>
-        </figure>
-
-        <p class="gallery-note">
-            Для всіх майбутніх ілюстрацій «Химери» базовим візуальним носієм
-            є бойовий робот Серії R, а не довільний гуманоїдний робот.
-        </p>
     </section>
 
     <section class="canon">
