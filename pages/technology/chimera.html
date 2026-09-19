@@ -258,6 +258,29 @@
             font-size: 20px;
         }
 
+
+        .technology-hero-image,
+        .technology-scheme {
+            margin: 40px 0 60px;
+        }
+
+        .technology-hero-image img,
+        .technology-scheme img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: #0b0d0f;
+        }
+
+        .technology-scheme figcaption {
+            margin-top: 12px;
+            color: var(--text-muted);
+            font-size: 14px;
+            text-align: center;
+        }
+
         .gallery-note {
             color: var(--text-muted);
             font-size: 15px;
@@ -361,13 +384,10 @@
         </div>
     </header>
 
-    <div class="image-placeholder">
-        <div>
-            <strong>Технічна ілюстрація «Химери»</strong>
-            Канонічна платформа — бойовий робот Серії R.<br>
-            Ілюстрація буде додана до каталогу після завантаження готового зображення.
-        </div>
-    </div>
+    <figure class="technology-hero-image">
+        <img src="../../images/technology/chimera/chimera-header.webp"
+             alt="Химера — бойовий робот Серії R під активним багатоспектральним маскуванням">
+    </figure>
 
     <section>
         <p class="lead">
@@ -855,14 +875,11 @@
     <section>
         <h2>Технічні ілюстрації</h2>
 
-        <div class="image-placeholder">
-            <div>
-                <strong>Серія R — канонічна платформа</strong>
-                Технічний лист, схема роботи «Химери», бойові сцени та
-                візуалізації багатоспектрального маскування будуть розміщені
-                тут після додавання зображень до каталогу технології.
-            </div>
-        </div>
+        <figure class="technology-scheme">
+            <img src="../../images/technology/chimera/chimera-scheme.webp"
+                 alt="Технічна схема системи активного багатоспектрального маскування «Химера»">
+            <figcaption>Схема роботи системи «Химера»</figcaption>
+        </figure>
 
         <p class="gallery-note">
             Для всіх майбутніх ілюстрацій «Химери» базовим візуальним носієм
