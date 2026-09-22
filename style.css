@@ -31,13 +31,39 @@ a {
 }
 
 .nav {
-    width: min(1200px, 90%);
-    margin: 0 auto;
-    padding: 28px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    width: 100%;
+    margin: 0;
+    padding: 18px max(5%, calc((100% - 1200px) / 2));
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
+
+    background: rgba(9, 11, 14, 0.94);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.nav .logo {
+    flex-shrink: 0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    flex-shrink: 1;
+}
+
+.nav-links a {
+    white-space: nowrap;
 }
 
 .logo {
@@ -63,7 +89,7 @@ a {
 .hero-content {
     width: min(1000px, 90%);
     margin: auto;
-    padding: 80px 0 160px;
+    padding: 140px 0 160px;
 }
 
 .eyebrow,
@@ -164,9 +190,26 @@ footer {
 }
 
 @media (max-width: 700px) {
+    .nav {
+        padding-top: 14px;
+        padding-bottom: 14px;
+        gap: 18px;
+    }
+
     .nav-links {
-        gap: 14px;
-        font-size: 0.85rem;
+        min-width: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 18px;
+        font-size: 0.82rem;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
     }
 
     .cards {
@@ -180,25 +223,30 @@ footer {
 }
 @media (max-width: 900px) {
     .nav {
-        align-items: flex-start;
-        gap: 24px;
+        gap: 20px;
     }
 
     .nav-links {
-        flex-wrap: wrap;
-        justify-content: flex-end;
-        gap: 10px 18px;
-        max-width: 420px;
+        max-width: none;
+        flex-wrap: nowrap;
     }
 }
 
 @media (max-width: 600px) {
     .nav {
-        flex-direction: column;
+        align-items: center;
     }
 
     .nav-links {
         justify-content: flex-start;
+    }
+
+    .hero-content {
+        padding-top: 120px;
+    }
+
+    .page-heading {
+        padding-top: 130px;
     }
 
     h1 {
@@ -224,7 +272,7 @@ footer {
 .page-heading {
     width: min(1200px, 90%);
     margin: 0 auto;
-    padding: 100px 0 120px;
+    padding: 170px 0 120px;
 }
 
 .page-heading h1 {
