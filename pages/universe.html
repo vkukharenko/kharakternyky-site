@@ -14,6 +14,55 @@
     <link rel="stylesheet" href="../style.css">
 
     <style>
+        .universe-index {
+            margin-top: 45px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .universe-index-group {
+            padding: 24px;
+            border: 1px solid #292e35;
+            background: #101318;
+        }
+
+        .universe-index-group h3 {
+            margin: 0 0 15px;
+            font-size: 1.35rem;
+            font-weight: normal;
+        }
+
+        .universe-index-group ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .universe-index-group li + li {
+            margin-top: 8px;
+        }
+
+        .universe-index-group a {
+            color: #b9bdc2;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+
+        .universe-index-group a:hover {
+            color: #e8e8e8;
+            border-color: #555d66;
+        }
+
+        .universe-section-note {
+            max-width: 800px;
+            padding: 22px 24px;
+            margin-top: 35px;
+            border-left: 2px solid #555d66;
+            color: #8f969e;
+            background: rgba(255, 255, 255, 0.025);
+        }
+
         .universe-map {
             margin: 45px auto 0;
             max-width: 1000px;
@@ -129,6 +178,10 @@
                 grid-template-columns: 1fr;
             }
 
+            .universe-index {
+                grid-template-columns: 1fr;
+            }
+
             .universe-map {
                 padding: 20px 12px;
             }
@@ -180,6 +233,55 @@
             окремі світи на єдину систему.
         </p>
 
+        <nav class="universe-index" aria-label="Зміст всесвіту">
+
+            <div class="universe-index-group">
+                <h3>Будова всесвіту</h3>
+                <ul>
+                    <li><a href="#plans">Плани</a></li>
+                    <li><a href="#central-plans">Центральні плани</a></li>
+                    <li><a href="#branches">Гілки планів</a></li>
+                </ul>
+            </div>
+
+            <div class="universe-index-group">
+                <h3>Закони всесвіту</h3>
+                <ul>
+                    <li><a href="#three-days-law">Закон трьох днів</a></li>
+                    <li><a href="#great-flows-law">Закон великих потоків людей</a></li>
+                </ul>
+            </div>
+
+            <div class="universe-index-group">
+                <h3>Теорія порталів</h3>
+                <ul>
+                    <li><a href="#portal-basics">Основні відомості</a></li>
+                    <li><a href="#transitions">Переходи</a></li>
+                </ul>
+            </div>
+
+            <div class="universe-index-group">
+                <h3>Характерники</h3>
+                <ul>
+                    <li><a href="#kharakternyky">Основна інформація</a></li>
+                    <li><a href="#hetmans">Гетьмани</a></li>
+                    <li><a href="#skills">Майстерності</a></li>
+                </ul>
+            </div>
+
+            <div class="universe-index-group">
+                <h3>Сили та організації</h3>
+                <ul>
+                    <li><a href="#order">Орден</a></li>
+                    <li><a href="#horned">Рогаті</a></li>
+                    <li><a href="#three-plans-alliance">Альянс трьох Планів</a></li>
+                    <li><a href="#spiders">Павуки</a></li>
+                    <li><a href="#reptilians">Рептілоїди</a></li>
+                </ul>
+            </div>
+
+        </nav>
+
     </div>
 
 </header>
@@ -189,13 +291,13 @@
 
     <!-- STRUCTURE -->
 
-    <section class="section universe-intro">
+    <section class="section universe-intro" id="plans">
 
         <p class="section-label">СТРУКТУРА</p>
 
-        <h2>Дерево Планів</h2>
+        <h2>Плани</h2>
 
-        <p class="wide-text">
+        <p class="wide-text" id="branches">
             Після повернення характерників людство отримало знання
             про інші світи й поступово склало схему Всесвіту.
             Вона виявилася не набором незалежних паралельних реальностей,
@@ -250,7 +352,7 @@
 
     <!-- THREE CENTRAL PLANS -->
 
-    <section class="section section-dark">
+    <section class="section section-dark" id="central-plans">
 
         <p class="section-label">ЦЕНТРАЛЬНІ ПЛАНИ</p>
 
@@ -331,6 +433,35 @@
     </section>
 
 
+    <!-- LAWS -->
+
+    <section class="section" id="laws">
+
+        <p class="section-label">ЗАКОНИ ВСЕСВІТУ</p>
+
+        <h2>Закони, що визначають взаємодію між світами</h2>
+
+        <div class="universe-facts">
+
+            <article class="universe-fact" id="three-days-law">
+                <h3>Закон трьох днів</h3>
+                <p>Окремий розділ довідника для правила, відомого як Закон трьох днів.</p>
+            </article>
+
+            <article class="universe-fact" id="great-flows-law">
+                <h3>Закон великих потоків людей</h3>
+                <p>Окремий розділ довідника для правила, відомого як Закон великих потоків людей.</p>
+            </article>
+
+        </div>
+
+        <p class="universe-section-note">
+            Детальний канонічний опис цих законів буде доданий після внесення відповідного матеріалу до довідника.
+        </p>
+
+    </section>
+
+
     <!-- WORLDS -->
 
     <section class="section">
@@ -366,13 +497,13 @@
 
     <!-- TRAVEL -->
 
-    <section class="section section-dark">
+    <section class="section section-dark" id="portal-basics">
 
-        <p class="section-label">ПЕРЕХОДИ</p>
+        <p class="section-label">ТЕОРІЯ ПОРТАЛІВ</p>
 
-        <h2>Як працює рух між Планами</h2>
+        <h2>Основні відомості</h2>
 
-        <div class="lore-grid">
+        <div class="lore-grid" id="transitions">
 
             <article class="lore-card">
                 <span class="lore-number">01</span>
@@ -429,11 +560,11 @@
 
     <!-- KHARAKTERNYKY -->
 
-    <section class="section">
+    <section class="section" id="kharakternyky">
 
         <p class="section-label">ХАРАКТЕРНИКИ</p>
 
-        <h2>Люди, які відкрили Всесвіт</h2>
+        <h2>Основна інформація</h2>
 
         <p class="wide-text">
             Характерники здатні відкривати переходи між Планами.
@@ -494,6 +625,20 @@
 
         </div>
 
+        <div class="universe-facts" style="margin-top:18px;">
+
+            <article class="universe-fact" id="hetmans">
+                <h3>Гетьмани</h3>
+                <p>Розділ для опису гетьманів та системи управління характерниками.</p>
+            </article>
+
+            <article class="universe-fact" id="skills">
+                <h3>Майстерності</h3>
+                <p>Розділ для опису майстерностей характерників та їхніх можливостей.</p>
+            </article>
+
+        </div>
+
         <a class="universe-link" href="characters.html">
             Перейти до персонажів →
         </a>
@@ -503,15 +648,15 @@
 
     <!-- THREATS -->
 
-    <section class="section section-dark">
+    <section class="section section-dark" id="forces">
 
-        <p class="section-label">ГОЛОВНІ СИЛИ</p>
+        <p class="section-label">СИЛИ ТА ОРГАНІЗАЦІЇ</p>
 
         <h2>Конфлікт, який об'єднав три Плани</h2>
 
         <div class="lore-grid">
 
-            <article class="lore-card">
+            <article class="lore-card" id="order">
                 <span class="lore-number">01</span>
                 <h3>Орден</h3>
                 <p>
@@ -522,7 +667,7 @@
                 </p>
             </article>
 
-            <article class="lore-card">
+            <article class="lore-card" id="horned">
                 <span class="lore-number">02</span>
                 <h3>Рогаті</h3>
                 <p>
@@ -532,9 +677,9 @@
                 </p>
             </article>
 
-            <article class="lore-card">
+            <article class="lore-card" id="three-plans-alliance">
                 <span class="lore-number">03</span>
-                <h3>Об'єднання трьох Планів</h3>
+                <h3>Альянс трьох Планів</h3>
                 <p>
                     Поступово сформувалася спільна система дій:
                     технології й виробництво Нульового плану,
@@ -551,6 +696,20 @@
                     технологій та інфраструктури стало окремим
                     стратегічним напрямком.
                 </p>
+            </article>
+
+        </div>
+
+        <div class="universe-facts" style="margin-top:18px;">
+
+            <article class="universe-fact" id="spiders">
+                <h3>Павуки</h3>
+                <p>Окремий розділ довідника для Павуків.</p>
+            </article>
+
+            <article class="universe-fact" id="reptilians">
+                <h3>Рептілоїди</h3>
+                <p>Окремий розділ довідника для рептілоїдів.</p>
             </article>
 
         </div>
