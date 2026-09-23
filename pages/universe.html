@@ -72,36 +72,171 @@
             font-family: Arial, sans-serif;
         }
 
-        .universe-map-line {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .universe-map-node {
-            padding: 14px 22px;
-            border: 1px solid #555d66;
-            background: #171b21;
+        .universe-map-title {
+            margin: 0 0 28px;
             text-align: center;
-            min-width: 150px;
-        }
-
-        .universe-map-node strong {
-            display: block;
-            color: #e1e4e7;
-            margin-bottom: 4px;
-        }
-
-        .universe-map-node span {
+            color: #8f969e;
             font-size: .78rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .sphere-schematic {
+            position: relative;
+            min-height: 470px;
+            display: grid;
+            place-items: center;
+        }
+
+        .sphere-ring {
+            width: 360px;
+            height: 360px;
+            border: 1px dashed #555d66;
+            border-radius: 50%;
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
+
+        .sphere-ring::before {
+            content: "";
+            position: absolute;
+            inset: 34px;
+            border: 1px dashed #353b43;
+            border-radius: 50%;
+        }
+
+        .central-node {
+            position: relative;
+            z-index: 3;
+            width: 145px;
+            height: 145px;
+            border: 1px solid #8a929b;
+            border-radius: 50%;
+            background: #171b21;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .central-node strong {
+            color: #e1e4e7;
+            margin-bottom: 5px;
+        }
+
+        .central-node span {
+            font-size: .72rem;
             color: #8e959d;
         }
 
-        .universe-map-arrow {
+        .branch {
+            position: absolute;
+            width: 155px;
+            padding: 11px 12px;
+            border: 1px solid #454c55;
+            background: #171b21;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .branch strong {
+            display: block;
+            color: #d8dce0;
+            font-size: .82rem;
+        }
+
+        .branch span {
+            display: block;
+            margin-top: 4px;
+            color: #7f8790;
+            font-size: .68rem;
+        }
+
+        .branch::before {
+            content: "";
+            position: absolute;
+            height: 1px;
+            background: #4a5159;
+            transform-origin: left center;
+            width: 110px;
+            left: 100%;
+            top: 50%;
+        }
+
+        .branch-1 { top: 18px; left: 50%; transform: translateX(-50%); }
+        .branch-1::before { transform: rotate(90deg); left: 50%; top: 100%; width: 85px; }
+
+        .branch-2 { top: 105px; right: -80px; }
+        .branch-2::before { transform: rotate(155deg); }
+
+        .branch-3 { bottom: 35px; right: -75px; }
+        .branch-3::before { transform: rotate(205deg); }
+
+        .branch-4 { bottom: 20px; left: -75px; }
+        .branch-4::before { transform: rotate(-25deg); }
+
+        .branch-5 { top: 105px; left: -80px; }
+        .branch-5::before { transform: rotate(25deg); }
+
+        .cross-branch {
+            position: absolute;
+            bottom: 7px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 7px 14px;
+            border: 1px dashed #555d66;
+            background: #101318;
+            color: #8f969e;
+            font-size: .7rem;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .central-links {
+            margin: 28px auto 0;
+            max-width: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .central-links span {
+            padding: 9px 15px;
+            border: 1px solid #454c55;
+            background: #171b21;
+            color: #d0d4d8;
+            font-size: .78rem;
+        }
+
+        .central-links b {
+            color: #727a83;
+            font-weight: normal;
+        }
+
+        .diagram-placeholder {
+            margin-top: 28px;
+            min-height: 110px;
+            border: 1px dashed #555d66;
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(255,255,255,.02),
+                rgba(255,255,255,.02) 8px,
+                transparent 8px,
+                transparent 16px
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             color: #777f88;
-            font-size: 1.4rem;
+            font-size: .78rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
         }
 
         .universe-note {
@@ -186,8 +321,31 @@
                 padding: 20px 12px;
             }
 
-            .universe-map-arrow {
-                transform: rotate(90deg);
+            .sphere-schematic {
+                min-height: 560px;
+            }
+
+            .sphere-ring {
+                width: 290px;
+                height: 290px;
+            }
+
+            .branch {
+                width: 125px;
+            }
+
+            .branch-2 { right: -50px; }
+            .branch-3 { right: -45px; }
+            .branch-4 { left: -45px; }
+            .branch-5 { left: -50px; }
+
+            .central-links {
+                gap: 8px;
+            }
+
+            .cross-branch {
+                white-space: normal;
+                width: 220px;
             }
         }
     </style>
@@ -228,9 +386,9 @@
         <h1>Всесвіт</h1>
 
         <p class="subtitle">
-            Дерево Планів, тисячі світів, людські цивілізації,
+            Центральні Плани, безліч гілок, тисячі світів,
             характерники та війна, яка поступово перетворює
-            окремі світи на єдину систему.
+            окремі цивілізації на єдину систему.
         </p>
 
         <nav class="universe-index" aria-label="Зміст всесвіту">
@@ -293,58 +451,76 @@
 
     <section class="section universe-intro" id="plans">
 
-        <p class="section-label">СТРУКТУРА</p>
+        <p class="section-label">СТРУКТУРА ВСЕСВІТУ</p>
 
         <h2>Плани</h2>
 
-        <p class="wide-text" id="branches">
-            Після повернення характерників людство отримало знання
-            про інші світи й поступово склало схему Всесвіту.
-            Вона виявилася не набором незалежних паралельних реальностей,
-            а величезним деревом із безліччю гілок.
+        <p class="wide-text">
+            Для зручності структуру Всесвіту можна уявляти як систему
+            сфер. У центрі кожної сфери розташований центральний План,
+            від якого розходиться безліч гілок. Кожен План цієї сфери
+            має шлях до центрального Плану — безпосередньо або через
+            кілька проміжних Планів.
         </p>
 
         <p class="wide-text">
-            На кожній гілці світи розташовані послідовно. Перехід
-            відбувається лише до сусіднього Плану. Усі відомі гілки
-            сходяться у світі характерників, який згодом назвали
-            Нульовим планом.
+            На момент завершення перших двох книг відомі три центральні
+            Плани: Нульовий, Перший і Другий. Інші центральні Плани
+            в тексті не згадуються.
         </p>
 
         <div class="universe-map">
-            <div class="universe-map-line">
-                <div class="universe-map-node">
-                    <strong>Віддалений світ</strong>
-                    <span>сусідній План</span>
+            <p class="universe-map-title">Схематична модель однієї сфери</p>
+
+            <div class="sphere-schematic">
+                <div class="sphere-ring">
+
+                    <div class="central-node">
+                        <strong>Центральний<br>План</strong>
+                        <span>центр сфери</span>
+                    </div>
+
+                    <div class="branch branch-1">
+                        <strong>Гілка А</strong>
+                        <span>План → План → План</span>
+                    </div>
+
+                    <div class="branch branch-2">
+                        <strong>Гілка Б</strong>
+                        <span>План → План</span>
+                    </div>
+
+                    <div class="branch branch-3">
+                        <strong>Гілка В</strong>
+                        <span>План → План → План</span>
+                    </div>
+
+                    <div class="branch branch-4">
+                        <strong>Гілка Г</strong>
+                        <span>План → План</span>
+                    </div>
+
+                    <div class="branch branch-5">
+                        <strong>Гілка Д</strong>
+                        <span>План → План → ...</span>
+                    </div>
+
                 </div>
 
-                <div class="universe-map-arrow">→</div>
-
-                <div class="universe-map-node">
-                    <strong>План</strong>
-                    <span>наступна ланка гілки</span>
-                </div>
-
-                <div class="universe-map-arrow">→</div>
-
-                <div class="universe-map-node">
-                    <strong>Нульовий план</strong>
-                    <span>центральний світ характерників</span>
-                </div>
-
-                <div class="universe-map-arrow">←</div>
-
-                <div class="universe-map-node">
-                    <strong>Інша гілка</strong>
-                    <span>через послідовні переходи</span>
+                <div class="cross-branch">
+                    Зв'язок з іншими гілками через Нульовий план
                 </div>
             </div>
 
             <p class="universe-note">
-                Портал веде лише на сусідній План. Довгі портальні
-                коридори фактично поєднують багато таких переходів
-                в один маршрут.
+                Це поки схема, а не точна карта. Кількість Планів,
+                кількість гілок і повна геометрія Всесвіту в книгах
+                не визначені.
             </p>
+
+            <div class="diagram-placeholder">
+                Тут буде ілюстрація структури сфер та гілок
+            </div>
         </div>
 
     </section>
@@ -356,13 +532,63 @@
 
         <p class="section-label">ГІЛКИ ПЛАНІВ</p>
 
-        <h2>Світова структура, яку неможливо обійти</h2>
+        <h2>Гілка — це послідовність Планів</h2>
 
         <p class="wide-text">
-            Всесвіт має структуру дерева Планів із численними
-            відгалуженнями. Характерники можуть послідовно
-            проходити гілкою, переходячи між сусідніми Планами.
+            Від центрального Плану виходить безліч гілок. Усередині
+            гілки переходити можна лише між сусідніми Планами.
+            Якщо потрібний світ розташований далеко, шлях до нього
+            складається з кількох послідовних переходів.
         </p>
+
+        <p class="wide-text">
+            Різні гілки не є ізольованими. Вони мають зв'язок через
+            Нульовий план, який у відомій структурі виконує особливу
+            роль сполучної точки між гілками.
+        </p>
+
+        <div class="universe-map">
+            <p class="universe-map-title">Схема руху всередині гілки</p>
+
+            <div class="universe-map-line">
+                <div class="universe-map-node">
+                    <strong>Центральний План</strong>
+                    <span>центр сфери</span>
+                </div>
+
+                <div class="universe-map-arrow">→</div>
+
+                <div class="universe-map-node">
+                    <strong>План 1</strong>
+                    <span>сусідній</span>
+                </div>
+
+                <div class="universe-map-arrow">→</div>
+
+                <div class="universe-map-node">
+                    <strong>План 2</strong>
+                    <span>сусідній</span>
+                </div>
+
+                <div class="universe-map-arrow">→</div>
+
+                <div class="universe-map-node">
+                    <strong>План 3</strong>
+                    <span>віддалений</span>
+                </div>
+            </div>
+
+            <div class="diagram-placeholder">
+                Тут буде ілюстрація гілки та розриву маршруту
+            </div>
+
+            <p class="universe-note">
+                Якщо перехід між двома сусідніми Планами стає
+                недоступним, усі наступні Плані цієї гілки стають
+                недоступними з цього боку. Перескочити через
+                пошкоджену ланку не можна.
+            </p>
+        </div>
 
         <p class="wide-text">
             Портал веде лише на сусідній План. Тому довгі портальні
@@ -431,7 +657,35 @@
 
         <p class="section-label">ЦЕНТРАЛЬНІ ПЛАНИ</p>
 
-        <h2>Три світи, від яких залежить спільне майбутнє</h2>
+        <h2>Три відомі центральні Плани</h2>
+
+        <p class="wide-text">
+            Центральні Плани мають прямий зв'язок між собою. На момент
+            завершення першої та другої книг у Всесвіті згадуються лише
+            Нульовий, Перший і Другий центральні Плани.
+        </p>
+
+        <div class="universe-map">
+            <p class="universe-map-title">Схема зв'язку відомих центральних Планів</p>
+
+            <div class="central-links">
+                <span>Нульовий</span>
+                <b>↔</b>
+                <span>Перший</span>
+                <b>↔</b>
+                <span>Другий</span>
+            </div>
+
+            <div class="central-links">
+                <span>Нульовий</span>
+                <b>↔</b>
+                <span>Другий</span>
+            </div>
+
+            <div class="diagram-placeholder">
+                Тут буде ілюстрація трьох центральних Планів та їхніх сфер
+            </div>
+        </div>
 
         <div class="universe-facts">
 
