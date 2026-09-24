@@ -15,6 +15,8 @@
 .detail-menu a:hover,.detail-menu a.active{color:#e1e4e7;border-color:#626a73;}
 .diagram{margin:50px auto 0;max-width:1050px;padding:30px;border:1px solid #292e35;background:#101318;font-family:Arial,sans-serif;}
 .diagram-title{margin:0 0 30px;text-align:center;color:#8f969e;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;}
+.sphere-image{width:100%;display:flex;justify-content:center;align-items:center;overflow:hidden;background:#080c12;}
+.sphere-image img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;}
 .placeholder{margin-top:35px;min-height:180px;border:1px dashed #555d66;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.02),rgba(255,255,255,.02) 8px,transparent 8px,transparent 16px);display:flex;align-items:center;justify-content:center;text-align:center;color:#777f88;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;}
 .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:45px;}
 .card{padding:28px;border:1px solid #292e35;background:#101318;}
@@ -56,11 +58,9 @@
 <main><section class="universe-detail"><p class="section-label">01 / ЗАГАЛЬНА МОДЕЛЬ</p><h2>Центральний План як центр сфери</h2>
 <p class="detail-text">Для схематичного представлення Всесвіту центральний План можна уявляти як центр сфери. Від нього виходить безліч гілок, а кожна гілка складається з послідовності Планів.</p>
 <p class="detail-text">Кожен План цієї сфери має шлях до центрального Плану — безпосередньо або через кілька проміжних Планів. Це модель топології Всесвіту, а не точна геометрична карта.</p>
-<div class="diagram"><p class="diagram-title">Схема однієї сфери</p><div class="sphere"><div class="sphere-ring">
-<div class="center">ЦЕНТРАЛЬНИЙ<br>ПЛАН<br><small>центр сфери</small></div>
-<div class="branch b1">Гілка А<br><small>План → План → План</small></div><div class="branch b2">Гілка Б<br><small>План → План</small></div><div class="branch b3">Гілка В<br><small>План → План → План</small></div><div class="branch b4">Гілка Г<br><small>План → План</small></div><div class="branch b5">Гілка Д<br><small>План → План → ...</small></div>
-</div><div class="cross">Зв'язок з іншими гілками<br>через Нульовий план</div></div>
-<div class="placeholder">Місце для майбутньої ілюстрації структури сфери</div></div></section><section class="universe-detail"><a class="back" href="structure.html">← Назад до структури Планів</a></section></main>
+<div class="diagram"><p class="diagram-title">Схема однієї сфери</p>
+<div class="sphere-image"><img src="../../images/universe/sphere-model.webp?v=20260924" alt="Схема однієї сфери: центральний План, гілки Планів та зв'язок через Нульовий план"></div>
+</div></section><section class="universe-detail"><a class="back" href="structure.html">← Назад до структури Планів</a></section></main>
 <footer><p>© 2026 Володимир Кухаренко</p></footer>
 </body>
 </html>
