@@ -60,78 +60,48 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadDayImages(dayNumber, container, bookPath) {
 
     /*
-     * Перевіряємо КОЖЕН номер окремо: 000–999.
-     * Відсутність, наприклад, 002 не зупиняє завантаження 003, 004 і т.д.
+     * Завантажуємо ілюстрації послідовно:
+     * 001, 002, 003...
      *
-     * Спочатку шукаємо WebP, потім PNG.
+     * Якщо номер відсутній — зупиняємося.
+     * Це початкова логіка галереї.
+     *
+     * Для Дня 47 зберігаємо спеціальний початок з 000.
      */
-    for (let imageNumber = 0; imageNumber <= 999; imageNumber++) {
+    let imageNumber = dayNumber === "047" ? 0 : 1;
+
+    function loadNextImage() {
 
         const number = String(imageNumber).padStart(3, "0");
 
-        loadImage(
-            `${bookPath}day-${dayNumber}-${number}.webp`,
-            number,
-            container,
-            bookPath,
-            dayNumber
-        );
+        const image = document.createElement("img");
 
-    }
+        image.className = "day-image";
 
-}
+        image.alt =
+            `Характерники — День ${dayNumber}, ілюстрація ${number}`;
 
-
-function loadImage(src, number, container, bookPath, dayNumber) {
-
-    const image = document.createElement("img");
-
-    image.className = "day-image";
-
-    image.alt =
-        `Характерники — День ${dayNumber}, ілюстрація ${number}`;
-
-    image.decoding = "async";
-
-    image.onload = function () {
+        image.decoding = "async";
 
         container.appendChild(image);
 
-    };
+        image.onload = function () {
 
-    image.onerror = function () {
+            imageNumber++;
 
-        /*
-         * Якщо WebP не знайдено, пробуємо PNG.
-         * Якщо немає і PNG — просто нічого не показуємо.
-         */
-        if (src.endsWith(".webp")) {
+            loadNextImage();
 
-            const pngImage = document.createElement("img");
+        };
 
-            pngImage.className = "day-image";
+        image.onerror = function () {
 
-            pngImage.alt =
-                `Характерники — День ${dayNumber}, ілюстрація ${number}`;
+            image.remove();
 
-            pngImage.decoding = "async";
+        };
 
-            pngImage.onload = function () {
-                container.appendChild(pngImage);
-            };
+        image.src =
+            `${bookPath}day-${dayNumber}-${number}.webp`;
+    }
 
-            pngImage.onerror = function () {
-                pngImage.remove();
-            };
-
-            pngImage.src =
-                `${bookPath}day-${dayNumber}-${number}.png`;
-
-        }
-
-        image.remove();
-
-    };
-
-    image.src = src;
+    loadNextImage();
 }
