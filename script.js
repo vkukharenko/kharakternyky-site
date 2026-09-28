@@ -60,15 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
 function loadDayImages(dayNumber, container, bookPath) {
 
     /*
-     * Завантажуємо ілюстрації послідовно:
-     * 001, 002, 003...
-     *
-     * Якщо номер відсутній — зупиняємося.
-     * Це початкова логіка галереї.
-     *
-     * Для Дня 47 зберігаємо спеціальний початок з 000.
+     * Основні ілюстрації дня починаються з 001.
+     * Файли 000 використовуються окремо для Єпілогу.
      */
-    let imageNumber = dayNumber === "047" ? 0 : 1;
+    let imageNumber = 1;
 
     function loadNextImage() {
 
