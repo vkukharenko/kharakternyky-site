@@ -1148,3 +1148,84 @@ footer {
 .character-back-link { color:inherit; text-decoration:none; }
 .character-back-link:hover { text-decoration:underline; }
 @media (max-width:800px) { .character-profile-grid, .character-profile-body { grid-template-columns:1fr; gap:2rem; } .character-profile-face { max-width:280px; margin:auto; } }
+
+
+/* Lords of the Council */
+.character-card-lord {
+    background: linear-gradient(145deg, #12151a, #0d0f13);
+}
+.character-portrait-lord {
+    background:
+        radial-gradient(circle at center, rgba(194,150,55,.18), transparent 48%),
+        linear-gradient(145deg, #1b1512, #0c0d10);
+    color: #c9a45c;
+    border-color: rgba(201,164,92,.35);
+}
+.character-details-link {
+    display: inline-block;
+    margin-top: 22px;
+    font-family: Arial, sans-serif;
+    font-size: .82rem;
+    letter-spacing: .06em;
+    text-decoration: none;
+    color: #d7c08a;
+}
+.character-details-link:hover { text-decoration: underline; }
+
+.lord-profile-art {
+    min-height: 620px;
+    border: 1px solid rgba(201,164,92,.28);
+    background:
+        radial-gradient(circle at 50% 35%, rgba(201,164,92,.18), transparent 28%),
+        linear-gradient(145deg, #191b20, #090b0e);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+.lord-profile-art::before {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    border: 2px solid rgba(201,164,92,.22);
+    border-radius: 50%;
+    top: 85px;
+}
+.lord-profile-art::after {
+    content: "✦";
+    position: absolute;
+    top: 125px;
+    color: rgba(201,164,92,.38);
+    font-size: 7rem;
+}
+.lord-profile-art span {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 55px;
+    font-family: Arial, sans-serif;
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #747a82;
+}
+.lord-profile-meta {
+    max-width: 760px;
+}
+.lord-profile-meta h2 {
+    margin-bottom: 25px;
+}
+.lord-profile-meta p:not(.section-label) {
+    font-size: 1.15rem;
+    color: #b9bdc2;
+}
+.lord-facts {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid #292e35;
+}
+.lord-facts p { margin: 10px 0; }
+@media (max-width: 800px) {
+    .lord-profile-art { min-height: 480px; }
+}
