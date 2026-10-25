@@ -1229,3 +1229,56 @@ footer {
 @media (max-width: 800px) {
     .lord-profile-art { min-height: 480px; }
 }
+
+
+/* Books page hero artwork */
+.books-page-header {
+    position: relative;
+    isolation: isolate;
+    min-height: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(9, 11, 14, 0.96) 0%,
+            rgba(9, 11, 14, 0.78) 35%,
+            rgba(9, 11, 14, 0.28) 72%,
+            rgba(9, 11, 14, 0.18) 100%
+        ),
+        linear-gradient(
+            0deg,
+            #0b0d10 0%,
+            rgba(11, 13, 16, 0.35) 20%,
+            transparent 58%
+        ),
+        url("images/books/books-hero.webp");
+    background-size: cover;
+    background-position: center 48%;
+    background-repeat: no-repeat;
+}
+
+.books-page-header .page-heading {
+    min-height: 590px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 150px;
+    padding-bottom: 90px;
+}
+
+.books-page-header .page-heading h1,
+.books-page-header .page-heading .subtitle,
+.books-page-header .page-heading .eyebrow {
+    text-shadow: 0 3px 24px rgba(0, 0, 0, 0.85);
+}
+
+@media (max-width: 700px) {
+    .books-page-header {
+        background-position: 55% center;
+    }
+
+    .books-page-header .page-heading {
+        min-height: 480px;
+        padding-top: 135px;
+        padding-bottom: 70px;
+    }
+}
