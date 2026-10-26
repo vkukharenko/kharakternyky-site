@@ -30,7 +30,46 @@
         .technology-page {
             max-width: 1180px;
             margin: 0 auto;
-            padding: 70px 24px 100px;
+            padding: 45px 24px 100px;
+        }
+
+        .misto-page-header {
+            position: relative;
+            isolation: isolate;
+            min-height: 0;
+            background:
+                linear-gradient(90deg, rgba(5, 7, 9, .90) 0%, rgba(5, 7, 9, .64) 42%, rgba(5, 7, 9, .16) 100%),
+                linear-gradient(0deg, #0b0d0f 0%, rgba(11, 13, 15, .08) 36%, rgba(5, 7, 9, .12) 100%),
+                url("../../images/technology/misto-shlyah/misto-shlyah-hero.webp");
+            background-size: cover;
+            background-position: center 52%;
+            background-repeat: no-repeat;
+        }
+
+        .misto-page-header .technology-hero {
+            max-width: 1180px;
+            min-height: 590px;
+            margin: 0 auto;
+            padding: 165px 24px 85px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 0;
+        }
+
+        .misto-page-header .technology-hero .section-label {
+            color: #c1c8ce;
+            text-shadow: 0 2px 15px rgba(0,0,0,.9);
+        }
+
+        .misto-page-header .technology-hero h1 {
+            max-width: 850px;
+            text-shadow: 0 4px 30px rgba(0,0,0,.85);
+        }
+
+        .misto-page-header .technology-hero .subtitle {
+            color: #d1d7dc;
+            text-shadow: 0 2px 20px rgba(0,0,0,.9);
         }
 
         .technology-hero {
@@ -63,13 +102,6 @@
 
         .hero-image img { display: block; width: 100%; height: auto; }
 
-        .technology-hero-image {
-            margin-top: 0;
-            margin-bottom: 28px;
-            border-radius: 12px;
-            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
-        }
-
         .technology-scheme-image {
             margin-top: 0;
             margin-bottom: 55px;
@@ -83,17 +115,14 @@
             object-fit: contain;
         }
 
-        .technology-hero-image img {
-            width: 100%;
-            aspect-ratio: 8 / 3;
-            object-fit: cover;
-            object-position: center 52%;
-        }
-
         @media (max-width: 700px) {
-            .technology-hero-image img {
-                aspect-ratio: 4 / 3;
-                object-position: 42% center;
+            .misto-page-header {
+                background-position: 45% center;
+            }
+
+            .misto-page-header .technology-hero {
+                min-height: 500px;
+                padding: 145px 22px 65px;
             }
         }
 
@@ -179,7 +208,7 @@
         }
 
         @media (max-width: 800px) {
-            .technology-page { padding: 45px 18px 70px; }
+            .technology-page { padding: 30px 18px 70px; }
             .facts, .system-list { grid-template-columns: 1fr; }
             .technology-hero .subtitle { font-size: 18px; }
         }
@@ -188,7 +217,7 @@
 
 <body>
 
-<header class="inner-header">
+<header class="inner-header misto-page-header">
     <nav class="nav">
         <a class="logo" href="../../index.html">ХАРАКТЕРНИКИ</a>
 
@@ -201,10 +230,6 @@
             <a href="../author.html">Автор</a>
         </div>
     </nav>
-</header>
-
-<main class="technology-page">
-
     <header class="technology-hero">
         <p class="section-label">ТЕХНОЛОГІЇ · ЦИВІЛЬНА ІНФРАСТРУКТУРА</p>
         <h1>Місто-шлях</h1>
@@ -214,16 +239,11 @@
             в єдину автономну мережу.
         </p>
     </header>
+</header>
 
-    <!-- Верхня ілюстрація сторінки -->
-    <figure class="hero-image technology-hero-image">
-        <img
-            src="../../images/technology/misto-shlyah/misto-shlyah-hero.webp"
-            alt="Місто-шлях — величезна трубоподібна міська конструкція на масивних опорах над засніженою поверхнею планети"
-        >
-    </figure>
+<main class="technology-page">
 
-    <!-- Канонічна схема міста-шляху — зберігається під верхньою ілюстрацією -->
+    <!-- Канонічна схема міста-шляху — під верхнім банером -->
     <figure class="hero-image technology-scheme-image">
         <img
             src="../../images/technology/misto-shlyah/misto-shlyah.webp"
