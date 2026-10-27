@@ -1335,3 +1335,11 @@ footer {
         padding-bottom: 70px;
     }
 }
+
+
+/* Navigation-only internal headers must not reserve the default 65vh hero space. */
+.inner-header.nav-only-header {
+    min-height: 0;
+    height: 0;
+    background: none;
+}
