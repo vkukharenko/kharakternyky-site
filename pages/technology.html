@@ -30,6 +30,30 @@
             padding: 70px 24px 100px;
         }
 
+        .technology-top {
+            position: relative;
+            width: 100%;
+            height: clamp(260px, 38vw, 560px);
+            overflow: hidden;
+            background: #10151a;
+        }
+
+        .technology-top::after {
+            content: "";
+            position: absolute;
+            inset: 45% 0 0;
+            background: linear-gradient(180deg, transparent, rgba(11, 13, 15, 0.45));
+            pointer-events: none;
+        }
+
+        .technology-top img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 54%;
+        }
+
         .technology-hero {
             padding-bottom: 45px;
             border-bottom: 1px solid var(--tech-border);
@@ -151,6 +175,10 @@
         }
 
         @media (max-width: 800px) {
+            .technology-top {
+                height: clamp(220px, 55vw, 360px);
+            }
+
             .technology-page {
                 padding: 45px 18px 70px;
             }
@@ -183,6 +211,12 @@
         </div>
     </nav>
 </header>
+
+<section class="technology-top" aria-label="Технології всесвіту «Характерники»">
+    <img src="../images/technology/technology-hero.webp?v=20261027"
+         alt="Футуристична військово-технічна база з бойовими платформами, дронами та ремонтними зонами"
+         fetchpriority="high">
+</section>
 
 <main class="technology-page">
 
