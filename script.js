@@ -27,17 +27,36 @@ document.addEventListener("DOMContentLoaded", function () {
             imagesContainer.dataset.loaded = "true";
             loadDayImages(dayNumber, imagesContainer, bookPath, isEnglish);
         });
+
+        // Show illustrations immediately for the first available day so the gallery
+        // never looks empty when the page opens.
+        if (day === firstDay) {
+            details.open = true;
+            imagesContainer.dataset.loaded = "true";
+            loadDayImages(dayNumber, imagesContainer, bookPath, isEnglish);
+        }
     }
 });
 
 function loadDayImages(dayNumber, container, bookPath, isEnglish) {
     let imageNumber = 1;
     let consecutiveMisses = 0;
+    let loadedImages = 0;
     const maxImageNumber = 100;
     const maxConsecutiveMisses = 3;
 
     function loadNextImage() {
-        if (imageNumber > maxImageNumber || consecutiveMisses >= maxConsecutiveMisses) return;
+        if (imageNumber > maxImageNumber || consecutiveMisses >= maxConsecutiveMisses) {
+            if (loadedImages === 0) {
+                const note = document.createElement("p");
+                note.className = "book-note";
+                note.textContent = isEnglish
+                    ? "No illustrations were found for this day."
+                    : "Для цього дня ілюстрацій не знайдено.";
+                container.appendChild(note);
+            }
+            return;
+        }
 
         const number = String(imageNumber).padStart(3, "0");
         const image = document.createElement("img");
@@ -49,6 +68,7 @@ function loadDayImages(dayNumber, container, bookPath, isEnglish) {
         image.loading = "lazy";
 
         image.onload = function () {
+            loadedImages++;
             consecutiveMisses = 0;
             loadNextImage();
         };
@@ -61,6 +81,7 @@ function loadDayImages(dayNumber, container, bookPath, isEnglish) {
 
         image.src = `${bookPath}day-${dayNumber}-${number}.webp`;
         imageNumber++;
+        container.appendChild(image);
     }
 
     loadNextImage();
