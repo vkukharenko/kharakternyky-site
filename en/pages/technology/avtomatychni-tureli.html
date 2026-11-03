@@ -22,6 +22,21 @@
 .page .technical-scheme img{display:block;width:100%;height:auto;max-width:100%;border-radius:5px}
 .page .technical-scheme figcaption{margin-top:12px;color:#9da7b0;font-size:14px;line-height:1.6}
 @media(max-width:760px){.tech-hero-banner{width:calc(100% - 32px);height:340px;margin-top:22px}.tech-hero-banner>.hero{padding:26px 24px!important}.page{padding:20px 16px 60px!important}.page .technical-scheme{padding:8px}}
+ 
+/* Shared framed hero: image and title occupy one fixed landscape panel. */
+.tech-hero-banner{position:relative!important;isolation:isolate;display:block!important;width:calc(100% - 48px)!important;max-width:1180px!important;height:420px!important;margin:34px auto 0!important;overflow:hidden!important;border:1px solid #303943!important;background:#0b0d10!important;box-sizing:border-box}
+.tech-hero-banner>img{position:absolute;inset:0;display:block;width:100%;height:100%;max-height:none!important;object-fit:cover!important;object-position:center 48%}
+.tech-hero-banner>.hero{position:absolute!important;inset:0!important;z-index:2;display:flex!important;flex-direction:column;align-items:flex-start;justify-content:flex-end;min-height:0!important;margin:0!important;padding:42px 48px!important;border:0!important;background:linear-gradient(90deg,rgba(5,8,12,.88),rgba(5,8,12,.52) 62%,rgba(5,8,12,.10))!important}
+.tech-hero-banner>.hero .eyebrow{color:#d4a653!important;margin:0 0 14px}
+.tech-hero-banner>.hero h1{margin:0 0 14px!important;font-size:clamp(42px,7vw,78px)!important;line-height:1!important;color:#edf1f3!important}
+.tech-hero-banner>.hero .subtitle{max-width:850px!important;margin:0!important;color:#c5cdd3!important;font-size:clamp(18px,2vw,21px)!important;line-height:1.55!important}
+.page{padding-top:0!important}
+.page>section{padding:42px 0!important;border-top:1px solid #29313a;margin:0!important}
+.page section h2{margin:0 0 24px!important}
+.page .technical-scheme,.page .scheme-wrap{margin:28px 0 0;padding:14px;background:#0d151c;border:1px solid #303943;border-radius:9px;overflow:hidden}
+.page .technical-scheme img,.page .scheme-wrap img{display:block;width:100%;height:auto;max-width:100%;border-radius:5px}
+.page .technical-scheme figcaption{margin-top:12px;color:#9da7b0;font-size:14px;line-height:1.6}
+@media(max-width:760px){.tech-hero-banner{width:calc(100% - 32px)!important;height:340px!important;margin-top:22px!important}.tech-hero-banner>.hero{padding:26px 24px!important}.page{padding:20px 16px 60px!important}.page .technical-scheme,.page .scheme-wrap{padding:8px}}
 </style>
 </head>
 <body>
