@@ -1,44 +1,107 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Automated Turrets — Kharakternyky</title><meta name="description" content="Automated turrets: a mass-produced defensive system of the United Humanity in the Kharakternyky universe.">
-<link rel="stylesheet" href="../../../style.css"><link rel="stylesheet" href="../../../css/technology-page.css">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automated Turrets — Kharakternyky</title>
+<meta name="description" content="Automated turrets — a defensive system of the United Humanity in the Kharakternyky universe.">
+<link rel="stylesheet" href="../../../style.css">
+<link rel="stylesheet" href="../../../css/technology-page.css">
 <style>
-.page{max-width:1160px;margin:0 auto;padding:55px 24px 100px}.hero{padding:45px 0 42px;border-bottom:1px solid #2a3239;margin:0 0 35px}.hero h1{font-size:clamp(42px,7vw,78px);line-height:1;margin:0 0 14px;color:#e4ebef}.eyebrow{color:#929ba3;font-size:13px;letter-spacing:.18em;text-transform:uppercase}.subtitle{font-size:21px;color:#929ba3;max-width:850px}.lead{font-size:20px;color:#c8d0d5;max-width:900px}.definition,.card,.spec,.quote,.canon{padding:24px 28px;background:#151a1f;border:1px solid #2a3239;border-radius:9px;margin:22px 0}.definition{border-left:3px solid #b7c4ce}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card h3,h2{color:#e4ebef}.card p{color:#b5bdc4}.section{margin-top:55px}.section h2{font-size:32px}.spec{display:grid;grid-template-columns:190px 1fr;gap:20px}.spec b{color:#929ba3;text-transform:uppercase;font-size:13px}.quote{font-size:20px;color:#e4ebef}.back{display:inline-block;margin-top:30px;color:#d5d9dd}@media(max-width:800px){.page{padding:40px 18px 70px}.grid{grid-template-columns:1fr}.spec{grid-template-columns:1fr;gap:5px}.subtitle{font-size:18px}}
-
-.technology-hero-image{width:100%;margin:0 auto;background:#0b0d0f;overflow:hidden}
-.technology-hero-image img{display:block;width:100%;height:auto;max-height:560px;object-fit:cover;object-position:center}
-.technical-scheme{margin:28px 0 0;padding:14px;background:#0d151c;border:1px solid #24516a;border-radius:9px}
-.technical-scheme img{display:block;width:100%;height:auto;max-width:100%;border-radius:5px}
-.technical-scheme figcaption{margin-top:12px;color:#929ba3;font-size:14px;line-height:1.6}
-@media(max-width:800px){.technology-hero-image img{max-height:none}.technical-scheme{padding:8px}}
-</style></head><body>
+/* Keep the hero inside the same framed landscape area used by other technology pages. */
+.tech-hero-banner{position:relative;isolation:isolate;display:block;width:calc(100% - 48px);max-width:1180px;height:420px;margin:34px auto 0;overflow:hidden;border:1px solid #303943;background:#0b0d10}
+.tech-hero-banner>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 48%}
+.tech-hero-banner>.hero{position:absolute!important;inset:0;z-index:2;display:flex!important;flex-direction:column;align-items:flex-start;justify-content:flex-end;min-height:0!important;margin:0!important;padding:42px 48px!important;border:0!important;border-bottom:0!important;background:linear-gradient(90deg,rgba(5,8,12,.88),rgba(5,8,12,.52) 62%,rgba(5,8,12,.12))!important}
+.tech-hero-banner>.hero .eyebrow{color:#d4a653!important;margin:0 0 14px}
+.tech-hero-banner>.hero h1{margin:0 0 14px!important;font-size:clamp(42px,7vw,78px)!important;line-height:1!important;color:#edf1f3!important}
+.tech-hero-banner>.hero .subtitle{max-width:850px!important;margin:0!important;color:#c5cdd3!important;font-size:clamp(18px,2vw,21px)!important;line-height:1.55!important}
+.page{padding-top:0!important}
+.page>section{padding:42px 0!important;border-top:1px solid #29313a;margin:0!important}
+.page section h2{margin:0 0 24px!important}
+.page .technical-scheme{margin:28px 0 0;padding:14px;background:#0d151c;border:1px solid #303943;border-radius:9px}
+.page .technical-scheme img{display:block;width:100%;height:auto;max-width:100%;border-radius:5px}
+.page .technical-scheme figcaption{margin-top:12px;color:#9da7b0;font-size:14px;line-height:1.6}
+@media(max-width:760px){.tech-hero-banner{width:calc(100% - 32px);height:340px;margin-top:22px}.tech-hero-banner>.hero{padding:26px 24px!important}.page{padding:20px 16px 60px!important}.page .technical-scheme{padding:8px}}
+</style>
+</head>
+<body>
 <header class="inner-header nav-only-header"><nav class="nav"><a class="logo" href="../../index.html">KHARAKTERNYKY</a><div class="nav-links"><a href="../books.html">Books</a><a href="../universe.html">Universe</a><a class="active" href="../technology.html">Technology</a><a href="../characters.html">Characters</a><a href="../gallery.html">Gallery</a><a href="../author.html">Author</a><a href="../../../pages/technology/avtomatychni-tureli.html" lang="uk">UK</a></div></nav></header>
-<figure class="technology-hero-image"><img src="../../../images/technology/automated-turrets/automated-turrets-hero.webp" alt="Automated mobile turrets defending a ruined settlement at sunset" fetchpriority="high"></figure>
-<main class="page"><header class="hero"><p class="eyebrow">MILITARY TECHNOLOGY · UNITED HUMANITY</p><h1>Automated Turrets</h1><p class="subtitle">A mass-produced automated defensive system designed to reduce the need to keep people permanently stationed at dangerous positions.</p></header>
-<section><p class="lead">The turrets are not presented in the books as a newly invented wonder weapon. Automated turrets had existed for a long time. What changed was that Zero Plan technology made rapid mass production possible, while the thought-link removed the main limitation of conventional remote-controlled systems.</p><div class="definition"><strong>Canonical role:</strong> a turret takes over observation and fire support at a dangerous position, but remains part of a defensive network, working with an operator, drones, sensors and other systems.</div></section>
-<section class="section"><h2>How the system emerged</h2><div class="grid">
+<section class="tech-hero-banner" aria-label="Automated turrets defending a ruined settlement">
+<img src="../../../images/technology/automated-turrets/automated-turrets-hero.webp" alt="Automated mobile turrets defending a ruined settlement at sunset" fetchpriority="high">
+<header class="hero">
+<p class="eyebrow">Military technology · United Humanity</p>
+<h1>Automated Turrets</h1>
+<p class="subtitle">A mass-produced automated defensive system designed to reduce the need to keep people permanently stationed at dangerous positions.</p>
+</header>
+</section>
+<main class="page">
+<section>
+<p class="lead">The turrets are not presented in the books as a newly invented wonder weapon. Automated turrets had existed for a long time. What changed was that Zero Plan technology made rapid mass production possible, while the thought-link removed the main limitation of conventional remote-controlled systems.</p>
+<div class="definition"><strong>Canonical role:</strong> a turret takes over observation and fire support at a dangerous position, but remains part of a defensive network, working with an operator, drones, sensors and other systems.</div>
+</section>
+<section>
+<h2>How the system emerged</h2>
+<div class="grid">
 <article class="card"><h3>The problem</h3><p>Under sustained enemy pressure, defence forces had to commit personnel not only to direct combat. They also needed observers, approach security, sentries at firing points and reserve positions. A person might have to wait for hours under the threat of drones.</p></article>
 <article class="card"><h3>The solution</h3><p>Officers proposed using automated turrets equipped with cameras, a thermal imager, a machine gun, actuators and remote control. The operator could remain under cover while the machine worked where a person's continuous presence was dangerous.</p></article>
 <article class="card"><h3>Why now?</h3><p>The Zero Plan provided ready-made components and production lines. There was no need to reinvent the turret: the existing principle could be adapted and moved directly into serial production.</p></article>
 <article class="card"><h3>Thought-link</h3><p>A conventional radio channel can be jammed. Thought-link communication does not have the same physical dependence on terrain, distance and the radio spectrum. The operator can remain far behind the front and see what the machine sees.</p></article>
-</div></section>
-<section class="section"><h2>Technical layout</h2><div class="card"><p>The canonical system consists of a sensor unit, a combat module, a powered rotating platform and a control system. The sensor unit includes cameras and a thermal imager; the combat module carries a machine gun or another compatible configuration. The operator controls the turret remotely, using thought-link and the wider network.</p><p>Exact physical dimensions and performance figures are not established in the books and are therefore not presented as fixed specifications.</p><figure class="technical-scheme"><img src="../../../images/technology/automated-turrets/automated-turrets-technical.webp" alt="Technical overview of the automated turret: construction, variants, dimensions, integration, operating modes and specifications" loading="lazy"><figcaption>Technical overview of the automated turret system, its main components, configurations and integration into the United Humanity defensive network.</figcaption></figure></div></section>
-<section class="section"><h2>Key characteristics</h2><div class="card">
-<div class="spec"><b>Type</b><span>Automated defensive turret.</span></div><div class="spec"><b>Core equipment</b><span>Cameras, thermal imager, machine gun, actuators and remote-control system.</span></div><div class="spec"><b>Control</b><span>An operator under cover; the updated system uses thought-link.</span></div><div class="spec"><b>Production</b><span>Serial production using Zero Plan components and manufacturing lines; the initial requirement was hundreds of machines.</span></div><div class="spec"><b>Communications</b><span>Thought-link reduces dependence on conventional radio channels and intermediate relays.</span></div><div class="spec"><b>Role</b><span>Defending positions, settlements and facilities where a person's permanent presence would create unnecessary risk.</span></div>
-</div></section>
-<section class="section"><h2>How thought-link changes the turret</h2><p>Earlier automated turrets depended on conventional communications. If the enemy jammed the radio spectrum, the operator could lose control of the machine. In the updated system, the operator can remain far behind the front while receiving the same picture seen by the turret.</p><p>This matters beyond command and control. An operator no longer has to be physically close to every position. The system can be deployed where keeping a person under constant observation or fire would be an unjustifiable risk.</p></section>
-<section class="section"><h2>Integration into the defensive network</h2><div class="grid">
+</div>
+</section>
+<section>
+<h2>Technical layout</h2>
+<div class="card">
+<p>The canonical system consists of a sensor unit, a combat module, a powered rotating platform and a control system. The sensor unit includes cameras and a thermal imager; the combat module carries a machine gun or another compatible configuration. The operator controls the turret remotely, using thought-link and the wider network.</p>
+<p>Exact physical dimensions and performance figures are not established in the books and are therefore not presented as fixed specifications.</p>
+<figure class="technical-scheme">
+<img src="../../../images/technology/automated-turrets/automated-turrets-technical.webp" alt="Technical overview of the automated turret: construction, variants, dimensions, integration, operating modes and specifications" loading="lazy">
+<figcaption>Technical overview of the automated turret system, its main components, configurations and integration into the United Humanity defensive network.</figcaption>
+</figure>
+</div>
+</section>
+<section>
+<h2>Key characteristics</h2>
+<div class="card">
+<div class="spec"><b>Type</b><span>Automated defensive turret.</span></div>
+<div class="spec"><b>Core equipment</b><span>Cameras, thermal imager, machine gun, actuators and remote-control system.</span></div>
+<div class="spec"><b>Control</b><span>An operator under cover; the updated system uses thought-link.</span></div>
+<div class="spec"><b>Production</b><span>Serial production using Zero Plan components and manufacturing lines; the initial requirement was hundreds of machines.</span></div>
+<div class="spec"><b>Communications</b><span>Thought-link reduces dependence on conventional radio channels and intermediate relays.</span></div>
+<div class="spec"><b>Role</b><span>Defending positions, settlements and facilities where a person's permanent presence would create unnecessary risk.</span></div>
+</div>
+</section>
+<section>
+<h2>How thought-link changes the turret</h2>
+<p>Earlier automated turrets depended on conventional communications. If the enemy jammed the radio spectrum, the operator could lose control of the machine. In the updated system, the operator can remain far behind the front while receiving the same picture seen by the turret.</p>
+<p>This matters beyond command and control. An operator no longer has to be physically close to every position. The system can be deployed where keeping a person under constant observation or fire would be an unjustifiable risk.</p>
+</section>
+<section>
+<h2>Integration into the defensive network</h2>
+<div class="grid">
 <article class="card"><h3>Turret + operator</h3><p>The machine works at a dangerous position while the operator controls it from a safer location.</p></article>
 <article class="card"><h3>Turret + drones</h3><p>Drones and turrets can form parts of one observation and defence system, sharing information across a common network.</p></article>
 <article class="card"><h3>Turret + sensors</h3><p>Cameras and thermal imagers provide information about the situation. Automated defence can use these data to detect and track targets.</p></article>
 <article class="card"><h3>Friendly-force identification</h3><p>A deployed automated defence system must distinguish friendly forces from the enemy. Thought-link and the associated bracelets become part of that identification process.</p></article>
-</div></section>
-<section class="section"><h2>Deployment options</h2><div class="grid">
+</div>
+</section>
+<section>
+<h2>Deployment options</h2>
+<div class="grid">
 <article class="card"><h3>Permanent positions</h3><p>Turrets are installed where a dangerous approach must be monitored continuously without keeping a soldier on duty there.</p></article>
 <article class="card"><h3>Reserve positions</h3><p>Some machines can be deployed at additional positions and used as the situation changes.</p></article>
 <article class="card"><h3>Settlements and facilities</h3><p>The system is not intended only for the front line. It can protect approaches, important facilities and areas where the burden on personnel needs to be reduced.</p></article>
 <article class="card"><h3>Mass deployment</h3><p>The key advantage of Zero Plan technology was the ability to move from a handful of experimental machines to serial production.</p></article>
-</div></section>
+</div>
+</section>
 <div class="quote">“We do not need to invent the principle itself. We can take what already works, adapt it to our conditions and start producing it by the hundreds.”</div>
-<section class="canon"><h2>Canon of Kharakternyky</h2><p>Automated turrets are not robotic soldiers or a separate class of humanoid machines. They are defensive weapon systems designed for a specific task: observe, transmit information, traverse and fire under an operator's control.</p><p>Their technological advantage during the events of Book Two comes from combining the established turret concept, the manufacturing capacity of the Zero Plan, artificial intelligence and thought-link.</p><p>The system is primarily intended to reduce the number of people who must remain at dangerous positions and to connect those positions to a unified defensive network.</p></section>
-<a class="back" href="../technology.html">← Back to the technology catalogue</a></main><footer class="footer"><p>© 2026 Volodymyr Kukharenko · Technologies of the Kharakternyky universe</p></footer></body></html>
+<section class="canon">
+<h2>Canon of Kharakternyky</h2>
+<p>Automated turrets are not robotic soldiers or a separate class of humanoid machines. They are defensive weapon systems designed for a specific task: observe, transmit information, traverse and fire under an operator's control.</p>
+<p>Their technological advantage during the events of Book Two comes from combining the established turret concept, the manufacturing capacity of the Zero Plan, artificial intelligence and thought-link.</p>
+<p>The system is primarily intended to reduce the number of people who must remain at dangerous positions and to connect those positions to a unified defensive network.</p>
+</section>
+<a class="back" href="../technology.html">← Back to the technology catalogue</a>
+</main>
+<footer class="footer"><p>© 2026 Volodymyr Kukharenko · Technologies of the Kharakternyky universe</p></footer>
+</body>
+</html>
