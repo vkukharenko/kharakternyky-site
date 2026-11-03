@@ -1,0 +1,42 @@
+/* Shared visual system for technology reference pages — aligned with R-17 */
+:root{--tech-bg:#0b0d10;--tech-panel:#11171d;--tech-card:#141b22;--tech-border:#303943;--tech-text:#d9dee2;--tech-muted:#9da7b0;--tech-gold:#d4a653;--tech-gold-bright:#e0b45f}
+body{background:var(--tech-bg);color:var(--tech-text)}
+.page,.technology-page,.transfer-page{max-width:1180px!important;margin:0 auto!important;padding:34px 24px 90px!important;color:var(--tech-text)}
+.page>header.hero,.technology-page>.technology-hero,.transfer-page>header{position:relative;isolation:isolate;min-height:260px;padding:42px 46px 38px!important;margin:0 0 24px!important;border:1px solid var(--tech-border)!important;border-bottom:1px solid var(--tech-border)!important;background:radial-gradient(ellipse at 78% 28%,#293640 0%,#171e25 42%,#0b0d10 100%)!important;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start}
+.page>header.hero h1,.technology-page>.technology-hero h1,.transfer-page>header h1{font-size:clamp(2.8rem,7vw,5.8rem)!important;line-height:1.02!important;font-weight:500!important;letter-spacing:-.035em;margin:10px 0 18px!important;color:#edf1f3!important}
+.page>header.hero .subtitle,.technology-page>.technology-hero .subtitle,.transfer-page>header .lead{font-size:clamp(1.05rem,2vw,1.25rem)!important;line-height:1.65!important;color:#b9c2ca!important;max-width:820px!important;margin:0!important}
+.page .eyebrow,.technology-page .section-label,.transfer-page .transfer-kicker{font: .75rem Arial,sans-serif!important;letter-spacing:.18em!important;text-transform:uppercase;color:var(--tech-gold)!important}
+.page>section,.technology-page>.content-section,.transfer-page>section{padding:42px 0!important;border-top:1px solid #29313a;margin:0!important}
+.page section h2,.technology-page section h2,.transfer-page section h2{font-size:clamp(1.8rem,3.5vw,2.8rem)!important;line-height:1.15;font-weight:400!important;color:#e5e9ec!important;margin:0 0 22px!important}
+.page section h3,.technology-page section h3,.transfer-page section h3{font-size:1.3rem;font-weight:500;color:#e1e6ea}
+.page p,.technology-page p,.transfer-page p,.page li,.technology-page li,.transfer-page li{color:#b8c1c8;line-height:1.75}
+.page .lead,.technology-page .lead,.transfer-page .lead{font-size:1.12rem;color:#c5cdd3;max-width:940px}
+.page .technology-image,.technology-page .hero-image,.transfer-page .transfer-visual,.transfer-page .transfer-process-image{margin:24px 0 38px!important;padding:10px!important;background:#10161c!important;border:1px solid var(--tech-border)!important}
+.page .technology-image img,.technology-page .hero-image img,.transfer-page .transfer-visual img,.transfer-page .transfer-process-image img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+.page .banner,.page .boiovyi-ekzoskelet-banner,.page .chimera-banner,.page .gilkomet-banner,.technology-page .misto-banner{width:100%;height:auto;min-height:0;max-height:none;overflow:hidden;background:#10161c;border:1px solid var(--tech-border);margin:24px 0}
+.page .banner img,.page .boiovyi-ekzoskelet-banner img,.page .chimera-banner img,.page .gilkomet-banner img,.technology-page .misto-banner img{display:block;width:100%;height:auto;max-height:620px;object-fit:cover}
+.page .grid,.page .card-grid,.page .spec-grid,.technology-page .facts,.technology-page .system-list,.transfer-page .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.page .card,.page .definition,.page .quote,.page .canon,.page .warning,.page .model-note,.technology-page .fact,.technology-page .system-list>* ,.transfer-page .transfer-note{background:var(--tech-panel)!important;border:1px solid var(--tech-border)!important;padding:22px 24px!important;color:#c2cbd1}
+.page .card h3,.technology-page .fact h3{margin:0 0 10px;color:#e1e6ea}
+.page .card p,.technology-page .fact p{margin:0}
+.page .definition,.page .quote,.page .canon,.page .warning,.page .model-note,.transfer-page .transfer-note{border-left:3px solid #bd9149!important}
+.page .spec-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.page .spec{display:flex;flex-direction:column;gap:7px;padding:18px;background:#11171d;border:1px solid var(--tech-border)}
+.page .spec-title,.page .spec b{font:.72rem Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--tech-gold)}
+.page .spec-value{color:#d0d7dc}
+.page .scheme-wrap,.page .table-wrap{background:#10161c;border:1px solid var(--tech-border);padding:12px;overflow-x:auto}
+.page .scheme-wrap svg{display:block;width:100%;height:auto}
+.page table,.technology-page table,.transfer-page table{width:100%;border-collapse:collapse;background:#11171d}
+.page th,.technology-page th,.transfer-page th,.page td,.technology-page td,.transfer-page td{padding:14px 16px;border-bottom:1px solid var(--tech-border);text-align:left}
+.page th,.technology-page th,.transfer-page th{font:.75rem Arial,sans-serif;letter-spacing:.1em;color:var(--tech-gold)}
+.page td,.technology-page td,.transfer-page td{color:#c2cbd1}
+.page a,.technology-page a,.transfer-page a{color:var(--tech-gold-bright)}
+.page footer,.technology-page footer,.transfer-page footer{border-top:1px solid var(--tech-border);color:var(--tech-muted)}
+.page .back,.page .r17-back,.technology-page .back,.transfer-page .back{display:inline-block;margin-top:28px;color:var(--tech-gold-bright);text-decoration:none}
+@media(max-width:760px){
+ .page,.technology-page,.transfer-page{padding:24px 16px 60px!important}
+ .page>header.hero,.technology-page>.technology-hero,.transfer-page>header{min-height:220px;padding:28px 24px!important}
+ .page .grid,.page .card-grid,.page .spec-grid,.technology-page .facts,.technology-page .system-list,.transfer-page .grid{grid-template-columns:1fr}
+ .page .technology-image,.technology-page .hero-image,.transfer-page .transfer-visual,.transfer-page .transfer-process-image{padding:6px!important}
+ .page th,.technology-page th,.transfer-page th,.page td,.technology-page td,.transfer-page td{padding:10px 8px;font-size:.9rem}
+}
