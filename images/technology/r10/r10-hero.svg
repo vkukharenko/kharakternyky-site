@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#303b43"/><stop offset="1" stop-color="#11171b"/></linearGradient><linearGradient id="armor" x2="0.8" y2="1"><stop stop-color="#68716b"/><stop offset=".48" stop-color="#343e3d"/><stop offset="1" stop-color="#171f22"/></linearGradient><linearGradient id="glass" x2="0" y2="1"><stop stop-color="#d6b36c" stop-opacity=".9"/><stop offset="1" stop-color="#765b2e" stop-opacity=".25"/></linearGradient></defs>
+<rect width="1600" height="900" fill="url(#bg)"/><path d="M0 650L240 530 440 620 700 490 930 610 1190 480 1600 620V900H0Z" fill="#252e30"/><path d="M0 720L350 650 620 720 980 630 1300 710 1600 650V900H0Z" fill="#171e21"/>
+<g stroke="#161d20" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" fill="none">
+<path d="M540 505L420 585L350 735L260 765"/><path d="M675 545L610 665L570 790L505 815"/><path d="M820 545L840 675L820 800L760 820"/>
+<path d="M960 500L1100 585L1190 735L1290 760"/><path d="M1060 530L1160 650L1230 790L1300 820"/><path d="M1160 485L1300 555L1390 690L1480 710"/>
+</g>
+<g fill="#56615c" stroke="#11191c" stroke-width="15"><path d="M370 720l-130 30 8 48 135-9z"/><path d="M530 780l-90 24 8 38 104-8z"/><path d="M780 790l-75 25 6 39 91-8z"/><path d="M1190 710l120 25 8 42-130-7z"/><path d="M1220 770l105 30-2 40-113-10z"/><path d="M1380 670l115 30 5 42-120-9z"/></g>
+<g fill="#414b49" stroke="#11191c" stroke-width="18"><circle cx="420" cy="585" r="44"/><circle cx="610" cy="665" r="42"/><circle cx="840" cy="675" r="42"/><circle cx="1100" cy="585" r="44"/><circle cx="1160" cy="650" r="42"/><circle cx="1300" cy="555" r="42"/></g>
+<path d="M420 500L520 370L760 315L1030 355L1190 470L1120 590L930 640L600 610L420 550Z" fill="url(#armor)" stroke="#11191c" stroke-width="22"/>
+<path d="M510 390L760 330L1030 365L1120 465L940 500L580 480Z" fill="#737b70" opacity=".35" stroke="#20282a" stroke-width="10"/>
+<path d="M625 420L760 375L920 390L1000 455L850 480L650 470Z" fill="#202a2c" stroke="#11191c" stroke-width="14"/>
+<path d="M700 410L790 385L900 398L935 442L820 460L710 445Z" fill="url(#glass)" stroke="#151d20" stroke-width="10"/>
+<path d="M600 510L720 500L750 550L610 560Z M930 510L1050 500L1030 555L900 560Z" fill="#1b2426" stroke="#101719" stroke-width="10"/>
+<g fill="#f2d27b"><rect x="550" y="505" width="85" height="23" rx="8"/><rect x="1010" y="505" width="85" height="23" rx="8"/></g>
+<g fill="#d2a44d" stroke="#11191c" stroke-width="8"><rect x="475" y="493" width="78" height="30" rx="9"/><rect x="1090" y="493" width="78" height="30" rx="9"/></g>
+<g fill="#323d3c" stroke="#11191c" stroke-width="14"><path d="M480 475L360 390L260 405L230 465L330 500L430 510Z"/><path d="M1120 470L1240 385L1345 405L1380 465L1280 500L1170 510Z"/></g>
+<g fill="#66716a" stroke="#11191c" stroke-width="12"><path d="M260 405L190 380L145 420L200 480L260 465Z"/><path d="M1345 405L1415 380L1460 420L1405 480L1345 465Z"/></g>
+<g stroke="#11191c" stroke-width="16" fill="#313b39"><path d="M500 480L430 430L385 450L440 510Z"/><path d="M1120 480L1190 430L1235 450L1180 510Z"/></g>
+<g fill="#d4a653"><path d="M240 425l42-12 12 14-42 12z"/><path d="M1360 425l-42-12-12 14 42 12z"/></g>
+<!-- rider -->
+<g stroke="#11191c" stroke-width="18" stroke-linejoin="round"><path d="M720 315L690 250L735 190L835 185L895 250L870 330L790 355Z" fill="#424c4b"/><path d="M735 205L770 145L850 155L885 220L835 250L755 240Z" fill="#56615e"/><path d="M755 190L790 165L850 175L866 210L815 225Z" fill="#182225"/><path d="M700 275L620 320L680 350L755 315Z" fill="#424c4b"/><path d="M870 270L955 310L930 345L850 320Z" fill="#424c4b"/></g>
+<path d="M770 170L850 180" stroke="#e4c77f" stroke-width="9"/>
+<g fill="#d2a44d"><path d="M465 585l95 0-22 18h-90z"/><path d="M1000 585l95 0-22 18h-90z"/></g>
+<text x="800" y="750" font-family="Arial,sans-serif" font-size="72" letter-spacing="16" text-anchor="middle" fill="#d7b36a" opacity=".9">R-10</text>
+<text x="800" y="805" font-family="Arial,sans-serif" font-size="24" letter-spacing="8" text-anchor="middle" fill="#aeb8b7">CRAB-SHAPED INFANTRY SUPPORT PLATFORM</text>
+</svg>
