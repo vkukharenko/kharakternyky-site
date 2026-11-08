@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const firstDay = Number.parseInt(gallery.dataset.firstDay, 10);
     const lastDay = Number.parseInt(gallery.dataset.lastDay, 10);
     const isEnglish = document.documentElement.lang.toLowerCase().startsWith("en");
+    const customDayLabel = gallery.dataset.dayLabel;
 
     if (!bookPath || Number.isNaN(firstDay) || Number.isNaN(lastDay) || lastDay < firstDay) return;
 
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         details.className = "book-day";
 
         const summary = document.createElement("summary");
-        summary.textContent = isEnglish ? `Day ${dayNumber}` : `День ${dayNumber}`;
+        summary.textContent = customDayLabel || (isEnglish ? `Day ${dayNumber}` : `День ${dayNumber}`);
 
         const imagesContainer = document.createElement("div");
         imagesContainer.className = "day-images";
