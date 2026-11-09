@@ -1,374 +1,118 @@
 <!DOCTYPE html>
 <html lang="uk">
-
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Найрін — Дорога додому</title>
-
-    <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="../../css/books.css">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Найрін — Дорога додому</title>
+<meta name="description" content="Історія Найріна — шлях крізь чужі світи в пошуках молодшого брата.">
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../css/books.css">
+<style>
+.book-hero{width:100%;max-width:1600px;margin:0 auto;position:relative;overflow:hidden;background:#0b0d0f}
+.book-hero .hero-image{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+.hero-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:30px;background:linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.55));color:#f0f2f4}
+.hero-overlay .series{font-size:clamp(12px,1.2vw,18px);letter-spacing:.22em;color:#d9b96e;margin:0 0 16px}
+.hero-overlay h1{font-size:clamp(42px,7vw,100px);line-height:1;margin:10px 0}
+.hero-overlay h2{font-size:clamp(22px,3vw,38px);font-weight:normal;margin:12px 0 0;color:#d1d5da}
+.book-description,.book-gallery{padding:55px 0;background:#0b0d10;color:#c1c8ce}
+.book-description .container,.book-gallery .container{width:min(1100px,92%);margin:0 auto}
+.book-description h2,.book-gallery h2{color:#e8edf1;margin:0 0 22px}
+.book-description p,.book-description li{line-height:1.8;font-size:18px}
+.chapter-list{display:grid;gap:54px}
+.chapter{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,1fr);gap:24px 34px;align-items:start}
+.chapter h3{grid-column:1/-1;color:#e8edf1;font-size:clamp(22px,3vw,30px);margin:0;border-bottom:1px solid #394149;padding-bottom:14px}
+.chapter img{display:block;width:100%;height:auto;border:1px solid #2a3239;border-radius:8px}
+.chapter-text{color:#c1c8ce;font-size:18px;line-height:1.85}
+.chapter-text p{margin:0}
+.chapter-final{margin-top:54px;padding-top:34px;border-top:1px solid #394149}
+.chapter-final h3{color:#e8edf1}
+@media(max-width:700px){.hero-overlay{padding:14px}.hero-overlay h1{font-size:clamp(30px,8vw,52px)}.hero-overlay h2{font-size:20px}.book-description,.book-gallery{padding:38px 0}.chapter{grid-template-columns:1fr}.chapter-text{font-size:16px}}
+</style>
 </head>
-
 <body>
-
-<header class="book-page-header">
-    <nav class="nav">
-        <a class="logo" href="../../index.html">ХАРАКТЕРНИКИ</a>
-
-        <div class="nav-links">
-            <a href="../books.html">Книги</a>
-            <a href="../universe.html">Всесвіт</a>
-            <a href="../technology.html">Технології</a>
-            <a href="../characters.html">Персонажі</a>
-            <a href="../gallery.html">Галерея</a>
-            <a href="../author.html">Автор</a>
-        <a href="../../en/pages/books/nayrin.html" lang="en" aria-label="English version">EN</a>
-        </div>
-    </nav>
-</header>
-
+<header class="book-page-header"><nav class="nav">
+<a class="logo" href="../../index.html">ХАРАКТЕРНИКИ</a>
+<div class="nav-links">
+<a href="../books.html">Книги</a><a href="../universe.html">Всесвіт</a><a href="../technology.html">Технології</a><a href="../characters.html">Персонажі</a><a href="../gallery.html">Галерея</a><a href="../author.html">Автор</a><a href="../../en/pages/books/nayrin.html" lang="en" aria-label="English version">EN</a>
+</div></nav></header>
 <main>
-
-    <!-- ===================================== -->
-    <!-- HERO                                  -->
-    <!-- ===================================== -->
-
-<section class="book-hero">
-
-    <img
-        src="../../images/books/nayrin/cover.webp"
-        alt="Найрін — Дорога додому"
-        class="hero-image">
-
-    <div class="hero-overlay">
-
-        <p class="series">
-            ІСТОРІЇ СВІТІВ
-        </p>
-
-        <h1>Найрін</h1>
-
-        <h2>Дорога додому</h2>
-
-    </div>
-
-</section>
-
-    <!-- ===================================== -->
-    <!-- АНОТАЦІЯ                              -->
-    <!-- ===================================== -->
-
-    <section class="book-description">
-
-        <div class="container">
-
-            <h2>Про книгу</h2>
-
-            <p>
-
-                BOOK_DESCRIPTION
-
-            </p>
-
-        </div>
-
-    </section>
-
-    <!-- ===================================== -->
-    <!-- ІНФОРМАЦІЯ                            -->
-    <!-- ===================================== -->
-
-    <section class="book-description">
-
-        <div class="container">
-
-            <h2>Інформація</h2>
-
-            <ul>
-
-                <li><strong>Цикл:</strong> Історії світів</li>
-
-                <li><strong>Номер книги:</strong> BOOK_NUMBER</li>
-
-                <li><strong>Статус:</strong> BOOK_STATUS</li>
-
-                <li><strong>Жанр:</strong> BOOK_GENRE</li>
-
-            </ul>
-
-        </div>
-
-    </section>
-
-    <!-- ===================================== -->
-    <!-- ІЛЮСТРАЦІЇ                            -->
-    <!-- ===================================== -->
-
-    <section class="book-gallery">
-
-        <div class="container">
-
-            <h2>Ілюстрації</h2>
-
-            <!-- ===================================== -->
-            <!-- SCENE 01 -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../../images/books/nayrin/scene01.webp"
-                    alt="SCENE01_TITLE">
-
-                <div class="scene-text">
-
-                    <h3>SCENE01_TITLE</h3>
-
-                    <p>CENE01_DESCRIPTION</p>
-
-                </div>
-
+<section class="book-hero"><img src="../../images/books/nayrin/cover.webp" alt="Найрін — Дорога додому" class="hero-image"><div class="hero-overlay"><p class="series">ІСТОРІЇ СВІТІВ</p><h1>Найрін</h1><h2>Дорога додому</h2></div></section>
+<section class="book-description"><div class="container"><h2>Про книгу</h2>
+<p>Найріну було сімнадцять, коли ядерна катастрофа знищила звичний світ і розлучила його з молодшим братом Зайріном. Опинившись у незнайомому світі, він мусить навчитися виживати серед людей, чиє життя нагадує далеке минуле. Дорога приводить його до нових друзів, небезпечних переслідувачів і відкриття здібностей, про які він раніше не знав. Та головна мета не змінюється — знайти брата.</p>
+<p>Нижче — розділи історії. Кожен розділ подано окремим блоком з однією ілюстрацією та коротким текстом про його події.</p>
+</div></section>
+<section class="book-gallery"><div class="container"><h2>Розділи</h2><div class="chapter-list">
+            <article class="chapter" id="chapter-1">
+                <h3>Розділ 1. Два брати</h3>
+                <img src="../../images/books/nayrin/scene01.webp" alt="Ілюстрація до розділу 1: Два брати" loading="lazy">
+                <div class="chapter-text"><p>У технологічному світі міст-шляхів Найрін і його молодший брат Зайрін живуть удвох після загибелі батьків. Їхнє звичне життя обривається, коли Синя раса запускає масований ядерний удар. Під час спроби дістатися сховища брати втрачають одне одного — і Найрін опиняється далеко від рідного світу.</p></div>
             </article>
 
-            <!-- ===================================== -->
-            <!-- SCENE 02 -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../../images/books/nayrin/scene02.webp"
-                    alt="SCENE02_TITLE">
-
-                <div class="scene-text">
-
-                    <h3>SCENE02_TITLE</h3>
-
-                    <p>SCENE02_DESCRIPTION</p>
-
-                </div>
-
+            <article class="chapter" id="chapter-2">
+                <h3>Розділ 2. Новий світ</h3>
+                <img src="../../images/books/nayrin/scene02.webp" alt="Ілюстрація до розділу 2: Новий світ" loading="lazy">
+                <div class="chapter-text"><p>Найрін приходить до тями посеред лісу в незнайомому світі, де немає звичних технологій. Йому доводиться вчитися виживати, пристосовуватися до нового життя й поступово знаходити своє місце серед місцевих мешканців. Та думка про Зайріна не полишає його, а власне тіло починає змінюватися.</p></div>
             </article>
 
-            <!-- ===================================== -->
-            <!-- SCENE 03 -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../../images/books/nayrin/scene03.webp"
-                    alt="SCENE03_TITLE">
-
-                <div class="scene-text">
-
-                    <h3>SCENE03_TITLE</h3>
-
-                    <p>SCENE03_DESCRIPTION</p>
-
-                </div>
-
+            <article class="chapter" id="chapter-3">
+                <h3>Розділ 3. Шлях за голосами</h3>
+                <img src="../../images/books/nayrin/scene03.webp" alt="Ілюстрація до розділу 3: Шлях за голосами" loading="lazy">
+                <div class="chapter-text"><p>Минуло п'ять років. Найрін уже навчився жити серед людей села Борена, працювати в кузні та володіти мечем. Проте дивне відчуття чужої присутності дедалі частіше веде його за межі звичного життя. Зрештою він вирішує вирушити в дорогу, щоб зрозуміти природу цього поклику.</p></div>
             </article>
 
-            <!-- ===================================== -->
-            <!-- SCENE 04 -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../../images/books/nayrin/scene04.webp"
-                    alt="<<<SCENE04_TITLE>>>">
-
-                <div class="scene-text">
-
-                    <h3>SCENE04_TITLE</h3>
-
-                    <p>SCENE04_DESCRIPTION</p>
-
-                </div>
-
+            <article class="chapter" id="chapter-4">
+                <h3>Розділ 4. Ліор</h3>
+                <img src="../../images/books/nayrin/scene04.webp" alt="Ілюстрація до розділу 4: Ліор" loading="lazy">
+                <div class="chapter-text"><p>Під час мандрівки Найрін відчуває, що невидимий зв'язок приводить його до великого міста. Там він зустрічає Ліора — людину з того самого світу, яка також пам'ятає міста-шляхи та ядерну катастрофу. Але радість зустрічі швидко змінюється тривогою: за Ліором стежать небезпечні переслідувачі.</p></div>
             </article>
 
-            <!-- ===================================== -->
-            <!-- SCENE 05 -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../../images/books/nayrin/scene05.webp"
-                    alt="SCENE05_TITLE">
-
-                <div class="scene-text">
-
-                    <h3>SCENE05_TITLE</h3>
-
-                    <p>SCENE05_DESCRIPTION</p>
-
-                </div>
-
+            <article class="chapter" id="chapter-5">
+                <h3>Розділ 5. Портал</h3>
+                <img src="../../images/books/nayrin/scene05.webp" alt="Ілюстрація до розділу 5: Портал" loading="lazy">
+                <div class="chapter-text"><p>Найрін і Ліор намагаються втекти від людей у чорному. Під час небезпечної втечі вони відкривають у собі незвичайну здатність створювати портали. Це відкриття змінює їхнє розуміння власного походження: вони не просто випадково опинилися в іншому світі — у них є сила переходити між планами.</p></div>
             </article>
 
-            <!-- ===================================== -->
-            <!-- SCENE 06 -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../../images/books/nayrin/scene06.webp"
-                    alt="SCENE06_TITLE">
-
-                <div class="scene-text">
-
-                    <h3>SCENE06_TITLE</h3>
-
-                    <p>SCENE06_DESCRIPTION</p>
-
-                </div>
-
+            <article class="chapter" id="chapter-6">
+                <h3>Розділ 6. Марта</h3>
+                <img src="../../images/books/nayrin/scene06.webp" alt="Ілюстрація до розділу 6: Марта" loading="lazy">
+                <div class="chapter-text"><p>До Найріна й Ліора приєднується Марта, яка також змушена рятуватися від переслідувачів. Разом вони вчаться краще розуміти свої здібності та встановлювати зв'язок із тими, хто опинився в інших світах. Поступово випадкові переходи перетворюються на усвідомлений пошук потрібного місця.</p></div>
             </article>
 
-            <!-- ===================================== -->
-            <!-- SCENE 07 -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../../images/books/nayrin/scene07.webp"
-                    alt="SCENE07_TITLE">
-
-                <div class="scene-text">
-
-                    <h3>SCENE07_TITLE</h3>
-
-                    <p>SCENE07_DESCRIPTION</p>
-
-                </div>
-
+            <article class="chapter" id="chapter-7">
+                <h3>Розділ 7. Майор</h3>
+                <img src="../../images/books/nayrin/scene07.webp" alt="Ілюстрація до розділу 7: Майор" loading="lazy">
+                <div class="chapter-text"><p>Черговий портал приводить мандрівників на спустошене війною поле. Тут вони зустрічають людей Майора й знайомляться з військовим табором, де кожен день пов'язаний із небезпекою. Нові знайомства дають їм можливість долучитися до спільної справи, але Найрін поки не поспішає відкривати всі таємниці своїх здібностей.</p></div>
             </article>
 
-            <!-- ===================================== -->
-            <!-- SCENE 08 -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../../images/books/nayrin/scene08.webp"
-                    alt="SCENE08_TITLE">
-
-                <div class="scene-text">
-
-                    <h3>SCENE08_TITLE</h3>
-
-                    <p>SCENE08_DESCRIPTION</p>
-
-                </div>
-
+            <article class="chapter" id="chapter-8">
+                <h3>Розділ 8. Нові горизонти</h3>
+                <img src="../../images/books/nayrin/scene08.webp" alt="Ілюстрація до розділу 8: Нові горизонти" loading="lazy">
+                <div class="chapter-text"><p>За час перебування в загоні кожен знаходить собі справу: Ліор допомагає механікам, Марта — інструкторам, а Найрін та інші поступово стають частиною спільноти. Та їхні цілі залишаються різними й водночас пов'язаними. Вони вирішують допомогти людям Майора знайти безпечний світ, а потім продовжити власні пошуки.</p></div>
             </article>
 
-            <!-- ===================================== -->
-            <!-- SCENE 09 -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../../images/books/nayrin/scene09.webp"
-                    alt="SCENE09_TITLE">
-
-                <div class="scene-text">
-
-                    <h3>SCENE09_TITLE</h3>
-
-                    <p>SCENE09_DESCRIPTION</p>
-
-                </div>
-
+            <article class="chapter" id="chapter-9">
+                <h3>Розділ 9. Катастрофа</h3>
+                <img src="../../images/books/nayrin/scene09.webp" alt="Ілюстрація до розділу 9: Катастрофа" loading="lazy">
+                <div class="chapter-text"><p>Табір змушений терміново евакуюватися зі світу, де поширюється небезпечна інфекція. Спроба знайти новий дім знову приводить героїв до важкого вибору: залишатися означає наражати людей на загрозу. Майор погоджується шукати інший план, адже ніхто не хоче будувати майбутнє на землі, яка несе смерть.</p></div>
             </article>
 
-            <!-- ===================================== -->
-            <!-- SCENE 10 -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../../images/books/nayrin/scene10.webp"
-                    alt="SCENE10_TITLE">
-
-                <div class="scene-text">
-
-                    <h3>SCENE10_TITLE</h3>
-
-                    <p>SCENE10_DESCRIPTION</p>
-
-                </div>
-
+            <article class="chapter" id="chapter-10">
+                <h3>Розділ 10. Закони всесвіту</h3>
+                <img src="../../images/books/nayrin/scene10.webp" alt="Ілюстрація до розділу 10: Закони всесвіту" loading="lazy">
+                <div class="chapter-text"><p>Після чергового переходу герої намагаються зрозуміти правила світів і межі власних можливостей. Вони дізнаються більше про переходи між планами та про те, чому не кожен може вільно мандрувати. Водночас Найрін дедалі уважніше придивляється до Майора й поступово усвідомлює, що їхні цінності та уявлення про майбутнє розходяться.</p></div>
             </article>
 
-            <!-- ===================================== -->
-            <!-- SCENE 11 -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../../images/books/nayrin/scene11.webp"
-                    alt="SCENE11_TITLE">
-
-                <div class="scene-text">
-
-                    <h3>SCENE11_TITLE</h3>
-
-                    <p>SCENE11_DESCRIPTION</p>
-
-                </div>
-
+            <article class="chapter" id="chapter-11">
+                <h3>Розділ 11. Повернення</h3>
+                <img src="../../images/books/nayrin/scene11.webp" alt="Ілюстрація до розділу 11: Повернення" loading="lazy">
+                <div class="chapter-text"><p>Довга дорога приводить Найріна до зруйнованого рідного світу. Серед слідів давньої катастрофи він знаходить шлях до людей, які пережили її наслідки. Через мислезв'язок Найрін нарешті виходить на зв'язок із Зайріном. Після двадцяти років розлуки брати знову знаходять одне одного.</p></div>
             </article>
-
-            <!-- ===================================== -->
-            <!-- SCENE 12 -->
-            <!-- ===================================== -->
-
-            <article class="scene">
-
-                <img
-                    src="../../images/books/nayrin/scene12.webp"
-                    alt="SCENE12_TITLE">
-
-                <div class="scene-text">
-
-                    <h3>SCENE12_TITLE</h3>
-
-                    <p>SCENE12_DESCRIPTION</p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
+<article class="chapter chapter-final" id="epilogue">
+<h3>Завершення. Дорога додому</h3>
+<img src="../../images/books/nayrin/scene12.webp" alt="Завершальна ілюстрація: возз'єднання Найріна та Зайріна" loading="lazy">
+<div class="chapter-text"><p>Після довгих років пошуків Найрін і Зайрін нарешті знову разом. Ця ілюстрація завершує історію братів і не є окремим розділом.</p></div>
+</article>
+</div></div></section>
 </main>
-
-<footer>
-
-    <p>
-
-        © 2026 Володимир Кухаренко
-    </p>
-
-</footer>
-
-</body>
-
-</html>
+<footer><p>© 2026 Володимир Кухаренко</p></footer>
+</body></html>
