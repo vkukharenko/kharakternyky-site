@@ -1,5 +1,5 @@
 from pathlib import Path
-from PIL import Image, ImageOps
+from PIL import Image, ImageOps, UnidentifiedImageError
 import shutil
 
 ROOT = Path(".")
@@ -18,6 +18,7 @@ shutil.copytree(ROOT, SITE, ignore=ignore)
 
 processed = 0
 saved = 0
+skipped = 0
 for path in SITE.rglob("*"):
     if not path.is_file() or path.suffix.lower() not in {".webp", ".jpg", ".jpeg", ".png"}:
         continue
@@ -39,11 +40,14 @@ for path in SITE.rglob("*"):
         after = path.stat().st_size
         processed += 1
         saved += max(0, before - after)
-    except Exception as exc:
-        raise RuntimeError(f"Could not optimize {path}: {exc}") from exc
+    except (UnidentifiedImageError, OSError) as exc:
+        # Preserve files Pillow cannot decode; do not risk dropping existing site assets.
+        skipped += 1
+        print(f"WARNING: kept original image unchanged: {path} ({exc})")
 
 total = sum(p.stat().st_size for p in SITE.rglob("*") if p.is_file())
 print(f"Optimized images: {processed}")
+print(f"Unchanged images (unsupported/corrupt): {skipped}")
 print(f"Image bytes saved: {saved:,}")
 print(f"Pages artifact size: {total:,} bytes ({total / 1024 / 1024:.1f} MiB)")
 if total > LIMIT:
