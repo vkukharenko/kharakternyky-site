@@ -19,22 +19,22 @@
 .book-description h2,.book-gallery h2{color:#e8edf1;margin:0 0 22px}
 .book-description p{line-height:1.8;font-size:18px}
 .chapter-list{display:grid;gap:54px}
-.chapter{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:20px 34px;align-items:start;padding-bottom:48px;border-bottom:1px solid #303740}
-.chapter h3{grid-column:1/-1;color:#e8edf1;font-size:clamp(22px,3vw,30px);margin:0;border-bottom:1px solid #394149;padding-bottom:14px}
-.chapter img{display:block;width:100%;height:auto;border:1px solid #2a3239;border-radius:8px}
-.chapter-copy{color:#c1c8ce;font-size:17px;line-height:1.8}
+.chapter{display:block;padding-bottom:48px;border-bottom:1px solid #394149}
+.chapter h3{color:#e8edf1;font-size:clamp(22px,3vw,30px);margin:0 0 18px;border-bottom:1px solid #394149;padding-bottom:14px}
+.chapter img{display:block;width:100%;height:auto;max-height:760px;object-fit:contain;background:#080a0c;border:1px solid #2a3239;border-radius:8px}
+.chapter-copy{width:min(100%,1200px);margin:22px auto 0;color:#c1c8ce;font-size:18px;line-height:1.85}
 .chapter-intro{margin:0 0 20px;color:#c1c8ce}
 .chapter-reading{border:1px solid #394149;border-radius:8px;background:#11161b;overflow:hidden}
 .chapter-reading summary{cursor:pointer;list-style:none;padding:16px 18px;color:#e0c27b;font-family:Arial,sans-serif;font-size:14px;letter-spacing:.04em}
 .chapter-reading summary::-webkit-details-marker{display:none}
 .chapter-reading summary:after{content:"＋";float:right;color:#d0b16e;font-size:18px;line-height:1}
 .chapter-reading[open] summary:after{content:"−"}
-.chapter-full-text{padding:0 18px 18px;color:#d0d5da}
+.chapter-full-text{padding:0 22px 22px;color:#d0d5da}
 .chapter-full-text p{margin:0 0 1.1em;line-height:1.85;white-space:pre-wrap}
 .chapter-full-text p:last-child{margin-bottom:0}
 .chapter-full-text .loading{color:#9099a2}
-.chapter-final{margin-top:10px}
-@media(max-width:700px){.hero-overlay{padding:14px}.hero-overlay h1{font-size:clamp(30px,8vw,52px)}.hero-overlay h2{font-size:20px}.book-description,.book-gallery{padding:38px 0}.chapter{grid-template-columns:1fr;gap:16px}.chapter-copy{font-size:16px}.chapter img{max-width:100%}}
+.chapter-final{margin-top:54px;padding-top:34px;border-top:1px solid #394149}
+@media(max-width:700px){.hero-overlay{padding:14px}.hero-overlay h1{font-size:clamp(30px,8vw,52px)}.hero-overlay h2{font-size:20px}.book-description,.book-gallery{padding:38px 0}.chapter-copy{font-size:16px}.chapter-full-text{padding:0 14px 16px}}
 </style>
 </head>
 <body>
@@ -47,7 +47,7 @@
 <section class="book-hero"><img src="../../images/books/nayrin/cover.webp" alt="Найрін — Дорога додому" class="hero-image"><div class="hero-overlay"><p class="series">ІСТОРІЇ СВІТІВ</p><h1>Найрін</h1><h2>Дорога додому</h2></div></section>
 <section class="book-description"><div class="container"><h2>Про книгу</h2>
 <p>Найріну було сімнадцять, коли ядерна катастрофа знищила звичний світ і розлучила його з молодшим братом Зайріном. Опинившись у незнайомому світі, він мусить навчитися виживати серед людей, чиє життя нагадує далеке минуле. Дорога приводить його до нових друзів, небезпечних переслідувачів і відкриття здібностей, про які він раніше не знав. Та головна мета не змінюється — знайти брата.</p>
-<p>Тут можна читати повний текст усіх одинадцяти розділів. Текст відкривається за бажанням, поруч із відповідною ілюстрацією.</p></div></section>
+<p>Тут можна читати повний текст усіх одинадцяти розділів. Під кожною ілюстрацією можна відкрити й прочитати повний текст відповідного розділу.</p></div></section>
 <section class="book-gallery"><div class="container"><h2>Розділи</h2><div class="chapter-list">
 <article class="chapter" id="chapter-1">
   <h3>Розділ 1. Два брати</h3>
