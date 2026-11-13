@@ -66,4 +66,27 @@
 <article class="chapter chapter-final" id="epilogue"><h3>Closing image. The Road Home</h3>
 <img src="../../../images/books/nayrin/scene12.webp" alt="Final illustration: Nayrin and Zairin reunited" loading="lazy">
 <div class="chapter-text"><p>After years of searching, Nayrin and Zairin are finally together again. This closing illustration completes the brothers' story and is not a separate chapter.</p></div></article>
-</div></div></section></main><a class="back" href="../books.html">← Back to all books</a><footer><p>© 2026 Volodymyr Kukharenko</p></footer></body></html>
+</div></div></section></main><a class="back" href="../books.html">← Back to all books</a><footer><p>© 2026 Volodymyr Kukharenko</p></footer>
+<script>
+document.querySelectorAll(".chapter-reading").forEach(details=>{
+ details.addEventListener("toggle",async()=>{
+  if(!details.open||details.dataset.loaded==="true"||details.dataset.loading==="true")return;
+  details.dataset.loading="true";
+  const target=details.querySelector(".chapter-full-text");
+  try{
+   const response=await fetch(details.dataset.text);
+   if(!response.ok)throw new Error("HTTP "+response.status);
+   const raw=await response.text();
+   target.replaceChildren();
+   raw.split(/\\n\\s*\\n/).map(p=>p.trim()).filter(Boolean).forEach(paragraph=>{
+    const p=document.createElement("p");p.textContent=paragraph;target.appendChild(p);
+   });
+   details.dataset.loaded="true";
+  }catch(error){
+   target.innerHTML="<p>Unable to load the chapter. Please refresh the page and try again.</p>";
+  }finally{details.dataset.loading="false";}
+ });
+});
+</script>
+
+</body></html>
