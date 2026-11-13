@@ -8,11 +8,22 @@
 .hero-overlay .series{font-size:clamp(12px,1.2vw,18px);letter-spacing:.22em;color:#d9b96e;margin:0 0 16px}.hero-overlay h1{font-size:clamp(42px,7vw,100px);line-height:1;margin:10px 0}.hero-overlay h2{font-size:clamp(22px,3vw,38px);font-weight:normal;margin:12px 0 0;color:#d1d5da}
 .book-description,.book-gallery{padding:55px 0;background:#0b0d10;color:#c1c8ce}.book-description .container,.book-gallery .container{width:min(1100px,92%);margin:0 auto}
 .book-description h2,.book-gallery h2{color:#e8edf1;margin:0 0 22px}.book-description p{line-height:1.8;font-size:18px}
-.chapter-list{display:grid;gap:54px}.chapter{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,1fr);gap:24px 34px;align-items:start}
-.chapter h3{grid-column:1/-1;color:#e8edf1;font-size:clamp(22px,3vw,30px);margin:0;border-bottom:1px solid #394149;padding-bottom:14px}
-.chapter img{display:block;width:100%;height:auto;border:1px solid #2a3239;border-radius:8px}.chapter-text{color:#c1c8ce;font-size:18px;line-height:1.85}.chapter-text p{margin:0}
-.chapter-final{margin-top:54px;padding-top:34px;border-top:1px solid #394149}.chapter-final h3{color:#e8edf1}
-@media(max-width:700px){.hero-overlay{padding:14px}.hero-overlay h1{font-size:clamp(30px,8vw,52px)}.hero-overlay h2{font-size:20px}.book-description,.book-gallery{padding:38px 0}.chapter{grid-template-columns:1fr}.chapter-text{font-size:16px}}
+.chapter-list{display:grid;gap:54px}
+.chapter{display:block;padding-bottom:48px;border-bottom:1px solid #394149}
+.chapter h3{color:#e8edf1;font-size:clamp(22px,3vw,30px);margin:0 0 18px;border-bottom:1px solid #394149;padding-bottom:14px}
+.chapter img{display:block;width:100%;height:auto;max-height:760px;object-fit:contain;background:#080a0c;border:1px solid #2a3239;border-radius:8px}
+.chapter-text{width:min(100%,1200px);margin:22px auto 0;color:#c1c8ce;font-size:18px;line-height:1.85}
+.chapter-text>p{margin:0 0 20px}
+.chapter-reading{border:1px solid #394149;border-radius:8px;background:#11161b;overflow:hidden}
+.chapter-reading summary{cursor:pointer;list-style:none;padding:16px 18px;color:#e0c27b;font-size:14px;letter-spacing:.04em}
+.chapter-reading summary::-webkit-details-marker{display:none}
+.chapter-reading summary:after{content:"＋";float:right;color:#d0b16e;font-size:18px;line-height:1}
+.chapter-reading[open] summary:after{content:"−"}
+.chapter-full-text{padding:0 22px 22px;color:#d0d5da}
+.chapter-full-text p{margin:0 0 1.1em;line-height:1.85;white-space:pre-wrap}
+.chapter-full-text p:last-child{margin-bottom:0}
+.chapter-final{margin-top:54px;padding-top:34px;border-top:1px solid #394149}
+@media(max-width:700px){.hero-overlay{padding:14px}.hero-overlay h1{font-size:clamp(30px,8vw,52px)}.hero-overlay h2{font-size:20px}.book-description,.book-gallery{padding:38px 0}.chapter-text{font-size:16px}.chapter-full-text{padding:0 14px 16px}}
 </style></head><body>
 <header class="inner-header nav-only-header"><nav class="nav"><a class="logo" href="../../index.html">KHARAKTERNYKY</a><div class="nav-links"><a href="../books.html">Books</a><a href="../universe.html">Universe</a><a href="../technology.html">Technology</a><a href="../characters.html">Characters</a><a href="../gallery.html">Gallery</a><a href="../author.html">Author</a><a href="../../../pages/books/nayrin.html" lang="uk">UK</a></div></nav></header>
 <section class="book-hero"><img class="hero-image" src="../../../images/books/nayrin/cover.webp" alt="Nayrin — The Road Home"><div class="hero-overlay"><p class="series">STORIES OF WORLDS</p><h1>Nayrin</h1><h2>The Road Home</h2></div></section>
