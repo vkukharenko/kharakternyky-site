@@ -574,7 +574,8 @@ footer {
 
 .character-portrait {
     width: 110px;
-    height: 150px;
+    height: auto;
+    aspect-ratio: 11 / 15;
     box-sizing: border-box;
     overflow: hidden;
 
@@ -640,7 +641,8 @@ footer {
 
     .character-portrait {
         width: 90px;
-        height: 120px;
+        height: auto;
+        aspect-ratio: 11 / 15;
     }
 }
 /* Gallery */
