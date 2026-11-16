@@ -1350,3 +1350,37 @@ footer {
     height: 72px;
     background: none;
 }
+
+
+/* Character catalogue hero banner */
+.characters-header {
+    min-height: 0;
+    background:
+        linear-gradient(180deg, rgba(5, 8, 12, 0.12) 0%, rgba(5, 8, 12, 0.36) 58%, #0b0d10 100%),
+        url("images/characters/characters-hero.webp") center 42% / cover no-repeat;
+}
+.characters-header .page-heading {
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 170px;
+    padding-bottom: 90px;
+}
+.characters-header .page-heading h1 {
+    text-shadow: 0 3px 24px rgba(0, 0, 0, 0.8);
+}
+.characters-header .page-heading .eyebrow,
+.characters-header .page-heading .subtitle {
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
+}
+@media (max-width: 700px) {
+    .characters-header {
+        background-position: center 42%;
+    }
+    .characters-header .page-heading {
+        min-height: 58vh;
+        padding-top: 135px;
+        padding-bottom: 70px;
+    }
+}
