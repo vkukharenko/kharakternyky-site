@@ -126,6 +126,64 @@
 
     </section>
 
+
+    <section class="book-description" id="book-text">
+      <div class="container">
+        <h2>Текст книги</h2>
+        <p>Повний текст книги «Характерники. Початок». Оберіть день, щоб відкрити відповідну частину.</p>
+        <div id="book-text-status" class="chapter-intro">Завантаження тексту…</div>
+        <div id="book-text-list" class="chapter-list"></div>
+      </div>
+    </section>
+    <style>
+      #book-text .chapter-list{display:grid;gap:14px}
+      #book-text details{border:1px solid #394149;border-radius:8px;background:#11161b;overflow:hidden}
+      #book-text summary{cursor:pointer;list-style:none;padding:16px 18px;color:#e0c27b;font-family:Arial,sans-serif;font-size:15px}
+      #book-text summary::-webkit-details-marker{display:none}
+      #book-text summary:after{content:"＋";float:right;color:#d0b16e}
+      #book-text details[open] summary:after{content:"−"}
+      #book-text .book-text-body{padding:0 22px 22px;color:#d0d5da;font-size:17px;line-height:1.85}
+      #book-text .book-text-body p{margin:0 0 1.1em;white-space:pre-wrap}
+      @media(max-width:700px){#book-text .book-text-body{padding:0 14px 16px;font-size:16px}}
+    </style>
+    <script>
+    (async function(){
+      const status=document.getElementById("book-text-status");
+      const list=document.getElementById("book-text-list");
+      if(!status||!list)return;
+      try{
+        const response=await fetch("kharakternyky-1-text/full-book.txt");
+        if(!response.ok)throw new Error("HTTP "+response.status);
+        const raw=await response.text();
+        const lines=raw.replace(/^\\uFEFF/,"").split(/\\r?\\n/);
+        const sections=[];
+        let current={title:"Передісторія та вступні матеріали",lines:[]};
+        for(const line of lines){
+          const match=line.trim().match(/^День\\s+\\d+[^\\n]*$/i);
+          if(match){
+            if(current.lines.some(x=>x.trim()))sections.push(current);
+            current={title:line.trim(),lines:[line]};
+          }else current.lines.push(line);
+        }
+        if(current.lines.some(x=>x.trim()))sections.push(current);
+        sections.forEach((part,index)=>{
+          const details=document.createElement("details");
+          const summary=document.createElement("summary");
+          summary.textContent=part.title;
+          const body=document.createElement("div");
+          body.className="book-text-body";
+          part.lines.join("\\n").split(/\\n\\s*\\n/).map(x=>x.trim()).filter(Boolean).forEach(value=>{
+            const p=document.createElement("p");p.textContent=value;body.appendChild(p);
+          });
+          details.append(summary,body);list.appendChild(details);
+        });
+        status.textContent="Завантажено. Частин: "+sections.length+".";
+      }catch(error){
+        status.textContent="Текст поки недоступний. Перевірте, чи завантажено файл kharakternyky-1-text/full-book.txt у каталог pages/books.";
+      }
+    })();
+    </script>
+
 </main>
 
 <script src="../../script.js?v=20261027-1"></script>
