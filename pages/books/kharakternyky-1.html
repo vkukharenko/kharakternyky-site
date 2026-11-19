@@ -155,11 +155,11 @@
         const response=await fetch("kharakternyky-1-text/full-book.txt");
         if(!response.ok)throw new Error("HTTP "+response.status);
         const raw=await response.text();
-        const lines=raw.replace(/^\\uFEFF/,"").split(/\\r?\\n/);
+        const lines=raw.replace(/^\uFEFF/,"").split(/\r?\n/);
         const sections=[];
         let current={title:"Передісторія та вступні матеріали",lines:[]};
         for(const line of lines){
-          const match=line.trim().match(/^День\\s+\\d+[^\\n]*$/i);
+          const match=line.trim().match(/^День\s+\\d+[^\n]*$/i);
           if(match){
             if(current.lines.some(x=>x.trim()))sections.push(current);
             current={title:line.trim(),lines:[line]};
@@ -172,7 +172,7 @@
           summary.textContent=part.title;
           const body=document.createElement("div");
           body.className="book-text-body";
-          part.lines.join("\\n").split(/\\n\\s*\\n/).map(x=>x.trim()).filter(Boolean).forEach(value=>{
+          part.lines.join("\n").split(/\n\s*\n/).map(x=>x.trim()).filter(Boolean).forEach(value=>{
             const p=document.createElement("p");p.textContent=value;body.appendChild(p);
           });
           details.append(summary,body);list.appendChild(details);
