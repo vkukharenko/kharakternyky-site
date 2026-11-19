@@ -12,7 +12,7 @@
         .species-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:30px}.species-card{padding:23px;border:1px solid #292e35;background:#15191f}
         .species-card h3{margin:0 0 12px;font-weight:normal;color:#e1e4e7}.species-card p,.species-card li{color:#aeb3b9;line-height:1.8}.species-card ul{padding-left:20px;margin-bottom:0}
         .species-facts{width:100%;border-collapse:collapse;margin-top:25px}.species-facts th,.species-facts td{padding:13px 15px;border-bottom:1px solid #292e35;text-align:left;vertical-align:top}.species-facts th{width:30%;color:#e1e4e7;font-weight:normal}.species-facts td{color:#aeb3b9}
-        .species-art-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}.species-art{min-height:260px;display:flex;align-items:center;justify-content:center;padding:20px;border:1px dashed #555d66;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.025),rgba(255,255,255,.025) 8px,transparent 8px,transparent 16px);color:#777f88;text-align:center;font:.76rem Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}.species-art-wide{grid-column:1/-1;min-height:360px}.species-art img{display:block;width:100%;height:100%;max-height:520px;object-fit:contain}.species-art figcaption{padding-top:10px;color:#aeb3b9;font-size:.8rem;letter-spacing:0;text-transform:none}
+        .species-art-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:30px}.species-art{min-height:260px;display:flex;align-items:center;justify-content:center;padding:20px;border:1px dashed #555d66;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.025),rgba(255,255,255,.025) 8px,transparent 8px,transparent 16px);color:#777f88;text-align:center;font:.76rem Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase}.species-art-wide{grid-column:1/-1;min-height:0}.species-art img{display:block;width:100%;height:auto;max-height:620px;object-fit:contain}.species-art figcaption{padding-top:10px;color:#aeb3b9;font-size:.8rem;letter-spacing:0;text-transform:none}
         .species-callout{max-width:900px;margin-top:28px;padding:21px 24px;border-left:2px solid #a18b58;background:rgba(255,255,255,.025);color:#c0c3c7;line-height:1.85}.species-back{display:inline-block;margin-top:35px;color:#d5d9dd;text-decoration:none;border-bottom:1px solid #555d66;padding-bottom:5px}
         @media(max-width:700px){.species-section{padding:42px 18px}.species-grid,.species-art-grid{grid-template-columns:1fr}.species-art-wide{grid-column:auto}.species-facts th{width:38%}}
     </style>
@@ -41,7 +41,19 @@
     </section>
     <section class="species-section species-section-dark">
         <p class="section-label">APPEARANCE AND PHYSIOLOGY</p><h2>Body structure</h2>
-        <div class="species-art-grid"><figure class="species-art species-art-wide"><img src="../../../images/universe/species/tinovyk-main.webp" alt="Shadow Stalker — full body, side view"><figcaption>Shadow Stalker — overall view</figcaption></figure><figure class="species-art"><img src="../../../images/universe/species/tinovyk-head.webp" alt="Shadow Stalker head and jaws"><figcaption>Head and jaws</figcaption></figure><figure class="species-art"><img src="../../../images/universe/species/tinovyk-paw.webp" alt="Shadow Stalker paw and claws"><figcaption>Paw and claws</figcaption></figure></div>
+        <figure class="species-art species-art-wide"><img src="../../../images/universe/species/tinovyk-passport.webp" alt="Illustrated biological species passport: Shadow Stalker"><figcaption>Illustrated species passport — WEBP</figcaption></figure>
+        <div class="species-art-grid">
+            <figure class="species-art species-art-wide"><img src="../../../images/universe/species/tinovyk-main.webp" alt="Shadow Stalker with characteristic dorsal spines"><figcaption>Overall appearance. Dorsal spines are a characteristic anatomical feature</figcaption></figure>
+            <figure class="species-art"><img src="../../../images/universe/species/tinovyk-turnaround.webp" alt="Shadow Stalker front, side and rear views"><figcaption>Reference views</figcaption></figure>
+            <figure class="species-art"><img src="../../../images/universe/species/tinovyk-movement.webp" alt="Shadow Stalker leaping"><figcaption>Movement</figcaption></figure>
+            <figure class="species-art"><img src="../../../images/universe/species/tinovyk-head.webp" alt="Shadow Stalker head"><figcaption>Head</figcaption></figure>
+            <figure class="species-art"><img src="../../../images/universe/species/tinovyk-eye.webp" alt="Shadow Stalker eye"><figcaption>Eye</figcaption></figure>
+            <figure class="species-art"><img src="../../../images/universe/species/tinovyk-teeth.webp" alt="Shadow Stalker teeth and jaws"><figcaption>Teeth and jaws</figcaption></figure>
+            <figure class="species-art"><img src="../../../images/universe/species/tinovyk-paw.webp" alt="Shadow Stalker forepaw and claws"><figcaption>Forepaw and claws</figcaption></figure>
+            <figure class="species-art"><img src="../../../images/universe/species/tinovyk-spines.webp" alt="Shadow Stalker dorsal spines"><figcaption>Dorsal spines</figcaption></figure>
+            <figure class="species-art"><img src="../../../images/universe/species/tinovyk-fur.webp" alt="Shadow Stalker coat texture"><figcaption>Coat texture</figcaption></figure>
+            <figure class="species-art"><img src="../../../images/universe/species/tinovyk-size.webp" alt="Shadow Stalker size comparison with a human"><figcaption>Size comparison</figcaption></figure>
+        </div>
         <table class="species-facts">
             <tr><th>Body length</th><td>Approximately 100–140 cm, excluding the tail</td></tr>
             <tr><th>Shoulder height</th><td>Approximately 45–65 cm</td></tr>
@@ -67,7 +79,7 @@
         <p class="species-text">Shadow Stalkers usually hunt in groups of approximately four to eight. A pack does not necessarily have a permanent leader: during a hunt, the animals coordinate through body movements, sounds and scent signals. Roles may change depending on the terrain and the prey's behaviour.</p>
         <p class="species-text">A pack may pursue its target, force it to change direction, divide its attention and attack from several sides. If the prey proves too dangerous, the Stalkers retreat, observe and may attack again when conditions improve.</p>
         <p class="species-text">Individuals can survive without a pack. Solitary animals rely more often on ambush, choose smaller prey and avoid open confrontation with great cats. Solitary life is possible, but a pack has a much better chance of bringing down a large animal.</p>
-        <div class="species-art-grid"><div class="species-art">Pack hunting illustration</div><div class="species-art">Solitary individual illustration</div></div>
+        <div class="species-art-grid"><figure class="species-art species-art-wide"><img src="../../../images/universe/species/tinovyk-pack.webp" alt="A pack of Shadow Stalkers hunting"><figcaption>Pack hunting</figcaption></figure></div>
     </section>
     <section class="species-section">
         <p class="section-label">REPRODUCTION AND POPULATION</p><h2>Rapid population recovery</h2>
