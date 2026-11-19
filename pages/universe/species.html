@@ -21,8 +21,8 @@
         .species-facts th { width: 30%; color: #e1e4e7; font-weight: normal; }
         .species-facts td { color: #aeb3b9; }
         .species-art-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin-top: 30px; }
-        .species-art { min-height: 260px; display: flex; align-items: center; justify-content: center; padding: 20px; border: 1px dashed #555d66; background: repeating-linear-gradient(-45deg,rgba(255,255,255,.025),rgba(255,255,255,.025) 8px,transparent 8px,transparent 16px); color: #777f88; text-align: center; font: .76rem Arial,sans-serif; letter-spacing: .1em; text-transform: uppercase; }
-        .species-art-wide { grid-column: 1 / -1; min-height: 360px; }
+        .species-art { min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px; border: 1px dashed #555d66; background: repeating-linear-gradient(-45deg,rgba(255,255,255,.025),rgba(255,255,255,.025) 8px,transparent 8px,transparent 16px); color: #777f88; text-align: center; font: .76rem Arial,sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+        .species-art-wide { grid-column: 1 / -1; min-height: 360px; } .species-art img { display:block; width:100%; height:100%; max-height:520px; object-fit:contain; } .species-art figcaption { padding-top:10px; color:#aeb3b9; font-size:.8rem; letter-spacing:0; text-transform:none; }
         .species-callout { max-width: 900px; margin-top: 28px; padding: 21px 24px; border-left: 2px solid #a18b58; background: rgba(255,255,255,.025); color: #c0c3c7; line-height: 1.85; }
         .species-back { display: inline-block; margin-top: 35px; color: #d5d9dd; text-decoration: none; border-bottom: 1px solid #555d66; padding-bottom: 5px; }
         @media(max-width:700px) { .species-section { padding: 42px 18px; } .species-grid,.species-art-grid { grid-template-columns: 1fr; } .species-art-wide { grid-column: auto; } .species-facts th { width: 38%; } }
@@ -61,9 +61,9 @@
         <p class="section-label">ЗОВНІШНІСТЬ І ФІЗІОЛОГІЯ</p>
         <h2>Будова тіла</h2>
         <div class="species-art-grid">
-            <div class="species-art species-art-wide">Місце для основної ілюстрації тіньовика — повний зріст, вигляд збоку</div>
-            <div class="species-art">Місце для ілюстрації голови та щелеп</div>
-            <div class="species-art">Місце для ілюстрації лап і кігтів</div>
+            <figure class="species-art species-art-wide"><img src="../../images/universe/species/tinovyk-main.webp" alt="Тіньовик — повний зріст, вигляд збоку"><figcaption>Тіньовик — загальний вигляд</figcaption></figure>
+            <figure class="species-art"><img src="../../images/universe/species/tinovyk-head.webp" alt="Голова та щелепи тіньовика"><figcaption>Голова та щелепи</figcaption></figure>
+            <figure class="species-art"><img src="../../images/universe/species/tinovyk-paw.webp" alt="Лапа та кігті тіньовика"><figcaption>Лапа та кігті</figcaption></figure>
         </div>
         <table class="species-facts">
             <tr><th>Довжина тіла</th><td>Приблизно 100–140 см без урахування хвоста</td></tr>
