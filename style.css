@@ -1391,3 +1391,9 @@ footer {
         padding-bottom: 70px;
     }
 }
+
+
+/* Universe index begins directly beneath its hero banner. */
+.universe-index-page {
+    padding-top: 56px;
+}
