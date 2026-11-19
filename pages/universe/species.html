@@ -22,7 +22,7 @@
         .species-facts td { color: #aeb3b9; }
         .species-art-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin-top: 30px; }
         .species-art { min-height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 12px; border: 1px dashed #555d66; background: repeating-linear-gradient(-45deg,rgba(255,255,255,.025),rgba(255,255,255,.025) 8px,transparent 8px,transparent 16px); color: #777f88; text-align: center; font: .76rem Arial,sans-serif; letter-spacing: .1em; text-transform: uppercase; }
-        .species-art-wide { grid-column: 1 / -1; min-height: 360px; } .species-art img { display:block; width:100%; height:100%; max-height:520px; object-fit:contain; } .species-art figcaption { padding-top:10px; color:#aeb3b9; font-size:.8rem; letter-spacing:0; text-transform:none; }
+        .species-art-wide { grid-column: 1 / -1; min-height: 0; } .species-art img { display:block; width:100%; height:auto; max-height:620px; object-fit:contain; } .species-art figcaption { padding-top:10px; color:#aeb3b9; font-size:.8rem; letter-spacing:0; text-transform:none; }
         .species-callout { max-width: 900px; margin-top: 28px; padding: 21px 24px; border-left: 2px solid #a18b58; background: rgba(255,255,255,.025); color: #c0c3c7; line-height: 1.85; }
         .species-back { display: inline-block; margin-top: 35px; color: #d5d9dd; text-decoration: none; border-bottom: 1px solid #555d66; padding-bottom: 5px; }
         @media(max-width:700px) { .species-section { padding: 42px 18px; } .species-grid,.species-art-grid { grid-template-columns: 1fr; } .species-art-wide { grid-column: auto; } .species-facts th { width: 38%; } }
@@ -60,10 +60,18 @@
     <section class="species-section species-section-dark">
         <p class="section-label">ЗОВНІШНІСТЬ І ФІЗІОЛОГІЯ</p>
         <h2>Будова тіла</h2>
+        <figure class="species-art species-art-wide"><img src="../../images/universe/species/tinovyk-passport.webp" alt="Ілюстрований паспорт біологічного виду Тіньовик"><figcaption>Ілюстрований паспорт виду — WEBP</figcaption></figure>
         <div class="species-art-grid">
-            <figure class="species-art species-art-wide"><img src="../../images/universe/species/tinovyk-main.webp" alt="Тіньовик — повний зріст, вигляд збоку"><figcaption>Тіньовик — загальний вигляд</figcaption></figure>
-            <figure class="species-art"><img src="../../images/universe/species/tinovyk-head.webp" alt="Голова та щелепи тіньовика"><figcaption>Голова та щелепи</figcaption></figure>
-            <figure class="species-art"><img src="../../images/universe/species/tinovyk-paw.webp" alt="Лапа та кігті тіньовика"><figcaption>Лапа та кігті</figcaption></figure>
+            <figure class="species-art species-art-wide"><img src="../../images/universe/species/tinovyk-main.webp" alt="Тіньовик із характерними спинними шипами — загальний вигляд"><figcaption>Загальний вигляд. Спинні шипи є характерною анатомічною ознакою</figcaption></figure>
+            <figure class="species-art"><img src="../../images/universe/species/tinovyk-turnaround.webp" alt="Тіньовик спереду, збоку та ззаду"><figcaption>Основні ракурси</figcaption></figure>
+            <figure class="species-art"><img src="../../images/universe/species/tinovyk-movement.webp" alt="Тіньовик у стрибку"><figcaption>Рух і динаміка</figcaption></figure>
+            <figure class="species-art"><img src="../../images/universe/species/tinovyk-head.webp" alt="Голова тіньовика"><figcaption>Голова</figcaption></figure>
+            <figure class="species-art"><img src="../../images/universe/species/tinovyk-eye.webp" alt="Око тіньовика"><figcaption>Око</figcaption></figure>
+            <figure class="species-art"><img src="../../images/universe/species/tinovyk-teeth.webp" alt="Зуби та щелепи тіньовика"><figcaption>Зуби та щелепи</figcaption></figure>
+            <figure class="species-art"><img src="../../images/universe/species/tinovyk-paw.webp" alt="Передня лапа та кігті тіньовика"><figcaption>Лапа та кігті</figcaption></figure>
+            <figure class="species-art"><img src="../../images/universe/species/tinovyk-spines.webp" alt="Форма та розташування спинних шипів"><figcaption>Спинні шипи</figcaption></figure>
+            <figure class="species-art"><img src="../../images/universe/species/tinovyk-fur.webp" alt="Текстура шерстистого покриву"><figcaption>Текстура покриву</figcaption></figure>
+            <figure class="species-art"><img src="../../images/universe/species/tinovyk-size.webp" alt="Порівняння розмірів тіньовика та людини"><figcaption>Порівняння розмірів</figcaption></figure>
         </div>
         <table class="species-facts">
             <tr><th>Довжина тіла</th><td>Приблизно 100–140 см без урахування хвоста</td></tr>
@@ -95,8 +103,7 @@
         <p class="species-text">Зграя може переслідувати ціль, змушувати її змінювати напрямок, розділяти увагу й атакувати з кількох боків. Якщо здобич виявляється надто небезпечною, тіньовики відступають, спостерігають і можуть повторити напад за сприятливішої нагоди.</p>
         <p class="species-text">Окремі особини здатні виживати без зграї. Такі тварини частіше полюють із засідки, обирають меншу здобич і уникають відкритого протистояння з великими кішками. Самостійне життя можливе, але зграя дає значно більше шансів уполювати велику тварину.</p>
         <div class="species-art-grid">
-            <div class="species-art">Місце для ілюстрації зграї на полюванні</div>
-            <div class="species-art">Місце для ілюстрації одиночної особини</div>
+            <figure class="species-art species-art-wide"><img src="../../images/universe/species/tinovyk-pack.webp" alt="Зграя тіньовиків під час полювання"><figcaption>Зграя під час полювання</figcaption></figure>
         </div>
     </section>
 
