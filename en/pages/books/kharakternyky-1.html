@@ -19,10 +19,20 @@
 @media(max-width:700px){.hero-overlay{padding:14px}.hero-overlay .series{letter-spacing:.12em;margin-bottom:6px}.hero-overlay h1{font-size:clamp(30px,8vw,52px)}.hero-overlay h2{font-size:20px;margin-top:8px}.book-description,.book-gallery{padding:42px 0}.book-description p,.book-description li{font-size:16px}.day-images{padding:12px}}
 </style></head><body><header class="inner-header nav-only-header"><nav class="nav"><a class="logo" href="../../index.html">KHARAKTERNYKY</a><div class="nav-links"><a href="../books.html">Books</a><a href="../universe.html">Universe</a><a href="../technology.html">Technology</a><a href="../characters.html">Characters</a><a href="../gallery.html">Gallery</a><a href="../author.html">Author</a><a href="../../../pages/books/kharakternyky-1.html" lang="uk">UK</a></div></nav></header><section class="book-hero"><img class="hero-image" src="../../../images/books/kharakternyky-1/head01.webp" alt="The Beginning — Book 1"><div class="hero-overlay"><p class="series">KHARAKTERNYKY</p><h1>The Beginning</h1><h2>Book 1</h2></div></section><main><section class="book-description"><div class="container"><h2>About the book</h2><p>The central story of the Kharakternyky literary universe follows Dmytro as he enters the world of the kharakternyky and discovers the connections between different Plans and civilisations.</p><h2>Details</h2><ul><li><strong>Series:</strong> Kharakternyky</li><li><strong>Volume:</strong> 1</li><li><strong>Status:</strong> Complete</li><li><strong>Genre:</strong> Military science fiction</li></ul></div></section><section class="book-gallery" id="book-chapters"><div class="container"><h2>Book text</h2><p class="book-note">The English translation is being published in sections.</p><div id="book-chapter-list"><p class="book-note">Loading the translated text…</p></div></div></section>
 <style>
+#book-chapters .chapter-list{display:grid;gap:54px}
+#book-chapters .chapter{display:block;padding-bottom:44px;border-bottom:1px solid #394149}
+#book-chapters .chapter h3{color:#e8edf1;font-size:clamp(22px,3vw,30px);margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid #394149}
+#book-chapters .day-images{display:flex;flex-direction:column;gap:18px;margin:0 0 22px}
+#book-chapters .day-image{display:block;width:100%;height:auto;max-width:100%;border:1px solid #2a3239;border-radius:8px;background:#080a0c}
 #book-chapters .chapter-reading{border:1px solid #394149;border-radius:8px;background:#11161b;overflow:hidden}
-#book-chapters summary{cursor:pointer;padding:16px 18px;color:#e0c27b;font-size:14px;letter-spacing:.04em}
+#book-chapters .chapter-reading summary{cursor:pointer;list-style:none;padding:16px 18px;color:#e0c27b;font-size:14px;letter-spacing:.04em}
+#book-chapters .chapter-reading summary::-webkit-details-marker{display:none}
+#book-chapters .chapter-reading summary:after{content:"＋";float:right;color:#d0b16e;font-size:18px}
+#book-chapters .chapter-reading[open] summary:after{content:"−"}
 #book-chapters .chapter-full-text{padding:0 22px 22px;color:#d0d5da;font-size:17px;line-height:1.85}
 #book-chapters .chapter-full-text p{margin:0 0 1.1em;white-space:pre-wrap}
+#book-chapters .chapter-full-text p:last-child{margin-bottom:0}
+@media(max-width:700px){#book-chapters .chapter-full-text{padding:0 14px 16px;font-size:16px}}
 </style>
 <script>
 (async function(){
@@ -30,22 +40,53 @@
  try{
   const response=await fetch("kharakternyky-1-text/character-book-1-full-text.txt");
   if(!response.ok)throw new Error("HTTP "+response.status);
-  const raw=(await response.text()).replace(/^\uFEFF/,"");
-  const sections=raw.split(/\n---\n/).map(x=>x.trim()).filter(Boolean);
+  const raw=(await response.text()).replace(/^\\uFEFF/,"");
+  const sections=[]; let current={title:"Epilogue",day:0,lines:[]};
+  for(const line of raw.split(/\\r?\\n/)){
+   if(line.trim()==="---")continue;
+   const match=line.trim().match(/^Day\\s+(\\d+)\\b.*$/i);
+   if(match){
+    if(current.lines.some(x=>x.trim()))sections.push(current);
+    current={title:line.trim(),day:Number(match[1]),lines:[line]};
+   }else current.lines.push(line);
+  }
+  if(current.lines.some(x=>x.trim()))sections.push(current);
   list.replaceChildren();
-  sections.forEach(section=>{
-   const lines=section.split(/\r?\n/); const title=lines.shift();
-   const details=document.createElement("details"); details.className="chapter-reading";
-   const summary=document.createElement("summary"); summary.textContent="Read: "+title;
-   const body=document.createElement("div"); body.className="chapter-full-text";
+  sections.forEach(part=>{
+   const article=document.createElement("article");article.className="chapter";
+   const heading=document.createElement("h3");heading.textContent=part.day===0?"Epilogue":part.title;
+   const images=document.createElement("div");images.className="day-images";
+   const details=document.createElement("details");details.className="chapter-reading";
+   const summary=document.createElement("summary");summary.textContent="Read "+(part.day===0?"the epilogue":"Day "+part.day)+" in full";
+   const body=document.createElement("div");body.className="chapter-full-text";
+   const loading=document.createElement("p");loading.textContent="The text will load when opened.";body.appendChild(loading);
    details.append(summary,body);
-   details.addEventListener("toggle",()=>{if(!details.open||details.dataset.loaded)return;
+   details.addEventListener("toggle",()=>{
+    if(!details.open||details.dataset.loaded==="true")return;
     body.replaceChildren();
-    section.slice(title.length).trim().split(/\n\s*\n/).map(p=>p.trim()).filter(Boolean).forEach(p=>{const el=document.createElement("p");el.textContent=p;body.appendChild(el);});
+    part.lines.join("\\n").split(/\\n\\s*\\n/).map(x=>x.trim()).filter(Boolean).forEach(p=>{
+     const el=document.createElement("p");el.textContent=p;body.appendChild(el);
+    });
     details.dataset.loaded="true";
    });
-   list.appendChild(details);
+   article.append(heading,images,details);list.appendChild(article);
+   const dayCode=String(part.day).padStart(3,"0");let imageNo=1,misses=0,loaded=0;
+   const loadNextImage=()=>{
+    if(misses>=3){
+     if(!loaded){const note=document.createElement("p");note.className="book-note";note.textContent="No illustrations found for this day.";images.appendChild(note);}
+     return;
+    }
+    const imageCode=String(imageNo++).padStart(3,"0");
+    const img=document.createElement("img");img.className="day-image";
+    img.alt=part.day===0?"Illustration for the epilogue":"Kharakternyky — "+part.title+", illustration "+imageCode;
+    img.loading="lazy";img.decoding="async";
+    img.onload=()=>{loaded++;misses=0;loadNextImage();};
+    img.onerror=()=>{img.remove();misses++;loadNextImage();};
+    img.src="../../../images/books/kharakternyky-1/day-"+dayCode+"-"+imageCode+".webp";
+    images.appendChild(img);
+   };
+   loadNextImage();
   });
- }catch(e){list.textContent="The translated text could not be loaded.";}
+ }catch(e){list.textContent="The translated text could not be loaded. Check character-book-1-full-text.txt in kharakternyky-1-text.";}
 })();
 </script></main><a class="back" href="../books.html">← Back to all books</a><footer><p>© 2026 Volodymyr Kukharenko</p></footer><script src="../../../script.js?v=20261027-1"></script></body></html>
