@@ -137,12 +137,12 @@
       try{
         const response=await fetch("kharakternyky-1-text/character-book-1-full-text.txt");
         if(!response.ok)throw new Error("HTTP "+response.status);
-        const raw=(await response.text()).replace(/^\\uFEFF/,"");
-        const lines=raw.split(/\\r?\\n/);
+        const raw=(await response.text()).replace(/^\uFEFF/,"");
+        const lines=raw.split(/\r?\n/);
         const sections=[];
         let current={title:"Єпілог",day:0,lines:[]};
         for(const line of lines){
-          const match=line.trim().match(/^День\\s+(\\d+)\\b.*$/i);
+          const match=line.trim().match(/^День\s+(\d+)\b.*$/i);
           if(match){
             if(current.lines.some(x=>x.trim()))sections.push(current);
             current={title:line.trim(),day:Number(match[1]),lines:[line]};
@@ -174,7 +174,7 @@
           details.addEventListener("toggle",()=>{
             if(!details.open||details.dataset.loaded==="true")return;
             body.replaceChildren();
-            part.lines.join("\\n").split(/\\n\\s*\\n/).map(x=>x.trim()).filter(Boolean).forEach(paragraph=>{
+            part.lines.join("\n").split(/\n\s*\n/).map(x=>x.trim()).filter(Boolean).forEach(paragraph=>{
               const p=document.createElement("p");p.textContent=paragraph;body.appendChild(p);
             });
             details.dataset.loaded="true";
