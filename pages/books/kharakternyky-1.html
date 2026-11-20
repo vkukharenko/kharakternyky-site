@@ -105,85 +105,91 @@
 
     </section>
 
-    <!-- ===================================== -->
-    <!-- ІЛЮСТРАЦІЇ                            -->
-    <!-- ===================================== -->
-
-    <section class="book-gallery">
-
-    <div class="container">
-
-        <h2>Ілюстрації</h2>
-
-        <div
-            id="book-days"
-            data-book-path="../../images/books/kharakternyky-1/"
-            data-first-day="0"
-            data-last-day="46">
-        </div>
-
-    </div>
-
-    </section>
-
-
-    <section class="book-description" id="book-text">
+    <section class="book-gallery" id="book-chapters">
       <div class="container">
-        <h2>Текст книги</h2>
-        <p>Повний текст книги «Характерники. Початок». Оберіть день, щоб відкрити відповідну частину.</p>
-        <div id="book-text-status" class="chapter-intro">Завантаження тексту…</div>
-        <div id="book-text-list" class="chapter-list"></div>
+        <h2>Дні книги</h2>
+        <p class="book-note">Під кожною ілюстрацією можна відкрити повний текст відповідного дня.</p>
+        <div id="book-chapter-list" class="chapter-list">
+          <p id="book-text-status" class="chapter-intro">Завантаження тексту книги…</p>
+        </div>
       </div>
     </section>
     <style>
-      #book-text .chapter-list{display:grid;gap:14px}
-      #book-text details{border:1px solid #394149;border-radius:8px;background:#11161b;overflow:hidden}
-      #book-text summary{cursor:pointer;list-style:none;padding:16px 18px;color:#e0c27b;font-family:Arial,sans-serif;font-size:15px}
-      #book-text summary::-webkit-details-marker{display:none}
-      #book-text summary:after{content:"＋";float:right;color:#d0b16e}
-      #book-text details[open] summary:after{content:"−"}
-      #book-text .book-text-body{padding:0 22px 22px;color:#d0d5da;font-size:17px;line-height:1.85}
-      #book-text .book-text-body p{margin:0 0 1.1em;white-space:pre-wrap}
-      @media(max-width:700px){#book-text .book-text-body{padding:0 14px 16px;font-size:16px}}
+      #book-chapters .chapter-list{display:grid;gap:54px}
+      #book-chapters .chapter{display:block;padding-bottom:44px;border-bottom:1px solid #394149}
+      #book-chapters .chapter h3{color:#e8edf1;font-size:clamp(22px,3vw,30px);margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid #394149}
+      #book-chapters .day-images{display:flex;flex-direction:column;gap:18px;margin:0 0 22px}
+      #book-chapters .day-image{display:block;width:100%;height:auto;max-width:100%;border:1px solid #2a3239;border-radius:8px;background:#080a0c}
+      #book-chapters .chapter-reading{border:1px solid #394149;border-radius:8px;background:#11161b;overflow:hidden}
+      #book-chapters .chapter-reading summary{cursor:pointer;list-style:none;padding:16px 18px;color:#e0c27b;font-size:14px;letter-spacing:.04em}
+      #book-chapters .chapter-reading summary::-webkit-details-marker{display:none}
+      #book-chapters .chapter-reading summary:after{content:"＋";float:right;color:#d0b16e;font-size:18px}
+      #book-chapters .chapter-reading[open] summary:after{content:"−"}
+      #book-chapters .chapter-full-text{padding:0 22px 22px;color:#d0d5da;font-size:17px;line-height:1.85}
+      #book-chapters .chapter-full-text p{margin:0 0 1.1em;white-space:pre-wrap}
+      #book-chapters .chapter-full-text p:last-child{margin-bottom:0}
+      @media(max-width:700px){#book-chapters .chapter-full-text{padding:0 14px 16px;font-size:16px}}
     </style>
     <script>
     (async function(){
-      const status=document.getElementById("book-text-status");
-      const list=document.getElementById("book-text-list");
-      if(!status||!list)return;
+      const list=document.getElementById("book-chapter-list");
+      if(!list)return;
       try{
-        const response=await fetch("kharakternyky-1-text/full-book.txt");
+        const response=await fetch("kharakternyky-1-text/character-book-1-full-text.txt");
         if(!response.ok)throw new Error("HTTP "+response.status);
-        const raw=await response.text();
-        const lines=raw.replace(/^\uFEFF/,"").split(/\r?\n/);
+        const raw=(await response.text()).replace(/^\\uFEFF/,"");
+        const lines=raw.split(/\\r?\\n/);
         const sections=[];
-        let current={title:"Передісторія та вступні матеріали",lines:[]};
+        let current={title:"Єпілог",day:0,lines:[]};
         for(const line of lines){
-          const match=line.trim().match(/^День\s+\\d+[^\n]*$/i);
+          const match=line.trim().match(/^День\\s+(\\d+)\\b.*$/i);
           if(match){
             if(current.lines.some(x=>x.trim()))sections.push(current);
-            current={title:line.trim(),lines:[line]};
-          }else current.lines.push(line);
+            current={title:line.trim(),day:Number(match[1]),lines:[line]};
+          }else{
+            if(!current.title && line.trim())current.title=line.trim();
+            current.lines.push(line);
+          }
         }
         if(current.lines.some(x=>x.trim()))sections.push(current);
+        list.replaceChildren();
         sections.forEach((part,index)=>{
+          const article=document.createElement("article");
+          article.className="chapter";
+          const heading=document.createElement("h3");
+          heading.textContent=part.day===0?"Єпілог":part.title;
+          const images=document.createElement("div");
+          images.className="day-images";
           const details=document.createElement("details");
+          details.className="chapter-reading";
           const summary=document.createElement("summary");
-          summary.textContent=part.title;
+          summary.textContent="Читати "+(part.day===0?"епілог":("день "+part.day))+" повністю";
           const body=document.createElement("div");
-          body.className="book-text-body";
-          part.lines.join("\n").split(/\n\s*\n/).map(x=>x.trim()).filter(Boolean).forEach(value=>{
-            const p=document.createElement("p");p.textContent=value;body.appendChild(p);
+          body.className="chapter-full-text";
+          const loading=document.createElement("p");
+          loading.className="loading";
+          loading.textContent="Текст завантажиться після відкриття.";
+          body.appendChild(loading);
+          details.append(summary,body);
+          details.addEventListener("toggle",()=>{
+            if(!details.open||details.dataset.loaded==="true")return;
+            body.replaceChildren();
+            part.lines.join("\\n").split(/\\n\\s*\\n/).map(x=>x.trim()).filter(Boolean).forEach(paragraph=>{
+              const p=document.createElement("p");p.textContent=paragraph;body.appendChild(p);
+            });
+            details.dataset.loaded="true";
           });
-          details.append(summary,body);list.appendChild(details);
+          article.append(heading,images,details);
+          list.appendChild(article);
+          if(typeof loadDayImages==="function"){
+            loadDayImages(String(part.day).padStart(3,"0"),images,"../../images/books/kharakternyky-1/",false);
+          }
         });
-        status.textContent="Завантажено. Частин: "+sections.length+".";
       }catch(error){
-        status.textContent="Текст поки недоступний. Перевірте, чи завантажено файл kharakternyky-1-text/full-book.txt у каталог pages/books.";
+        list.textContent="Не вдалося завантажити текст книги. Перевірте файл character-book-1-full-text.txt у каталозі kharakternyky-1-text.";
       }
     })();
     </script>
-
 </main>
 
 <script src="../../script.js?v=20261027-1"></script>
