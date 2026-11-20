@@ -106,4 +106,14 @@ document.querySelectorAll(".chapter-reading").forEach(details=>{
   finally{details.dataset.loading="false";}
  });
 });
-</script></body></html>
+</script>
+<script data-collapse-book-details>
+(function(){
+  function closeOpenBookDetails(){
+    document.querySelectorAll('main details[open], .book-gallery details[open], #book-chapters details[open]').forEach(function(item){item.open=false;});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',closeOpenBookDetails,{once:true});
+  else closeOpenBookDetails();
+})();
+</script>
+</body></html>
