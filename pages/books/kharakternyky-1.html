@@ -181,9 +181,30 @@
           });
           article.append(heading,images,details);
           list.appendChild(article);
-          if(typeof loadDayImages==="function"){
-            loadDayImages(String(part.day).padStart(3,"0"),images,"../../images/books/kharakternyky-1/",false);
-          }
+          const dayCode=String(part.day).padStart(3,"0");
+          let imageNo=1, misses=0, loaded=0;
+          const loadNextImage=()=>{
+            if(misses>=3){
+              if(!loaded){
+                const note=document.createElement("p");
+                note.className="book-note";
+                note.textContent="Для цього дня ілюстрацій не знайдено.";
+                images.appendChild(note);
+              }
+              return;
+            }
+            const imageCode=String(imageNo++).padStart(3,"0");
+            const img=document.createElement("img");
+            img.className="day-image";
+            img.alt=part.day===0?"Ілюстрація до епілогу":("Характерники — "+part.title+", ілюстрація "+imageCode);
+            img.loading="lazy";
+            img.decoding="async";
+            img.onload=()=>{loaded++;misses=0;loadNextImage();};
+            img.onerror=()=>{img.remove();misses++;loadNextImage();};
+            img.src="../../images/books/kharakternyky-1/day-"+dayCode+"-"+imageCode+".webp";
+            images.appendChild(img);
+          };
+          loadNextImage();
         });
       }catch(error){
         list.textContent="Не вдалося завантажити текст книги. Перевірте файл character-book-1-full-text.txt у каталозі kharakternyky-1-text.";
