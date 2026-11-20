@@ -28,14 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
             imagesContainer.dataset.loaded = "true";
             loadDayImages(dayNumber, imagesContainer, bookPath, isEnglish);
         });
-
-        // Show illustrations immediately for the first available day so the gallery
-        // never looks empty when the page opens.
-        if (day === firstDay) {
-            details.open = true;
-            imagesContainer.dataset.loaded = "true";
-            loadDayImages(dayNumber, imagesContainer, bookPath, isEnglish);
-        }
     }
 });
 
