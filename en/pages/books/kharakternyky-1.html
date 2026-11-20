@@ -89,4 +89,14 @@
   });
  }catch(e){list.textContent="The translated text could not be loaded. Check character-book-1-full-text.txt in kharakternyky-1-text.";}
 })();
-</script></main><a class="back" href="../books.html">← Back to all books</a><footer><p>© 2026 Volodymyr Kukharenko</p></footer><script src="../../../script.js?v=20261027-1"></script></body></html>
+</script></main><a class="back" href="../books.html">← Back to all books</a><footer><p>© 2026 Volodymyr Kukharenko</p></footer><script src="../../../script.js?v=20261027-1"></script>
+<script data-collapse-book-details>
+(function(){
+  function closeOpenBookDetails(){
+    document.querySelectorAll('main details[open], .book-gallery details[open], #book-chapters details[open]').forEach(function(item){item.open=false;});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',closeOpenBookDetails,{once:true});
+  else closeOpenBookDetails();
+})();
+</script>
+</body></html>
