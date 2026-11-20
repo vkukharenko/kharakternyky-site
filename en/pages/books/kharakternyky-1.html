@@ -30,18 +30,18 @@
  try{
   const response=await fetch("kharakternyky-1-text/character-book-1-full-text.txt");
   if(!response.ok)throw new Error("HTTP "+response.status);
-  const raw=(await response.text()).replace(/^\\uFEFF/,"");
-  const sections=raw.split(/\\n---\\n/).map(x=>x.trim()).filter(Boolean);
+  const raw=(await response.text()).replace(/^\uFEFF/,"");
+  const sections=raw.split(/\n---\n/).map(x=>x.trim()).filter(Boolean);
   list.replaceChildren();
   sections.forEach(section=>{
-   const lines=section.split(/\\r?\\n/); const title=lines.shift();
+   const lines=section.split(/\r?\n/); const title=lines.shift();
    const details=document.createElement("details"); details.className="chapter-reading";
    const summary=document.createElement("summary"); summary.textContent="Read: "+title;
    const body=document.createElement("div"); body.className="chapter-full-text";
    details.append(summary,body);
    details.addEventListener("toggle",()=>{if(!details.open||details.dataset.loaded)return;
     body.replaceChildren();
-    section.slice(title.length).trim().split(/\\n\\s*\\n/).map(p=>p.trim()).filter(Boolean).forEach(p=>{const el=document.createElement("p");el.textContent=p;body.appendChild(el);});
+    section.slice(title.length).trim().split(/\n\s*\n/).map(p=>p.trim()).filter(Boolean).forEach(p=>{const el=document.createElement("p");el.textContent=p;body.appendChild(el);});
     details.dataset.loaded="true";
    });
    list.appendChild(details);
